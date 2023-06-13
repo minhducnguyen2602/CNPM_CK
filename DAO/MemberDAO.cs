@@ -5,42 +5,50 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DOANCNPM_1.DAO
 {
     class MemberDAO
     {
-        private string connectionString = "Data Source=MSI;Initial Catalog=DOAN;Integrated Security=True"; // Chuỗi kết nối đến cơ sở dữ liệu
+        /// <summary>
+        /// private string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN;Integrated Security=True "; // Chuỗi kết nối đến cơ sở dữ liệu
+        /// </summary>
 
         public MemberDAO()
         {
             
         }
-
+        
         public void SaveMember(MemberDTO member)
         {
+
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN2;Integrated Security=True";
+            string query = "INSERT INTO THANHVIEN (MaTV, HoTen, NgPSinh, GioiTinh, MaNN, DiaChi, TVCu, MaQH, MaQQ, NgSinh) VALUES (@MATV, @HOTEN, @NGPSINH, @GT, @MANN, @DIACHI, @TVCU, @MAQH, @MAQQ, @NGSINH)";
             using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
+
                 try
                 {
                     connection.Open();
+                    command.Parameters.AddWithValue("@MATV", member.MATV);
+                    command.Parameters.AddWithValue("@HOTEN", member.HOTEN);
+                    command.Parameters.AddWithValue("@NGPSINH", member.NGPSINH);
+                    command.Parameters.AddWithValue("@GT", member.GT);
+                    command.Parameters.AddWithValue("@MANN", member.MANN);
+                    command.Parameters.AddWithValue("@DIACHI", member.DIACHI);
+                    command.Parameters.AddWithValue("@TVCU", member.TVCU);
+                    command.Parameters.AddWithValue("@MAQH", member.MAQH);
+                    command.Parameters.AddWithValue("@MAQQ", member.MAQQ);
+                    command.Parameters.AddWithValue("@NGSINH", member.NGSINH);
+                    
+           
+                    command.ExecuteNonQuery();
 
-                    string query = "INSERT INTO Members (MAQH, NGPSINH, HOTEN, GT, NGSINH, MAQQ, MANN, DIACHI) " +
-                                   "VALUES (@MAQH, @NGPSINH, @HOTEN, @GT, @NGSINH, @MAQQ, @MANN, @DIACHI)";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@MAQH", member.MAQH);
-                        command.Parameters.AddWithValue("@NGPSINH", member.NGPSINH);
-                        command.Parameters.AddWithValue("@HOTEN", member.HOTEN);
-                        command.Parameters.AddWithValue("@GT", member.GT);
-                        command.Parameters.AddWithValue("@NGSINH", member.NGSINH);
-                        command.Parameters.AddWithValue("@MAQQ", member.MAQQ);
-                        command.Parameters.AddWithValue("@MANN", member.MANN);
-                        command.Parameters.AddWithValue("@DIACHI", member.DIACHI);
-
-                        command.ExecuteNonQuery();
-                    }
+                    // Thông báo thành công
+                    MessageBox.Show("Dữ liệu đã được gửi thành công!");
+                
                 }
                 catch (Exception ex)
                 {

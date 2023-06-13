@@ -8,6 +8,8 @@ namespace DOANCNPM_1.DTO
 {
     public class MemberDTO
     {
+        public string MATV { get; set; }
+        public string TVCU { get; set; }
         public string MAQH { get; set; }
         public DateTime NGPSINH { get; set; }
         public string HOTEN { get; set; }
@@ -16,5 +18,7 @@ namespace DOANCNPM_1.DTO
         public string MAQQ { get; set; }
         public string MANN { get; set; }
         public string DIACHI { get; set; }
-    }
+        
+        }
+
 }

@@ -1,6 +1,6 @@
 ﻿namespace DOANCNPM_1
 {
-    partial class frmAdd
+    partial class fmADD
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.radFemale = new System.Windows.Forms.RadioButton();
             this.radMale = new System.Windows.Forms.RadioButton();
             this.comboRelationship = new System.Windows.Forms.ComboBox();
             this.dateTimePickerBirth = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerOccurred = new System.Windows.Forms.DateTimePicker();
             this.comboExistingMember = new System.Windows.Forms.ComboBox();
+            this.tHANHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dOAN2DataSet2 = new DOANCNPM_1.DOAN2DataSet2();
             this.comboJob = new System.Windows.Forms.ComboBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtHometown = new System.Windows.Forms.TextBox();
+            this.nGHENGHIEPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dOAN2DataSet = new DOANCNPM_1.DOAN2DataSet();
+            this.nGHENGHIEPBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.lblOccupation = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
@@ -48,6 +52,20 @@
             this.lblRelationshipType = new System.Windows.Forms.Label();
             this.lblExistingMember = new System.Windows.Forms.Label();
             this.btnAddMem = new System.Windows.Forms.Button();
+            this.comboBoxQue = new System.Windows.Forms.ComboBox();
+            this.qUEQUANBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dOAN2DataSet1 = new DOANCNPM_1.DOAN2DataSet1();
+            this.textBoxDiachi = new System.Windows.Forms.TextBox();
+            this.nGHENGHIEPTableAdapter = new DOANCNPM_1.DOAN2DataSetTableAdapters.NGHENGHIEPTableAdapter();
+            this.qUEQUANTableAdapter = new DOANCNPM_1.DOAN2DataSet1TableAdapters.QUEQUANTableAdapter();
+            this.tHANHVIENTableAdapter = new DOANCNPM_1.DOAN2DataSet2TableAdapters.THANHVIENTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN2DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN2DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUEQUANBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN2DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // radFemale
@@ -60,6 +78,7 @@
             this.radFemale.TabStop = true;
             this.radFemale.Text = "Nữ";
             this.radFemale.UseVisualStyleBackColor = true;
+            this.radFemale.CheckedChanged += new System.EventHandler(this.radFemale_CheckedChanged);
             // 
             // radMale
             // 
@@ -99,35 +118,53 @@
             // 
             // comboExistingMember
             // 
+            this.comboExistingMember.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHANHVIENBindingSource, "HoTen", true));
+            this.comboExistingMember.DataSource = this.tHANHVIENBindingSource;
+            this.comboExistingMember.DisplayMember = "HoTen";
             this.comboExistingMember.FormattingEnabled = true;
             this.comboExistingMember.Location = new System.Drawing.Point(238, 63);
             this.comboExistingMember.Name = "comboExistingMember";
             this.comboExistingMember.Size = new System.Drawing.Size(277, 24);
             this.comboExistingMember.TabIndex = 33;
+            this.comboExistingMember.ValueMember = "HoTen";
+            // 
+            // tHANHVIENBindingSource
+            // 
+            this.tHANHVIENBindingSource.DataMember = "THANHVIEN";
+            this.tHANHVIENBindingSource.DataSource = this.dOAN2DataSet2;
+            // 
+            // dOAN2DataSet2
+            // 
+            this.dOAN2DataSet2.DataSetName = "DOAN2DataSet2";
+            this.dOAN2DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboJob
             // 
+            this.comboJob.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nGHENGHIEPBindingSource, "TenNN", true));
+            this.comboJob.DataSource = this.nGHENGHIEPBindingSource1;
+            this.comboJob.DisplayMember = "TenNN";
             this.comboJob.FormattingEnabled = true;
-            this.comboJob.Items.AddRange(new object[] {
-            "Sinh viên"});
             this.comboJob.Location = new System.Drawing.Point(238, 364);
             this.comboJob.Name = "comboJob";
             this.comboJob.Size = new System.Drawing.Size(277, 24);
             this.comboJob.TabIndex = 32;
+            this.comboJob.ValueMember = "TenNN";
+            this.comboJob.SelectedIndexChanged += new System.EventHandler(this.comboJob_SelectedIndexChanged);
             // 
-            // txtAddress
+            // nGHENGHIEPBindingSource
             // 
-            this.txtAddress.Location = new System.Drawing.Point(238, 323);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(277, 22);
-            this.txtAddress.TabIndex = 31;
+            this.nGHENGHIEPBindingSource.DataMember = "NGHENGHIEP";
+            this.nGHENGHIEPBindingSource.DataSource = this.dOAN2DataSet;
             // 
-            // txtHometown
+            // dOAN2DataSet
             // 
-            this.txtHometown.Location = new System.Drawing.Point(238, 291);
-            this.txtHometown.Name = "txtHometown";
-            this.txtHometown.Size = new System.Drawing.Size(277, 22);
-            this.txtHometown.TabIndex = 30;
+            this.dOAN2DataSet.DataSetName = "DOAN2DataSet";
+            this.dOAN2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nGHENGHIEPBindingSource1
+            // 
+            this.nGHENGHIEPBindingSource1.DataMember = "NGHENGHIEP";
+            this.nGHENGHIEPBindingSource1.DataSource = this.dOAN2DataSet;
             // 
             // txtFullName
             // 
@@ -236,11 +273,56 @@
             this.btnAddMem.UseVisualStyleBackColor = true;
             this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
             // 
-            // frmAdd
+            // comboBoxQue
+            // 
+            this.comboBoxQue.AccessibleName = "";
+            this.comboBoxQue.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxQue.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.qUEQUANBindingSource, "TenQueQuan", true));
+            this.comboBoxQue.DataSource = this.qUEQUANBindingSource;
+            this.comboBoxQue.DisplayMember = "TenQueQuan";
+            this.comboBoxQue.FormattingEnabled = true;
+            this.comboBoxQue.Location = new System.Drawing.Point(238, 289);
+            this.comboBoxQue.Name = "comboBoxQue";
+            this.comboBoxQue.Size = new System.Drawing.Size(276, 24);
+            this.comboBoxQue.TabIndex = 40;
+            this.comboBoxQue.ValueMember = "TenQueQuan";
+            // 
+            // qUEQUANBindingSource
+            // 
+            this.qUEQUANBindingSource.DataMember = "QUEQUAN";
+            this.qUEQUANBindingSource.DataSource = this.dOAN2DataSet1;
+            // 
+            // dOAN2DataSet1
+            // 
+            this.dOAN2DataSet1.DataSetName = "DOAN2DataSet1";
+            this.dOAN2DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // textBoxDiachi
+            // 
+            this.textBoxDiachi.Location = new System.Drawing.Point(236, 326);
+            this.textBoxDiachi.Name = "textBoxDiachi";
+            this.textBoxDiachi.Size = new System.Drawing.Size(277, 22);
+            this.textBoxDiachi.TabIndex = 41;
+            // 
+            // nGHENGHIEPTableAdapter
+            // 
+            this.nGHENGHIEPTableAdapter.ClearBeforeFill = true;
+            // 
+            // qUEQUANTableAdapter
+            // 
+            this.qUEQUANTableAdapter.ClearBeforeFill = true;
+            // 
+            // tHANHVIENTableAdapter
+            // 
+            this.tHANHVIENTableAdapter.ClearBeforeFill = true;
+            // 
+            // fmADD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 463);
+            this.ClientSize = new System.Drawing.Size(592, 464);
+            this.Controls.Add(this.textBoxDiachi);
+            this.Controls.Add(this.comboBoxQue);
             this.Controls.Add(this.btnAddMem);
             this.Controls.Add(this.radFemale);
             this.Controls.Add(this.radMale);
@@ -249,8 +331,6 @@
             this.Controls.Add(this.dateTimePickerOccurred);
             this.Controls.Add(this.comboExistingMember);
             this.Controls.Add(this.comboJob);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtHometown);
             this.Controls.Add(this.txtFullName);
             this.Controls.Add(this.lblOccupation);
             this.Controls.Add(this.lblAddress);
@@ -261,8 +341,17 @@
             this.Controls.Add(this.lblOccurrenceDate);
             this.Controls.Add(this.lblRelationshipType);
             this.Controls.Add(this.lblExistingMember);
-            this.Name = "frmAdd";
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Name = "fmADD";
             this.Text = "Thêm thành viên";
+            this.Load += new System.EventHandler(this.fmADD_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN2DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN2DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUEQUANBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN2DataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,8 +366,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerOccurred;
         private System.Windows.Forms.ComboBox comboExistingMember;
         private System.Windows.Forms.ComboBox comboJob;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtHometown;
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.Label lblOccupation;
         private System.Windows.Forms.Label lblAddress;
@@ -290,5 +377,17 @@
         private System.Windows.Forms.Label lblRelationshipType;
         private System.Windows.Forms.Label lblExistingMember;
         private System.Windows.Forms.Button btnAddMem;
+        private System.Windows.Forms.ComboBox comboBoxQue;
+        private System.Windows.Forms.TextBox textBoxDiachi;
+        private DOAN2DataSet dOAN2DataSet;
+        private System.Windows.Forms.BindingSource nGHENGHIEPBindingSource;
+        private DOAN2DataSetTableAdapters.NGHENGHIEPTableAdapter nGHENGHIEPTableAdapter;
+        private System.Windows.Forms.BindingSource nGHENGHIEPBindingSource1;
+        private DOAN2DataSet1 dOAN2DataSet1;
+        private System.Windows.Forms.BindingSource qUEQUANBindingSource;
+        private DOAN2DataSet1TableAdapters.QUEQUANTableAdapter qUEQUANTableAdapter;
+        private DOAN2DataSet2 dOAN2DataSet2;
+        private System.Windows.Forms.BindingSource tHANHVIENBindingSource;
+        private DOAN2DataSet2TableAdapters.THANHVIENTableAdapter tHANHVIENTableAdapter;
     }
 }

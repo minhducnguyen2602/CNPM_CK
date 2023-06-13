@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DOAN2DataSet2" targetNamespace="http://tempuri.org/DOAN2DataSet21.xsd" xmlns:mstns="http://tempuri.org/DOAN2DataSet21.xsd" xmlns="http://tempuri.org/DOAN2DataSet21.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DOAN2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DOAN2ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DOANCNPM_1.Properties.Settings.GlobalReference.Default.DOAN2ConnectionString" Provider="Microsoft.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="THANHVIENTableAdapter" GeneratorDataComponentClassName="THANHVIENTableAdapter" Name="THANHVIEN" UserDataComponentName="THANHVIENTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DOAN2ConnectionString (Settings)" DbObjectName="DOAN2.dbo.THANHVIEN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT HoTen FROM dbo.THANHVIEN</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="HoTen" DataSetColumn="HoTen" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DOAN2DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="DOAN2DataSet2" msprop:Generator_DataSetName="DOAN2DataSet2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="THANHVIEN" msprop:Generator_RowEvHandlerName="THANHVIENRowChangeEventHandler" msprop:Generator_RowDeletedName="THANHVIENRowDeleted" msprop:Generator_RowDeletingName="THANHVIENRowDeleting" msprop:Generator_RowEvArgName="THANHVIENRowChangeEvent" msprop:Generator_TablePropName="THANHVIEN" msprop:Generator_RowChangedName="THANHVIENRowChanged" msprop:Generator_RowChangingName="THANHVIENRowChanging" msprop:Generator_TableClassName="THANHVIENDataTable" msprop:Generator_RowClassName="THANHVIENRow" msprop:Generator_TableVarName="tableTHANHVIEN" msprop:Generator_UserTableName="THANHVIEN">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HoTen" msprop:Generator_ColumnPropNameInRow="HoTen" msprop:Generator_ColumnPropNameInTable="HoTenColumn" msprop:Generator_ColumnVarNameInTable="columnHoTen" msprop:Generator_UserColumnName="HoTen" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

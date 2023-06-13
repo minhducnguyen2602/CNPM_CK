@@ -10,7 +10,7 @@ namespace doanQLGP.DAO
 {
     public class DataProvider
     {
-        private string connectionSTR = "Data Source=MSI;Initial Catalog=DOAN;Integrated Security=True";
+        private string connectionSTR = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN2;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query)
         {

@@ -11,3 +11,24 @@ C:\Users\Admin\Desktop\DOANCNPM_1\bin\Debug\DOANCNPM_1.pdb
 C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.exe
 C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.pdb
 C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.frmAdd.resources
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\bin\Debug\DOANCNPM_1.exe.config
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\bin\Debug\DOANCNPM_1.exe
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\bin\Debug\DOANCNPM_1.pdb
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.csproj.AssemblyReference.cache
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.csproj.SuggestedBindingRedirects.cache
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.frmLogin.resources
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.frmMain.resources
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.Properties.Resources.resources
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.csproj.GenerateResource.cache
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.exe
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.pdb
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.fmADD.resources
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\bin\Debug\Microsoft.Data.SqlClient.dll
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\ACER\Desktop\Hoctap\Ki2nam2\Nhập môn CNPM\Đồ án\CNPM\CNPM_CK\obj\Debug\DOANCNPM_1.csproj.CopyComplete

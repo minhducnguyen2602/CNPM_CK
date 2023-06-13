@@ -28,16 +28,17 @@ namespace DOANCNPM_1
         {
 
         }
+       
         void LoadMemberList()
         {
-            string query = "Select * from dbo.THANHVIEN";
+            string query = "Select * from THANHVIEN";
             DataProvider provider = new DataProvider();
             dtgvMember.DataSource = provider.ExecuteQuery(query);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAdd f = new frmAdd();
+            fmADD f = new fmADD();
             f.ShowDialog();
             this.Show();
         }
