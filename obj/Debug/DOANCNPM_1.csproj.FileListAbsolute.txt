@@ -1,0 +1,13 @@
+C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.frmLogin.resources
+C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.frmMain.resources
+C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.Properties.Resources.resources
+C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\DOANCNPM_1\bin\Debug\DOANCNPM_1.exe.config
+C:\Users\Admin\Desktop\DOANCNPM_1\bin\Debug\DOANCNPM_1.exe
+C:\Users\Admin\Desktop\DOANCNPM_1\bin\Debug\DOANCNPM_1.pdb
+C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.exe
+C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.pdb
+C:\Users\Admin\Desktop\DOANCNPM_1\obj\Debug\DOANCNPM_1.frmAdd.resources
