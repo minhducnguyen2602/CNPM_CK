@@ -1,6 +1,6 @@
-﻿namespace DOANCNPM_1
+﻿namespace New_DOAN
 {
-    partial class frmLogin
+    partial class fLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -52,10 +52,10 @@
             this.panel1.Controls.Add(this.btnCreate);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(13, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(565, 259);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 3;
             // 
             // lblText
             // 
@@ -96,6 +96,7 @@
             this.btnCreate.TabIndex = 2;
             this.btnCreate.Text = "Tạo hồ sơ";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // panel3
             // 
@@ -150,15 +151,15 @@
             this.lblAccount.TabIndex = 0;
             this.lblAccount.Text = "Tên đăng nhập:";
             // 
-            // frmLogin
+            // fLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 283);
+            this.ClientSize = new System.Drawing.Size(591, 279);
             this.Controls.Add(this.panel1);
-            this.Name = "frmLogin";
-            this.Text = "Đăng nhập";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
+            this.Name = "fLogin";
+            this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fLogin_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

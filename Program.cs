@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DOANCNPM_1
+namespace New_DOAN
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace DOANCNPM_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new fLogin());
         }
     }
 }

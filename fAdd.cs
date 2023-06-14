@@ -1,5 +1,5 @@
-﻿using DOANCNPM_1.DAO;
-using DOANCNPM_1.DTO;
+﻿using New_DOAN.DAO;
+using New_DOAN.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,18 +11,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DOANCNPM_1
+namespace New_DOAN
 {
-    public partial class fmADD : Form
+    public partial class frmAdd : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN2;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=testing;Integrated Security=True");
         private MemberDAO memberDAO;
+        public DataGridView MemberDataGridView { get; set; }
 
-        public fmADD()
+        public frmAdd()
         {
             InitializeComponent();
             memberDAO = new MemberDAO();
             conn.Open();
+            LoadMemberList1();
         }
 
         void loadNghe()
@@ -49,6 +51,13 @@ namespace DOANCNPM_1
             comboBoxQue.ValueMember = "TenQueQuan"; // Thiết lập cột giá trị
         }
 
+        private void frmAdd_Load(object sender, EventArgs e)
+        {
+            loadNghe();
+            loadQue();
+            loadTVcu();
+        }
+
         void loadTVcu()
         {
             var cmdq = new SqlCommand("Select HoTen from THANHVIEN", conn);
@@ -59,6 +68,15 @@ namespace DOANCNPM_1
             comboExistingMember.DataSource = dtq;
             comboExistingMember.DisplayMember = "HoTen"; // Thiết lập cột hiển thị
             comboExistingMember.ValueMember = "HoTen"; // Thiết lập cột giá trị
+        }
+
+        public void LoadMemberList1()
+        {
+            string query = "Select * from THANHVIEN";
+            if (MemberDataGridView != null)
+            {
+                MemberDataGridView.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            }
         }
 
         private void btnAddMem_Click(object sender, EventArgs e)
@@ -75,25 +93,11 @@ namespace DOANCNPM_1
             newMember.NGSINH = DateTime.Parse(dateTimePickerBirth.Text);
             newMember.MAQQ = comboBoxQue.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
             newMember.MANN = comboJob.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
-            newMember.DIACHI = textBoxDiachi.Text;
+            newMember.DIACHI = txtAddress.Text;
             newMember.MATV = newMember.HOTEN;
             memberDAO.SaveMember(newMember);
-        }
-
-        private void fmADD_Load(object sender, EventArgs e)
-        {
-            loadNghe();
-            loadQue();
             loadTVcu();
         }
-        private void comboJob_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radFemale_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
+
 }

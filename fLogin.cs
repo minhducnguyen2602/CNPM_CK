@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DOANCNPM_1
+namespace New_DOAN
 {
-    public partial class frmLogin : Form
+    public partial class fLogin : Form
     {
-        public frmLogin()
+        public fLogin()
         {
             InitializeComponent();
         }
@@ -35,9 +35,17 @@ namespace DOANCNPM_1
             if (result == DialogResult.Yes) Close();
         }
 
-        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             MessageBox.Show("Cảm ơn đã sử dụng phần mềm");
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            frmCreate f = new frmCreate();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
     }
 }

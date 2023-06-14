@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DOANCNPM_1.DTO
+namespace New_DOAN.DTO
 {
     public class MemberDTO
     {
@@ -18,7 +18,7 @@ namespace DOANCNPM_1.DTO
         public string MAQQ { get; set; }
         public string MANN { get; set; }
         public string DIACHI { get; set; }
-        
-        }
+
+    }
 
 }

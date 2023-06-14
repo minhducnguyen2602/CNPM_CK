@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace doanQLGP.DAO
+namespace New_DOAN.DAO
 {
     public class DataProvider
     {
-        private string connectionSTR = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN2;Integrated Security=True";
+        private static DataProvider instance;
+
+        public static DataProvider Instance
+        {
+            get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
+            private set { DataProvider.instance = value; }
+        }
+
+        private DataProvider() { }
+
+        private string connectionSTR = "Data Source=MSI;Initial Catalog=testing;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query)
         {
@@ -35,7 +45,7 @@ namespace doanQLGP.DAO
                 SqlCommand command = new SqlCommand(query, connection);
                 if (parameter != null)
                 {
-                    string[] listPara=query.Split(' ');
+                    string[] listPara = query.Split(' ');
                     int i = 0;
                     foreach (string item in listPara)
                     {
