@@ -28,14 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblSearch = new System.Windows.Forms.Label();
             this.lblSearchName = new System.Windows.Forms.Label();
             this.comboSearchName = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dOAN8DataSet = new New_DOAN.DOAN8DataSet();
+            this.tHANHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tHANHVIENTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.THANHVIENTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSearch
@@ -61,11 +67,16 @@
             // 
             // comboSearchName
             // 
+            this.comboSearchName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHANHVIENBindingSource, "HoTen", true));
+            this.comboSearchName.DataSource = this.tHANHVIENBindingSource;
+            this.comboSearchName.DisplayMember = "HoTen";
             this.comboSearchName.FormattingEnabled = true;
             this.comboSearchName.Location = new System.Drawing.Point(221, 83);
             this.comboSearchName.Name = "comboSearchName";
             this.comboSearchName.Size = new System.Drawing.Size(265, 24);
             this.comboSearchName.TabIndex = 2;
+            this.comboSearchName.ValueMember = "HoTen";
+            this.comboSearchName.SelectedIndexChanged += new System.EventHandler(this.comboSearchName_SelectedIndexChanged);
             // 
             // btnSearch
             // 
@@ -75,6 +86,7 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Tra cứu";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel1
             // 
@@ -94,6 +106,20 @@
             this.dataGridView1.Size = new System.Drawing.Size(514, 252);
             this.dataGridView1.TabIndex = 0;
             // 
+            // dOAN8DataSet
+            // 
+            this.dOAN8DataSet.DataSetName = "DOAN8DataSet";
+            this.dOAN8DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tHANHVIENBindingSource
+            // 
+            this.tHANHVIENBindingSource.DataMember = "THANHVIEN";
+            this.tHANHVIENBindingSource.DataSource = this.dOAN8DataSet;
+            // 
+            // tHANHVIENTableAdapter
+            // 
+            this.tHANHVIENTableAdapter.ClearBeforeFill = true;
+            // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -107,8 +133,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSearch";
             this.Text = "fSearch";
+            this.Load += new System.EventHandler(this.frmSearch_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +151,8 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private DOAN8DataSet dOAN8DataSet;
+        private System.Windows.Forms.BindingSource tHANHVIENBindingSource;
+        private DOAN8DataSetTableAdapters.THANHVIENTableAdapter tHANHVIENTableAdapter;
     }
 }

@@ -34,8 +34,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnGetInfo = new System.Windows.Forms.Button();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.radFemale = new System.Windows.Forms.RadioButton();
-            this.radMale = new System.Windows.Forms.RadioButton();
             this.datBirthday = new System.Windows.Forms.DateTimePicker();
             this.lblBirthday = new System.Windows.Forms.Label();
             this.lblSex = new System.Windows.Forms.Label();
@@ -43,14 +41,15 @@
             this.lblHometown = new System.Windows.Forms.Label();
             this.lblJob = new System.Windows.Forms.Label();
             this.comboJob = new System.Windows.Forms.ComboBox();
-            this.comboBoxQue = new System.Windows.Forms.ComboBox();
-            this.testingDataSet6 = new New_DOAN.testingDataSet6();
             this.nGHENGHIEPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testingDataSet6 = new New_DOAN.testingDataSet6();
+            this.comboBoxQue = new System.Windows.Forms.ComboBox();
             this.nGHENGHIEPTableAdapter = new New_DOAN.testingDataSet6TableAdapters.NGHENGHIEPTableAdapter();
             this.lblPSINH = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet6)).BeginInit();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet6)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCreate
@@ -97,28 +96,6 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(366, 22);
             this.txtAddress.TabIndex = 34;
-            // 
-            // radFemale
-            // 
-            this.radFemale.AutoSize = true;
-            this.radFemale.Location = new System.Drawing.Point(437, 250);
-            this.radFemale.Name = "radFemale";
-            this.radFemale.Size = new System.Drawing.Size(45, 20);
-            this.radFemale.TabIndex = 31;
-            this.radFemale.TabStop = true;
-            this.radFemale.Text = "Nữ";
-            this.radFemale.UseVisualStyleBackColor = true;
-            // 
-            // radMale
-            // 
-            this.radMale.AutoSize = true;
-            this.radMale.Location = new System.Drawing.Point(242, 250);
-            this.radMale.Name = "radMale";
-            this.radMale.Size = new System.Drawing.Size(57, 20);
-            this.radMale.TabIndex = 30;
-            this.radMale.TabStop = true;
-            this.radMale.Text = "Nam";
-            this.radMale.UseVisualStyleBackColor = true;
             // 
             // datBirthday
             // 
@@ -187,6 +164,16 @@
             this.comboJob.Size = new System.Drawing.Size(366, 24);
             this.comboJob.TabIndex = 39;
             // 
+            // nGHENGHIEPBindingSource
+            // 
+            this.nGHENGHIEPBindingSource.DataMember = "NGHENGHIEP";
+            this.nGHENGHIEPBindingSource.DataSource = this.testingDataSet6;
+            // 
+            // testingDataSet6
+            // 
+            this.testingDataSet6.DataSetName = "testingDataSet6";
+            this.testingDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // comboBoxQue
             // 
             this.comboBoxQue.FormattingEnabled = true;
@@ -194,16 +181,6 @@
             this.comboBoxQue.Name = "comboBoxQue";
             this.comboBoxQue.Size = new System.Drawing.Size(366, 24);
             this.comboBoxQue.TabIndex = 40;
-            // 
-            // testingDataSet6
-            // 
-            this.testingDataSet6.DataSetName = "testingDataSet6";
-            this.testingDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nGHENGHIEPBindingSource
-            // 
-            this.nGHENGHIEPBindingSource.DataMember = "NGHENGHIEP";
-            this.nGHENGHIEPBindingSource.DataSource = this.testingDataSet6;
             // 
             // nGHENGHIEPTableAdapter
             // 
@@ -226,11 +203,24 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(366, 22);
             this.dateTimePicker1.TabIndex = 42;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.comboBox1.Location = new System.Drawing.Point(179, 247);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(367, 24);
+            this.comboBox1.TabIndex = 43;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // frmCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 511);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lblPSINH);
             this.Controls.Add(this.comboBoxQue);
@@ -240,8 +230,6 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnGetInfo);
             this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.radFemale);
-            this.Controls.Add(this.radMale);
             this.Controls.Add(this.datBirthday);
             this.Controls.Add(this.lblBirthday);
             this.Controls.Add(this.lblSex);
@@ -251,8 +239,8 @@
             this.Name = "frmCreate";
             this.Text = "Tạo hồ sơ";
             this.Load += new System.EventHandler(this.frmCreate_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,8 +253,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnGetInfo;
         private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.RadioButton radFemale;
-        private System.Windows.Forms.RadioButton radMale;
         private System.Windows.Forms.DateTimePicker datBirthday;
         private System.Windows.Forms.Label lblBirthday;
         private System.Windows.Forms.Label lblSex;
@@ -280,5 +266,6 @@
         private testingDataSet6TableAdapters.NGHENGHIEPTableAdapter nGHENGHIEPTableAdapter;
         private System.Windows.Forms.Label lblPSINH;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -15,7 +15,7 @@ namespace New_DOAN
 {
     public partial class frmCreate : Form
     {
-        SqlConnection connect = new SqlConnection("Data Source=MSI;Initial Catalog=testing;Integrated Security=True");
+        SqlConnection connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
         private MemberDAO memberDAO;
         public frmCreate()
         {
@@ -54,13 +54,14 @@ namespace New_DOAN
             newMember.MAQH = "NONE";
             newMember.NGPSINH = DateTime.Parse(dateTimePicker1.Text);
             newMember.HOTEN = txtName.Text;
-            newMember.GT = radMale.Checked;
+            newMember.GT = comboBox1.SelectedItem.ToString();
             newMember.NGSINH = DateTime.Parse(datBirthday.Text);
             newMember.MAQQ = comboBoxQue.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
             newMember.MANN = comboJob.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
             newMember.DIACHI = txtAddress.Text;
             newMember.TVCU = "NONE";
             newMember.MATV = newMember.HOTEN;
+            newMember.DOI = 0;
             memberDAO.SaveRoot(newMember);
             frmMain f = new frmMain();
             this.Hide();
@@ -75,5 +76,9 @@ namespace New_DOAN
             loadQue();
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -86,6 +86,7 @@
             this.comboAchiveName.Name = "comboAchiveName";
             this.comboAchiveName.Size = new System.Drawing.Size(299, 24);
             this.comboAchiveName.TabIndex = 4;
+            this.comboAchiveName.SelectedIndexChanged += new System.EventHandler(this.comboAchiveName_SelectedIndexChanged);
             // 
             // comboAchiveType
             // 
@@ -103,6 +104,7 @@
             this.btnAchive.TabIndex = 7;
             this.btnAchive.Text = "Thêm";
             this.btnAchive.UseVisualStyleBackColor = true;
+            this.btnAchive.Click += new System.EventHandler(this.btnAchive_Click);
             // 
             // dateTimePickerAchive
             // 

@@ -19,10 +19,21 @@ namespace New_DOAN
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            frmMain f = new frmMain();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            if (txtAccount.Text != "admin")
+                errorProvider1.SetError(txtAccount, "Bạn chưa điền tên đăng nhập");
+            else
+            {
+                errorProvider1.Clear();
+                if (txtPassword.Text != "admin")
+                    errorProvider1.SetError(txtPassword, "Sai mật khẩu");
+                else
+                {
+                    frmMain f = new frmMain();
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

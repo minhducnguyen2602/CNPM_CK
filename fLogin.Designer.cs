@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblText = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
@@ -39,9 +40,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtAccount = new System.Windows.Forms.TextBox();
             this.lblAccount = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -151,6 +154,10 @@
             this.lblAccount.TabIndex = 0;
             this.lblAccount.Text = "Tên đăng nhập:";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // fLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -166,6 +173,7 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,6 +191,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtAccount;
         private System.Windows.Forms.Label lblAccount;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

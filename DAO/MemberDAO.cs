@@ -11,7 +11,7 @@ namespace New_DOAN.DAO
 {
     class MemberDAO
     {
-        private int i = 1;
+
         public MemberDAO()
         {
 
@@ -20,16 +20,16 @@ namespace New_DOAN.DAO
         public void SaveMember(MemberDTO member)
         {
 
-            string connectionString = "Data Source=MSI;Initial Catalog=testing;Integrated Security=True";
-            string query = "INSERT INTO THANHVIEN (MaTV, HoTen, NgPSinh, GioiTinh, MaNN, DiaChi, TVCu, MaQH, MaQQ, NgSinh) VALUES (@MATV, @HOTEN, @NGPSINH, @GT, @MANN, @DIACHI, @TVCU, @MAQH, @MAQQ, @NGSINH)";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True";
+            string query = "INSERT INTO THANHVIEN (MaTV, HoTen, NgPSinh, GioiTinh, MaNNghiep, DiaChi, TVCu, MaQH, MaQQ, NgSinh, Doi) VALUES (@MATV, @HOTEN, @NGPSINH, @GT, @MANN, @DIACHI, @TVCU, @MAQH, @MAQQ, @NGSINH, @Doi)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 try
                 {
-                    i = i + 1;
+
                     connection.Open();
-                    command.Parameters.AddWithValue("@MATV", i);
+                    command.Parameters.AddWithValue("@MATV", member.MATV);
                     command.Parameters.AddWithValue("@HOTEN", member.HOTEN);
                     command.Parameters.AddWithValue("@NGPSINH", member.NGPSINH);
                     command.Parameters.AddWithValue("@GT", member.GT);
@@ -39,8 +39,7 @@ namespace New_DOAN.DAO
                     command.Parameters.AddWithValue("@MAQH", member.MAQH);
                     command.Parameters.AddWithValue("@MAQQ", member.MAQQ);
                     command.Parameters.AddWithValue("@NGSINH", member.NGSINH);
-
-
+                    command.Parameters.AddWithValue("@DOI", member.DOI);
                     command.ExecuteNonQuery();
 
                     // Thông báo thành công
@@ -58,8 +57,8 @@ namespace New_DOAN.DAO
         public void SaveRoot(MemberDTO member)
         {
 
-            string connectionString = "Data Source=MSI;Initial Catalog=testing;Integrated Security=True";
-            string query = "INSERT INTO THANHVIEN (MaTV, HoTen, NGPSINH, GioiTinh, MaNN, DiaChi, TVCu, MaQH, MaQQ, NgSinh) VALUES (@MATV, @HOTEN, @NGPSINH, @GT, @MANN, @DIACHI, @TVCU, @MAQH, @MAQQ, @NGSINH)";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True";
+            string query = "INSERT INTO THANHVIEN (MaTV, HoTen, NGPSINH, GioiTinh, MaNNghiep, DiaChi, TVCu, MaQH, MaQQ, NgSinh, Doi) VALUES (@MATV, @HOTEN, @NGPSINH, @GT, @MANN, @DIACHI, @TVCU, @MAQH, @MAQQ, @NGSINH, @DOI)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -67,7 +66,7 @@ namespace New_DOAN.DAO
                 try
                 {
                     connection.Open();
-                    command.Parameters.AddWithValue("@MATV", i);
+                    command.Parameters.AddWithValue("@MATV", member.MATV);
                     command.Parameters.AddWithValue("@HOTEN", member.HOTEN);
                     command.Parameters.AddWithValue("@NGPSINH", member.NGPSINH);
                     command.Parameters.AddWithValue("@GT", member.GT);
@@ -77,6 +76,7 @@ namespace New_DOAN.DAO
                     command.Parameters.AddWithValue("@MAQH", member.MAQH);
                     command.Parameters.AddWithValue("@MAQQ", member.MAQQ);
                     command.Parameters.AddWithValue("@NGSINH", member.NGSINH);
+                    command.Parameters.AddWithValue("@DOI", member.DOI);
 
 
                     command.ExecuteNonQuery();

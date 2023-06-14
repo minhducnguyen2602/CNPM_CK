@@ -15,7 +15,7 @@ namespace New_DOAN
 {
     public partial class frmMinus : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=testing;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
         private MinusDAO minusDAO;
         public DataGridView MemberDataGridView { get; set; }
         public frmMinus()
@@ -70,11 +70,12 @@ namespace New_DOAN
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
+ 
             MinusDTO member = new MinusDTO();
-            member.HOTEN = comboMinusName.SelectedItem.ToString();
+            member.HOTEN = comboMinusName.SelectedValue.ToString();
             member.NGAYMAT = DateTime.Parse(dateTimePickerMinus.Text);
-            member.NNMAT = comboMinusCause.SelectedItem.ToString();
-            member.DDMT = comboMinusPlace.SelectedItem.ToString();
+            member.NNMAT = comboMinusCause.SelectedValue.ToString();
+            member.DDMT = comboMinusPlace.SelectedValue.ToString();
             member.MAKT = member.HOTEN;
             minusDAO.SaveMinus(member);
         }
@@ -84,6 +85,11 @@ namespace New_DOAN
             loadTV();
             loadNN();
             loadDD();
+        }
+
+        private void comboMinusName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

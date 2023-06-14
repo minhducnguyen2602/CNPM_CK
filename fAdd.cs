@@ -1,6 +1,7 @@
 ﻿using New_DOAN.DAO;
 using New_DOAN.DTO;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,7 @@ namespace New_DOAN
 {
     public partial class frmAdd : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=testing;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
         private MemberDAO memberDAO;
         public DataGridView MemberDataGridView { get; set; }
 
@@ -51,12 +52,7 @@ namespace New_DOAN
             comboBoxQue.ValueMember = "TenQueQuan"; // Thiết lập cột giá trị
         }
 
-        private void frmAdd_Load(object sender, EventArgs e)
-        {
-            loadNghe();
-            loadQue();
-            loadTVcu();
-        }
+        
 
         void loadTVcu()
         {
@@ -79,8 +75,10 @@ namespace New_DOAN
             }
         }
 
+
         private void btnAddMem_Click(object sender, EventArgs e)
         {
+
             MemberDTO newMember = new MemberDTO();
             if (comboExistingMember.SelectedItem != null)
             {
@@ -89,14 +87,58 @@ namespace New_DOAN
             newMember.MAQH = comboRelationship.SelectedItem.ToString();
             newMember.NGPSINH = DateTime.Parse(dateTimePickerOccurred.Text);
             newMember.HOTEN = txtFullName.Text;
-            newMember.GT = radMale.Checked;
+            newMember.GT = comboBoxGT.SelectedItem.ToString();
             newMember.NGSINH = DateTime.Parse(dateTimePickerBirth.Text);
             newMember.MAQQ = comboBoxQue.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
             newMember.MANN = comboJob.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
             newMember.DIACHI = txtAddress.Text;
-            newMember.MATV = newMember.HOTEN;
+            var querydemmatv = "Select count(*) from THANHVIEN";
+            var count = 0;
+            using (SqlCommand command = new SqlCommand(querydemmatv, conn))
+            {
+                count = (int)command.ExecuteScalar();
+            }
+            int count1 = 0;
+            using (SqlCommand command = new SqlCommand("Select Doi from THANHVIEN where HoTen = @HOTEN", conn))
+            {
+                // Thêm tham số @HOTEN và giá trị của biến vào câu truy vấn
+                command.Parameters.AddWithValue("@HOTEN", newMember.TVCU);
+
+                // Thực thi truy vấn và lấy kết quả
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // Đọc giá trị cột 'Doi' từ mỗi hàng kết quả
+                        count1 = reader.GetInt32(reader.GetOrdinal("Doi"));
+
+                        // Xử lý dữ liệu tùy ý với giá trị 'doi' ở đây
+                    }
+                }
+            }
+            string makt = "Them" + count.ToString();
+            ; newMember.MATV = makt;
+            if (newMember.MAQH == "Con")
+            {
+                newMember.DOI = count1 + 1;
+            }
+            else newMember.DOI = count1;
+
             memberDAO.SaveMember(newMember);
             loadTVcu();
+
+        }
+        public void frmAdd_Load(object sender, EventArgs e)
+        {
+
+            loadNghe();
+            loadQue();
+            loadTVcu();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

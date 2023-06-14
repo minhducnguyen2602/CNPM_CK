@@ -15,8 +15,8 @@ namespace New_DOAN.DAO
         public void SaveMinus(MinusDTO member)
         {
 
-            string connectionString = "Data Source=MSI;Initial Catalog=testing;Integrated Security=True";
-            string query = "INSERT INTO KETTHUC (MaKT, HoTen, NgayMat, NguyenNhan, DDMaiTang) VALUES (@MAKT, @HOTEN, @NGAYMAT, @NNMAT, @DDMT)";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True";
+            string query = "INSERT INTO KETTHUC (MaKT, MaTV, NgayMat, MaNNhan, MaDD) VALUES (@MAKT, @HOTEN, @NGAYMAT, @NNMAT, @DDMT)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
