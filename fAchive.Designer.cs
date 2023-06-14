@@ -28,14 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblAchive = new System.Windows.Forms.Label();
             this.lblAchiveName = new System.Windows.Forms.Label();
             this.lblAchiveType = new System.Windows.Forms.Label();
             this.lblAchiveDate = new System.Windows.Forms.Label();
             this.comboAchiveName = new System.Windows.Forms.ComboBox();
+            this.tHANHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dOAN8DataSet = new New_DOAN.DOAN8DataSet();
             this.comboAchiveType = new System.Windows.Forms.ComboBox();
+            this.nHAPTTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnAchive = new System.Windows.Forms.Button();
             this.dateTimePickerAchive = new System.Windows.Forms.DateTimePicker();
+            this.tHANHVIENTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.THANHVIENTableAdapter();
+            this.tHANHTICHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tHANHTICHTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.THANHTICHTableAdapter();
+            this.nHAPTTTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.NHAPTTTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHAPTTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHTICHBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAchive
@@ -81,20 +93,43 @@
             // 
             // comboAchiveName
             // 
+            this.comboAchiveName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHANHVIENBindingSource, "HoTen", true));
+            this.comboAchiveName.DataSource = this.tHANHVIENBindingSource;
+            this.comboAchiveName.DisplayMember = "HoTen";
             this.comboAchiveName.FormattingEnabled = true;
             this.comboAchiveName.Location = new System.Drawing.Point(197, 79);
             this.comboAchiveName.Name = "comboAchiveName";
             this.comboAchiveName.Size = new System.Drawing.Size(299, 24);
             this.comboAchiveName.TabIndex = 4;
+            this.comboAchiveName.ValueMember = "HoTen";
             this.comboAchiveName.SelectedIndexChanged += new System.EventHandler(this.comboAchiveName_SelectedIndexChanged);
+            // 
+            // tHANHVIENBindingSource
+            // 
+            this.tHANHVIENBindingSource.DataMember = "THANHVIEN";
+            this.tHANHVIENBindingSource.DataSource = this.dOAN8DataSet;
+            // 
+            // dOAN8DataSet
+            // 
+            this.dOAN8DataSet.DataSetName = "DOAN8DataSet";
+            this.dOAN8DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboAchiveType
             // 
+            this.comboAchiveType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nHAPTTBindingSource, "TenTT", true));
+            this.comboAchiveType.DataSource = this.nHAPTTBindingSource;
+            this.comboAchiveType.DisplayMember = "TenTT";
             this.comboAchiveType.FormattingEnabled = true;
             this.comboAchiveType.Location = new System.Drawing.Point(197, 150);
             this.comboAchiveType.Name = "comboAchiveType";
             this.comboAchiveType.Size = new System.Drawing.Size(299, 24);
             this.comboAchiveType.TabIndex = 5;
+            this.comboAchiveType.ValueMember = "TenTT";
+            // 
+            // nHAPTTBindingSource
+            // 
+            this.nHAPTTBindingSource.DataMember = "NHAPTT";
+            this.nHAPTTBindingSource.DataSource = this.dOAN8DataSet;
             // 
             // btnAchive
             // 
@@ -113,6 +148,23 @@
             this.dateTimePickerAchive.Size = new System.Drawing.Size(299, 22);
             this.dateTimePickerAchive.TabIndex = 8;
             // 
+            // tHANHVIENTableAdapter
+            // 
+            this.tHANHVIENTableAdapter.ClearBeforeFill = true;
+            // 
+            // tHANHTICHBindingSource
+            // 
+            this.tHANHTICHBindingSource.DataMember = "THANHTICH";
+            this.tHANHTICHBindingSource.DataSource = this.dOAN8DataSet;
+            // 
+            // tHANHTICHTableAdapter
+            // 
+            this.tHANHTICHTableAdapter.ClearBeforeFill = true;
+            // 
+            // nHAPTTTableAdapter
+            // 
+            this.nHAPTTTableAdapter.ClearBeforeFill = true;
+            // 
             // frmAchive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -129,6 +181,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAchive";
             this.Text = "fAchive";
+            this.Load += new System.EventHandler(this.frmAchive_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHAPTTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHTICHBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,5 +201,12 @@
         private System.Windows.Forms.ComboBox comboAchiveType;
         private System.Windows.Forms.Button btnAchive;
         private System.Windows.Forms.DateTimePicker dateTimePickerAchive;
+        private DOAN8DataSet dOAN8DataSet;
+        private System.Windows.Forms.BindingSource tHANHVIENBindingSource;
+        private DOAN8DataSetTableAdapters.THANHVIENTableAdapter tHANHVIENTableAdapter;
+        private System.Windows.Forms.BindingSource tHANHTICHBindingSource;
+        private DOAN8DataSetTableAdapters.THANHTICHTableAdapter tHANHTICHTableAdapter;
+        private System.Windows.Forms.BindingSource nHAPTTBindingSource;
+        private DOAN8DataSetTableAdapters.NHAPTTTableAdapter nHAPTTTableAdapter;
     }
 }

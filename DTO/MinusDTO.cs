@@ -9,7 +9,7 @@ namespace New_DOAN.DTO
     internal class MinusDTO
     {
         public string MAKT { get; set; }
-        public string HOTEN { get; set; }
+        public string MATV { get; set; }
         public DateTime NGAYMAT { get; set; }
         public string NNMAT { get; set; }
         public string DDMT { get; set; }

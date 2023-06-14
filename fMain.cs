@@ -54,7 +54,7 @@ namespace New_DOAN
         {
             key = 3;
             LoadForm(new frmAchive());
-            string query = "Select * from THANHTICH";
+            string query = "Select MaTV as 'Họ Tên', LoaiTT as 'Loại Thành Tích' , NgPSinhTT as 'Ngày Phát Sinh Thành Tích' from THANHTICH";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -65,7 +65,10 @@ namespace New_DOAN
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            key = 4;
             LoadForm(new frmSearch());
+            string query = "Select MaTV as 'Họ Tên', NgSinh as 'Ngày Sinh' , Doi as 'Đời', MaQH as 'Cha/Mẹ' from THANHVIEN";
+            dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
         public void LoadMemberList()
         {
@@ -81,9 +84,14 @@ namespace New_DOAN
             }
             if (key == 3)
             {
-                string query = "Select * from THANHTICH";
+                string query = "Select MaTV as 'Họ Tên', LoaiTT as 'Loại Thành Tích' , NgPSinhTT as 'Ngày Phát Sinh Thành Tích' from THANHTICH";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
             }
+            if (key == 4)
+            {
+                string query = "Select MaTV as 'Họ Tên', NgSinh as 'Ngày Sinh' , Doi as 'Đời', MaQH as 'Cha/Mẹ' from THANHVIEN";
+                dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            }    
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)

@@ -23,11 +23,10 @@ namespace New_DOAN
             InitializeComponent();
             achiveDAO = new AchiveDAO();
             conn.Open();
-            LoadMemberList1();
+            LoadMemberList11();
         }
 
-        private void comboAchiveName_SelectedIndexChanged(object sender, EventArgs e)
-        {}
+       
 
 
         public void LoadMemberList1()
@@ -57,22 +56,61 @@ namespace New_DOAN
             dt.Load(dr);
             dr.Dispose();
             comboAchiveType.DataSource = dt;
-            comboAchiveType.DisplayMember = "LoaiNN"; // Thiết lập cột hiển thị
-            comboAchiveType.ValueMember = "LoaiNN"; // Thiết lập cột giá trị
+            comboAchiveType.DisplayMember = "TenTT"; // Thiết lập cột hiển thị
+            comboAchiveType.ValueMember = "TenTT"; // Thiết lập cột giá trị
         }
-        private void frmAchive_Load(object sender, EventArgs e)
+        public void LoadMemberList11()
         {
-            loadTV();
-            loadTT();
-        }
+            string query = "Select * from THANHTICH";
+            if (MemberDataGridView != null)
+            {
+                MemberDataGridView.DataSource = DataProvider.Instance.ExecuteQuery(query);
 
+            }
+        }
         private void btnAchive_Click(object sender, EventArgs e)
         {
             AchiveDTO member = new AchiveDTO();
-            member.HOTEN = comboAchiveName.SelectedValue.ToString();
-            member.LOIATT = comboAchiveType.SelectedValue.ToString();
+            string matvv = "";
+            string ten = comboAchiveName.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select MaTV from THANHVIEN where HoTen = @HOTEN", conn))
+            {
+
+                command.Parameters.AddWithValue("@HOTEN", ten);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        matvv = reader.GetString(0);
+                    }
+                }
+            }
+            member.MATV = matvv.ToString();
+            member.LOAITT = comboAchiveType.SelectedValue.ToString();
             member.NGPSINHTT = DateTime.Parse(dateTimePickerAchive.Text);
-            member.MATT=member.HOTEN;
+            var querydemmatv = "Select count(*) from THANHTICH";
+            var count1 = 0;
+            using (SqlCommand command = new SqlCommand(querydemmatv, conn))
+            {
+                count1 = (int)command.ExecuteScalar();
+            }
+            member.MATT="ThanhTich"+count1.ToString();
+            
+            achiveDAO.SaveAchive(member);
+            loadTV();
+        }
+
+        private void frmAchive_Load_1(object sender, EventArgs e)
+        {
+            loadTV();
+            loadTT();
+
+        }
+        private void comboAchiveName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

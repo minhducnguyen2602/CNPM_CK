@@ -12,22 +12,21 @@ namespace New_DOAN.DAO
     internal class AchiveDAO
     {
         public AchiveDAO() { }
-        public void SaveMinus(AchiveDTO member)
+        public void SaveAchive(AchiveDTO member)
         {
 
             string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True";
-            string query = "INSERT INTO KETTHUC (MaTT, HoTen, LoaiTT, NgPSinhTT) VALUES (@MATT, @HOTEN, @LOAITT, @NGPSINHTT)";
+            string query = "INSERT INTO THANHTICH (MaTT, MaTV, LoaiTT, NgPSinhTT) VALUES (@MATT, @MATV, @LOAITT, @NGPSINHTT)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 try
                 {
                     connection.Open();
-                    command.Parameters.AddWithValue("@MAKT", member.MATT);
-                    command.Parameters.AddWithValue("@HOTEN", member.HOTEN);
-                    command.Parameters.AddWithValue("@NGAYMAT", member.LOIATT);
-                    command.Parameters.AddWithValue("@NNMAT", member.NGPSINHTT);
-
+                    command.Parameters.AddWithValue("@MATT", member.MATT);
+                    command.Parameters.AddWithValue("@MATV", member.MATV);
+                    command.Parameters.AddWithValue("@LOAITT", member.LOAITT);
+                    command.Parameters.AddWithValue("@NGPSINHTT", member.NGPSINHTT);
                     command.ExecuteNonQuery();
 
                     // Thông báo thành công

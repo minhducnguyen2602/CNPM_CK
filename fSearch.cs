@@ -67,8 +67,16 @@ namespace New_DOAN
                 // Thêm tham số @HOTEN và giá trị của biến vào câu truy vấn
                 command.Parameters.AddWithValue("@HOTEN", ten);
 
+
             }
+
+
             LoadMemberList1(query);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

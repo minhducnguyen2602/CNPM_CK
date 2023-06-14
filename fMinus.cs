@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Converters;
 
 namespace New_DOAN
 {
@@ -72,11 +73,33 @@ namespace New_DOAN
         {
  
             MinusDTO member = new MinusDTO();
-            member.HOTEN = comboMinusName.SelectedValue.ToString();
+            string matvv = "";
+            string ten = comboMinusName.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select MaTV from THANHVIEN where HoTen = @HOTEN", conn))
+            {
+         
+                command.Parameters.AddWithValue("@HOTEN", ten);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                       matvv = reader.GetString(0);
+                    }
+                }
+            }
+            member.MATV = matvv.ToString();
             member.NGAYMAT = DateTime.Parse(dateTimePickerMinus.Text);
             member.NNMAT = comboMinusCause.SelectedValue.ToString();
             member.DDMT = comboMinusPlace.SelectedValue.ToString();
-            member.MAKT = member.HOTEN;
+            var count = 0;
+            var querydemmatv = "Select count(*) from KETTHUC";
+            using (SqlCommand command = new SqlCommand(querydemmatv, conn))
+            {
+                count = (int)command.ExecuteScalar();
+            }
+            member.MAKT = "KETTHUC" + count.ToString();
             minusDAO.SaveMinus(member);
         }
 

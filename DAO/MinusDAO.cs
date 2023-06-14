@@ -16,7 +16,7 @@ namespace New_DOAN.DAO
         {
 
             string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True";
-            string query = "INSERT INTO KETTHUC (MaKT, MaTV, NgayMat, MaNNhan, MaDD) VALUES (@MAKT, @HOTEN, @NGAYMAT, @NNMAT, @DDMT)";
+            string query = "INSERT INTO KETTHUC (MaKT, MaTV, NgayMat, MaNNhan, MaDD) VALUES (@MAKT, @MATV, @NGAYMAT, @NNMAT, @DDMT)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -24,11 +24,11 @@ namespace New_DOAN.DAO
                 {
                     connection.Open();
                     command.Parameters.AddWithValue("@MAKT", member.MAKT);
-                    command.Parameters.AddWithValue("@HOTEN", member.HOTEN);
+                    command.Parameters.AddWithValue("@MATV", member.MATV);
                     command.Parameters.AddWithValue("@NGAYMAT", member.NGAYMAT);
                     command.Parameters.AddWithValue("@NNMAT", member.NNMAT);
                     command.Parameters.AddWithValue("@DDMT", member.DDMT);
-
+                 
                     command.ExecuteNonQuery();
 
                     // Thông báo thành công
