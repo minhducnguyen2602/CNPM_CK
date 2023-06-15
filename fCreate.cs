@@ -55,9 +55,41 @@ namespace New_DOAN
             newMember.NGPSINH = DateTime.Parse(dateTimePicker1.Text);
             newMember.HOTEN = txtName.Text;
             newMember.GT = comboBox1.SelectedItem.ToString();
+            string maqq = "";
+            string tenqq = comboBoxQue.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select MaQQ from QUEQUAN where TenQueQuan = @QUEQUAN", connect))
+            {
+
+                command.Parameters.AddWithValue("@QUEQUAN", tenqq);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        maqq = reader.GetString(0);
+                    }
+                }
+            }
+            string mann = "";
+            string tennn = comboJob.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select MaNNghiep from NGHENGHIEP where TenNN = @NGHENGHIEP", connect))
+            {
+
+                command.Parameters.AddWithValue("@NGHENGHIEP", tennn);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        mann = reader.GetString(0);
+                    }
+                }
+            }
             newMember.NGSINH = DateTime.Parse(datBirthday.Text);
-            newMember.MAQQ = comboBoxQue.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
-            newMember.MANN = comboJob.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
+            newMember.MAQQ = maqq;// Lấy giá trị từ cột giá trị
+            newMember.MANN = mann;// Lấy giá trị từ cột giá trị
             newMember.DIACHI = txtAddress.Text;
             newMember.TVCU = "NONE";
             newMember.MATV = newMember.HOTEN;

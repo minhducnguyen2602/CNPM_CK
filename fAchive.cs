@@ -88,7 +88,25 @@ namespace New_DOAN
                 }
             }
             member.MATV = matvv.ToString();
-            member.LOAITT = comboAchiveType.SelectedValue.ToString();
+            
+            string mattt = "";
+            string tentt = comboAchiveType.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select LOAITT from NHAPTT where TenTT = @Tentt", conn))
+            {
+
+                command.Parameters.AddWithValue("@Tentt", tentt);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        mattt = reader.GetString(0);
+                    }
+                }
+            }
+            member.LOAITT = mattt.ToString();
+
             member.NGPSINHTT = DateTime.Parse(dateTimePickerAchive.Text);
             var querydemmatv = "Select count(*) from THANHTICH";
             var count1 = 0;

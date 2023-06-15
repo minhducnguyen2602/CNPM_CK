@@ -84,13 +84,45 @@ namespace New_DOAN
             {
                 newMember.TVCU = comboExistingMember.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
             }
+            string mann = "";
+            string tennn = comboJob.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select MaNNghiep from NGHENGHIEP where TenNN = @NGHENGHIEP", conn))
+            {
+
+                command.Parameters.AddWithValue("@NGHENGHIEP", tennn);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        mann = reader.GetString(0);
+                    }
+                }
+            }
+            string maqq = "";
+            string tenqq = comboBoxQue.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select MaQQ from QUEQUAN where TenQueQuan = @QUEQUAN", conn))
+            {
+
+                command.Parameters.AddWithValue("@QUEQUAN", tenqq);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        maqq = reader.GetString(0);
+                    }
+                }
+            }
             newMember.MAQH = comboRelationship.SelectedItem.ToString();
             newMember.NGPSINH = DateTime.Parse(dateTimePickerOccurred.Text);
             newMember.HOTEN = txtFullName.Text;
             newMember.GT = comboBoxGT.SelectedItem.ToString();
             newMember.NGSINH = DateTime.Parse(dateTimePickerBirth.Text);
-            newMember.MAQQ = comboBoxQue.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
-            newMember.MANN = comboJob.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
+            newMember.MAQQ = maqq;// Lấy giá trị từ cột giá trị
+            newMember.MANN = mann; // Lấy giá trị từ cột giá trị
             newMember.DIACHI = txtAddress.Text;
             var querydemmatv = "Select count(*) from THANHVIEN";
             var count = 0;

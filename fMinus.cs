@@ -89,10 +89,42 @@ namespace New_DOAN
                     }
                 }
             }
-            member.MATV = matvv.ToString();
+            member.MATV = matvv;
+            string mann = "";
+            string tennn = comboMinusCause.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select MaNNhan from NNMAT where LoaiNN = @LOAINN", conn))
+            {
+
+                command.Parameters.AddWithValue("@LOAINN", tennn);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        mann = reader.GetString(0);
+                    }
+                }
+            }
             member.NGAYMAT = DateTime.Parse(dateTimePickerMinus.Text);
-            member.NNMAT = comboMinusCause.SelectedValue.ToString();
-            member.DDMT = comboMinusPlace.SelectedValue.ToString();
+            member.NNMAT = mann.ToString();
+            string madd = "";
+            string tendd = comboMinusPlace.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select MaDD from DDMT where DiaDiem = @DIADIEM", conn))
+            {
+
+                command.Parameters.AddWithValue("@DIADIEM", tendd);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        madd = reader.GetString(0);
+                    }
+                }
+            }
+            member.DDMT = madd.ToString();
             var count = 0;
             var querydemmatv = "Select count(*) from KETTHUC";
             using (SqlCommand command = new SqlCommand(querydemmatv, conn))
