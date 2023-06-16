@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,15 +36,36 @@ namespace New_DOAN
 
         private void btnBorn_Click(object sender, EventArgs e)
         {
-            string a = textBox1.Text;
-            string b = textBox2.Text;
-            int avalue = Convert.ToInt32(a);
-            int bvalue = Convert.ToInt32(b);
-            string query2 = "DECLARE @NamTable TABLE (Nam INT);\r\nINSERT INTO @NamTable (Nam)\r\nSELECT TOP (@NamKetThuc - @NamBatDau + 1)\r\n    ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) + @NamBatDau - 1\r\nFROM sys.columns;\r\n\r\n-- Truy vấn kết quả\r\nSELECT \r\n    N.Nam AS 'Năm',\r\n    COALESCE(A.SoLuongSinh, 0) AS 'Số lượng sinh',\r\n    COALESCE(A.SoLuongKetHon, 0) AS 'Số lượng kết hôn',\r\n    COALESCE(B.SoNgayMat, 0) AS 'Số lượng mất'\r\nFROM\r\n    @NamTable N\r\nLEFT JOIN\r\n    (\r\n    SELECT \r\n        YEAR(NgPSinh) AS NamSinh,\r\n        COUNT(CASE WHEN MaQH = 'qh1' THEN 1 END) AS SoLuongSinh,\r\n       COUNT(CASE WHEN MaQH = 'qh2' THEN 1 END) AS SoLuongKetHon\r\n    FROM\r\n        THANHVIEN AS TV\r\n    full JOIN\r\n        KETTHUC AS KT ON TV.MaTV = KT.MaTV\r\n    WHERE\r\n        YEAR(NgPSinh) BETWEEN @NamBatDau AND @NamKetThuc\r\n    GROUP BY\r\n        YEAR(NgPSinh)\r\n    ) AS A ON N.Nam = A.NamSinh\r\nLEFT JOIN\r\n    (\r\n    SELECT \r\n        YEAR(NgayMat) AS NamMat,\r\n        COUNT(NgayMat) AS SoNgayMat\r\n    FROM\r\n        KETTHUC\r\n    WHERE\r\n        YEAR(NgayMat) BETWEEN @NamBatDau AND @NamKetThuc\r\n    GROUP BY\r\n        YEAR(NgayMat)\r\n    ) AS B ON N.Nam = B.NamMat;\r\n";
+            int intValue;
+            string a = textBox1.Text;int aa;
+            string b = textBox2.Text;int bb;
+            if(int.TryParse(a, out intValue) )
+            {
+                int avalue = Convert.ToInt32(a);
+                aa=avalue;
+            }
+            else
+            {
+                errorProvider1.SetError(textBox1, "Sai dữ liệu");
+                return;
+            }
+            if (int.TryParse(b, out intValue))
+            {
+                int bvalue = Convert.ToInt32(b);
+                bb=bvalue;
+            }
+            else
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(textBox2, "Sai dữ liệu");
+                return;
+            }
+            
+            string query2 = "DECLARE @NamTable TABLE (Nam INT);\r\nINSERT INTO @NamTable (Nam)\r\nSELECT TOP (@NamKetThuc - @NamBatDau + 1)\r\nROW_NUMBER() OVER (ORDER BY (SELECT NULL)) + @NamBatDau - 1\r\nFROM sys.columns;\r\n\r\nSELECT    \r\n    N.Nam AS 'Năm',\r\n    COALESCE(A.SoLuongSinh, 0) AS 'Số lượng sinh',\r\n    COALESCE(A.SoLuongKetHon, 0) AS 'Số lượng kết hôn',\r\n    COALESCE(B.SoNgayMat, 0) AS 'Số lượng mất'\r\nFROM\r\n    @NamTable N\r\nLEFT JOIN\r\n    (\r\n    SELECT\r\n        YEAR(NgPSinh) AS NamSinh,\r\n        COUNT(CASE WHEN MaQH = 'qh1' THEN 1 END) AS SoLuongSinh,\r\n        COUNT(CASE WHEN MaQH = 'qh2' THEN 1 END) AS SoLuongKetHon\r\n    FROM\r\n        THANHVIEN AS TV\r\n    FULL JOIN\r\n        KETTHUC AS KT ON TV.MaTV = KT.MaTV\r\n    WHERE\r\n        YEAR(NgPSinh) BETWEEN @NamBatDau AND @NamKetThuc\r\n    GROUP BY\r\n        YEAR(NgPSinh)\r\n    ) AS A ON N.Nam = A.NamSinh\r\nLEFT JOIN\r\n    (\r\n    SELECT \r\n        YEAR(NgayMat) AS NamMat,\r\n        COUNT(NgayMat) AS SoNgayMat\r\n    FROM\r\n        KETTHUC\r\n    WHERE\r\n        YEAR(NgayMat) BETWEEN @NamBatDau AND @NamKetThuc\r\n    GROUP BY\r\n        YEAR(NgayMat)\r\n    ) AS B ON N.Nam = B.NamMat\r\nWHERE\r\n    COALESCE(A.SoLuongSinh, 0) <> 0 OR COALESCE(A.SoLuongKetHon, 0) <> 0 OR COALESCE(B.SoNgayMat, 0) <> 0;";
             using (SqlCommand cmd = new SqlCommand(query2, conn))
             {
-                cmd.Parameters.AddWithValue("@NamBatDau", avalue);
-                cmd.Parameters.AddWithValue("@NamKetThuc", bvalue);
+                cmd.Parameters.AddWithValue("@NamBatDau", aa);
+                cmd.Parameters.AddWithValue("@NamKetThuc", bb);
                 DataTable data = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(data);
@@ -54,15 +76,35 @@ namespace New_DOAN
 
         private void btnAchive_Click(object sender, EventArgs e)
         {
-            string a = textBox1.Text;
-            string b = textBox2.Text;
-            int avalue= Convert.ToInt32(a);
-            int bvalue= Convert.ToInt32(b);
+            int intValue;
+            string a = textBox1.Text; int aa;
+            string b = textBox2.Text; int bb;
+            if (int.TryParse(a, out intValue))
+            {
+                int avalue = Convert.ToInt32(a);
+                aa = avalue;
+            }
+            else
+            {
+                errorProvider1.SetError(textBox1, "Sai dữ liệu");
+                return;
+            }
+            if (int.TryParse(b, out intValue))
+            {
+                int bvalue = Convert.ToInt32(b);
+                bb = bvalue;
+            }
+            else
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(textBox2, "Sai dữ liệu");
+                return;
+            }
             string query2 = "select TenTT as 'Loại Thành Tích' ,count(MaTT) as 'Số Lượng' from THANHTICH as TT join NHAPTT as NTT on TT.LoaiTT = NTT.LoaiTT where @a <= Year(NgPSinhTT) and Year(NgPSinhTT) <= @b group by TenTT";
             using (SqlCommand cmd = new SqlCommand(query2, conn))
             {
-                cmd.Parameters.AddWithValue("@a", avalue);
-                cmd.Parameters.AddWithValue("@b", bvalue);
+                cmd.Parameters.AddWithValue("@a", aa);
+                cmd.Parameters.AddWithValue("@b", bb);
                 DataTable data = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(data);

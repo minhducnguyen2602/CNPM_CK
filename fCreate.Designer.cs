@@ -48,15 +48,17 @@
             this.lblPSINH = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingDataSet6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCreate
             // 
             this.lblCreate.AutoSize = true;
             this.lblCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreate.ForeColor = System.Drawing.Color.Blue;
+            this.lblCreate.ForeColor = System.Drawing.Color.Red;
             this.lblCreate.Location = new System.Drawing.Point(161, 33);
             this.lblCreate.Name = "lblCreate";
             this.lblCreate.Size = new System.Drawing.Size(253, 32);
@@ -215,10 +217,15 @@
             this.comboBox1.TabIndex = 43;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(574, 511);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateTimePicker1);
@@ -241,6 +248,7 @@
             this.Load += new System.EventHandler(this.frmCreate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingDataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,5 +275,6 @@
         private System.Windows.Forms.Label lblPSINH;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

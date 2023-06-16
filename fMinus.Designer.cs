@@ -158,7 +158,7 @@
             // 
             this.lblMinus.AutoSize = true;
             this.lblMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMinus.ForeColor = System.Drawing.Color.Blue;
+            this.lblMinus.ForeColor = System.Drawing.Color.Red;
             this.lblMinus.Location = new System.Drawing.Point(158, 31);
             this.lblMinus.Name = "lblMinus";
             this.lblMinus.Size = new System.Drawing.Size(230, 25);
@@ -198,6 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(547, 354);
             this.Controls.Add(this.dateTimePickerMinus);
             this.Controls.Add(this.lblMinusDate);

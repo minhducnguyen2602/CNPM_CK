@@ -54,7 +54,7 @@
             // 
             this.lblAchive.AutoSize = true;
             this.lblAchive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAchive.ForeColor = System.Drawing.Color.Blue;
+            this.lblAchive.ForeColor = System.Drawing.Color.Red;
             this.lblAchive.Location = new System.Drawing.Point(163, 24);
             this.lblAchive.Name = "lblAchive";
             this.lblAchive.Size = new System.Drawing.Size(210, 25);
@@ -169,6 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(547, 333);
             this.Controls.Add(this.dateTimePickerAchive);
             this.Controls.Add(this.btnAchive);

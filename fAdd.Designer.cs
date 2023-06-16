@@ -258,7 +258,7 @@
             // 
             this.lblAdd.AutoSize = true;
             this.lblAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdd.ForeColor = System.Drawing.Color.Blue;
+            this.lblAdd.ForeColor = System.Drawing.Color.Red;
             this.lblAdd.Location = new System.Drawing.Point(166, 25);
             this.lblAdd.Name = "lblAdd";
             this.lblAdd.Size = new System.Drawing.Size(209, 25);
@@ -324,6 +324,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(540, 624);
             this.Controls.Add(this.comboBoxGT);
             this.Controls.Add(this.comboBoxQue);

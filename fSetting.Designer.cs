@@ -54,7 +54,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.Blue;
+            this.lblTitle.ForeColor = System.Drawing.Color.Red;
             this.lblTitle.Location = new System.Drawing.Point(141, 55);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(238, 25);
@@ -173,6 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(530, 450);
             this.Controls.Add(this.btnUpdateMember);
             this.Controls.Add(this.comboTown);

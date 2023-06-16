@@ -34,23 +34,23 @@
             this.comboSearchName = new System.Windows.Forms.ComboBox();
             this.tHANHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dOAN8DataSet = new New_DOAN.DOAN8DataSet();
+            this.tHANHVIENBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgvSearch = new System.Windows.Forms.DataGridView();
             this.tHANHVIENTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.THANHVIENTableAdapter();
-            this.tHANHVIENBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.Color.Blue;
+            this.lblSearch.ForeColor = System.Drawing.Color.Red;
             this.lblSearch.Location = new System.Drawing.Point(152, 30);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(243, 25);
@@ -90,6 +90,11 @@
             this.dOAN8DataSet.DataSetName = "DOAN8DataSet";
             this.dOAN8DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // tHANHVIENBindingSource1
+            // 
+            this.tHANHVIENBindingSource1.DataMember = "THANHVIEN";
+            this.tHANHVIENBindingSource1.DataSource = this.dOAN8DataSet;
+            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(236, 137);
@@ -110,6 +115,7 @@
             // 
             // dtgvSearch
             // 
+            this.dtgvSearch.BackgroundColor = System.Drawing.Color.LightCyan;
             this.dtgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvSearch.Location = new System.Drawing.Point(4, 4);
             this.dtgvSearch.Name = "dtgvSearch";
@@ -123,15 +129,11 @@
             // 
             this.tHANHVIENTableAdapter.ClearBeforeFill = true;
             // 
-            // tHANHVIENBindingSource1
-            // 
-            this.tHANHVIENBindingSource1.DataMember = "THANHVIEN";
-            this.tHANHVIENBindingSource1.DataSource = this.dOAN8DataSet;
-            // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(546, 441);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSearch);
@@ -144,9 +146,9 @@
             this.Load += new System.EventHandler(this.frmSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

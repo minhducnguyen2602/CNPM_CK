@@ -53,7 +53,16 @@ namespace New_DOAN
         {
             // Kiểm tra nếu mã thành viên "Them0" đã tồn tại
             
-
+            if(txtName.Text=="")
+            {
+                errorProvider1.SetError(txtName, "Chưa nhập thông tin");
+                return;
+            }
+            if (txtAddress.Text == "")
+            {
+                errorProvider1.SetError(txtAddress, "Chưa nhập thông tin");
+                return;
+            }
             MemberDTO newMember = new MemberDTO();
             newMember.MAQH = "qh0";
             newMember.NGPSINH = DateTime.Parse(dateTimePicker1.Text);

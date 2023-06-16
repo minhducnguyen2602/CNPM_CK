@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblYear1 = new System.Windows.Forms.Label();
             this.lblYear2 = new System.Windows.Forms.Label();
             this.btnBorn = new System.Windows.Forms.Button();
@@ -36,7 +37,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dtgvReport = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblYear1
@@ -83,7 +86,7 @@
             // 
             this.lblReport.AutoSize = true;
             this.lblReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReport.ForeColor = System.Drawing.Color.Blue;
+            this.lblReport.ForeColor = System.Drawing.Color.Red;
             this.lblReport.Location = new System.Drawing.Point(194, 26);
             this.lblReport.Name = "lblReport";
             this.lblReport.Size = new System.Drawing.Size(159, 25);
@@ -108,7 +111,7 @@
             // 
             this.dtgvReport.AllowUserToAddRows = false;
             this.dtgvReport.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dtgvReport.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dtgvReport.BackgroundColor = System.Drawing.Color.LightCyan;
             this.dtgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvReport.Location = new System.Drawing.Point(13, 271);
             this.dtgvReport.Name = "dtgvReport";
@@ -118,10 +121,15 @@
             this.dtgvReport.Size = new System.Drawing.Size(522, 459);
             this.dtgvReport.TabIndex = 10;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(547, 742);
             this.Controls.Add(this.dtgvReport);
             this.Controls.Add(this.textBox2);
@@ -135,6 +143,7 @@
             this.Name = "frmReport";
             this.Text = "fReport";
             ((System.ComponentModel.ISupportInitialize)(this.dtgvReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +158,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dtgvReport;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
