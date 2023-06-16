@@ -116,6 +116,7 @@
             // dtgvSearch
             // 
             this.dtgvSearch.BackgroundColor = System.Drawing.Color.LightCyan;
+            this.dtgvSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvSearch.Location = new System.Drawing.Point(4, 4);
             this.dtgvSearch.Name = "dtgvSearch";

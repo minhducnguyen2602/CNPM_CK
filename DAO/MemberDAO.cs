@@ -22,7 +22,7 @@ namespace New_DOAN.DAO
         public void SaveMember(MemberDTO member)
         {
 
-            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True";
             string query = "INSERT INTO THANHVIEN (MaTV, HoTen, NgPSinh, GioiTinh, MaNNghiep, DiaChi, TVCu, MaQH, MaQQ, NgSinh, Doi) VALUES (@MATV, @HOTEN, @NGPSINH, @GT, @MANN, @DIACHI, @TVCU, @MAQH, @MAQQ, @NGSINH, @Doi)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -59,7 +59,7 @@ namespace New_DOAN.DAO
         public void SaveRoot(MemberDTO member)
         {
 
-            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True";
             string query = "INSERT INTO THANHVIEN (MaTV, HoTen, NGPSINH, GioiTinh, MaNNghiep, DiaChi, TVCu, MaQH, MaQQ, NgSinh, Doi) VALUES (@MATV, @HOTEN, @NGPSINH, @GT, @MANN, @DIACHI, @TVCU, @MAQH, @MAQQ, @NGSINH, @DOI)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))

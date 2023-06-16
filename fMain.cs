@@ -14,7 +14,7 @@ namespace New_DOAN
 {
     public partial class frmMain : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
         private int key = 1;
         public frmMain()
         {
@@ -146,52 +146,64 @@ namespace New_DOAN
 
         private void khởiTạoLạiThànhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True"))
+            DialogResult res=MessageBox.Show("Bạn có chắc muốn xóa toàn bộ thông tin liên quan đến thành viên", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(res==DialogResult.Yes)
             {
-                connection.Open();
-                string query = "Delete from THANHVIEN; DELETE from THANHTICH; DELETE from KETTHUC";
-                using (SqlCommand command = new SqlCommand(query,connection))
+                using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True"))
                 {
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Đã xóa hết dữ liệu liên quan đến thành viên");
-                    fLogin lg = new fLogin();
-                    this.Hide();
+                    connection.Open();
+                    string query = "Delete from THANHVIEN; DELETE from THANHTICH; DELETE from KETTHUC";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Đã xóa hết dữ liệu liên quan đến thành viên");
+                        fLogin lg = new fLogin();
+                        this.Hide();
 
 
-                    lg.ShowDialog();
-                }    
+                        lg.ShowDialog();
+                    }
 
-            }
+                }
+            }    
+            
 
         }
 
         private void khởiTạoLạiThànhTíchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True"))
+            DialogResult res = MessageBox.Show("Bạn có chắc muốn xóa toàn bộ thông tin liên quan đến thành tích", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
             {
-                connection.Open();
-                string query = "DELETE from THANHTICH";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True"))
                 {
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Đã xóa hết dữ liệu liên quan đến thành tích");
+                    connection.Open();
+                    string query = "DELETE from THANHTICH";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Đã xóa hết dữ liệu liên quan đến thành tích");
+                    }
                 }
-
             }
         }
 
         private void khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True"))
+            DialogResult res = MessageBox.Show("Bạn có chắc muốn xóa toàn bộ thông tin liên quan đến kết thúc", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
             {
-                connection.Open();
-                string query = "DELETE from KETTHUC";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True"))
                 {
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Đã xóa hết dữ liệu liên quan đến ghi nhận kết thúc");
-                }
+                    connection.Open();
+                    string query = "DELETE from KETTHUC";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Đã xóa hết dữ liệu liên quan đến ghi nhận kết thúc");
+                    }
 
+                }
             }
         }
     }

@@ -15,7 +15,7 @@ namespace New_DOAN.DAO
         public void SaveReport(MinusDTO member)
         {
 
-            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True";
             string query = "Select ";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))

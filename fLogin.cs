@@ -12,7 +12,7 @@ namespace New_DOAN
 {
     public partial class fLogin : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
         public fLogin()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace New_DOAN
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string madd = "";
-            string tendd = "Them0";
+            string tendd = "TV0";
             
             using (SqlCommand command = new SqlCommand("Select HoTen from THANHVIEN where MaTV = @DIADIEM", conn))
             {

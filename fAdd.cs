@@ -17,7 +17,7 @@ namespace New_DOAN
 {
     public partial class frmAdd : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
         private MemberDAO memberDAO;
         public DataGridView MemberDataGridView { get; set; }
 
@@ -93,6 +93,7 @@ namespace New_DOAN
 
         private void btnAddMem_Click(object sender, EventArgs e)
         {
+            errorProvider5.Clear();
             string matvcu = "";
             MemberDTO newMember = new MemberDTO();
             if (comboExistingMember.SelectedItem != null)
@@ -198,7 +199,7 @@ namespace New_DOAN
                     }
                 }
             }
-            string makt = "Them" + count.ToString();
+            string makt = "TV" + count.ToString();
             ; 
             newMember.MATV = makt;
             if (newMember.MAQH == "qh1")

@@ -48,9 +48,9 @@
             this.lblYear1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblYear1.Location = new System.Drawing.Point(43, 82);
             this.lblYear1.Name = "lblYear1";
-            this.lblYear1.Size = new System.Drawing.Size(80, 16);
+            this.lblYear1.Size = new System.Drawing.Size(99, 16);
             this.lblYear1.TabIndex = 2;
-            this.lblYear1.Text = "Bắt đầu từ:";
+            this.lblYear1.Text = "Năm bắt đầu:";
             // 
             // lblYear2
             // 
@@ -58,9 +58,9 @@
             this.lblYear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblYear2.Location = new System.Drawing.Point(46, 144);
             this.lblYear2.Name = "lblYear2";
-            this.lblYear2.Size = new System.Drawing.Size(34, 16);
+            this.lblYear2.Size = new System.Drawing.Size(100, 16);
             this.lblYear2.TabIndex = 3;
-            this.lblYear2.Text = "Tới:";
+            this.lblYear2.Text = "Năm kết thúc:";
             // 
             // btnBorn
             // 
@@ -112,6 +112,7 @@
             this.dtgvReport.AllowUserToAddRows = false;
             this.dtgvReport.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dtgvReport.BackgroundColor = System.Drawing.Color.LightCyan;
+            this.dtgvReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvReport.Location = new System.Drawing.Point(13, 271);
             this.dtgvReport.Name = "dtgvReport";

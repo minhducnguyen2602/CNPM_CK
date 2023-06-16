@@ -15,7 +15,7 @@ namespace New_DOAN
 {
     public partial class frmCreate : Form
     {
-        SqlConnection connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
+        SqlConnection connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
         private MemberDAO memberDAO;
         public frmCreate()
         {
@@ -60,6 +60,7 @@ namespace New_DOAN
             }
             if (txtAddress.Text == "")
             {
+                errorProvider1.Clear();
                 errorProvider1.SetError(txtAddress, "Chưa nhập thông tin");
                 return;
             }
@@ -100,13 +101,13 @@ namespace New_DOAN
                     }
                 }
             }
-            connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
+            connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
             int count = 0;
             connect.Open();
             string name = "";
             using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM THANHVIEN WHERE MaTV = @MemberCode", connect))
             {
-                command.Parameters.AddWithValue("@MemberCode", "Them0");
+                command.Parameters.AddWithValue("@MemberCode", "TV0");
                 count = (int)command.ExecuteScalar();
   
             }
@@ -114,7 +115,7 @@ namespace New_DOAN
             {
                 using (SqlCommand command = new SqlCommand("SELECT HoTen FROM THANHVIEN WHERE MaTV = @MemberCode", connect))
                 {
-                    command.Parameters.AddWithValue("@MemberCode", "Them0");
+                    command.Parameters.AddWithValue("@MemberCode", "TV0");
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -137,7 +138,7 @@ namespace New_DOAN
             newMember.MANN = mann;// Lấy giá trị từ cột giá trị
             newMember.DIACHI = txtAddress.Text;
             newMember.TVCU = "NONE";
-            newMember.MATV = "Them0";
+            newMember.MATV = "TV0";
             newMember.DOI = 0;
             memberDAO.SaveRoot(newMember);
             frmMain f = new frmMain();

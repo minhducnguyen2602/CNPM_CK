@@ -16,7 +16,7 @@ namespace New_DOAN
 {
     public partial class frmSetting : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
         private MemberDAO memberDAO;
 
         public object MemberDataGridView { get; private set; }
@@ -118,7 +118,7 @@ namespace New_DOAN
                     }
                 }
             }
-            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True";
             string query = "UPDATE THANHVIEN SET MaNNghiep = @MANN, MaQQ = @MAQQ WHERE MaTV = @MATV";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, conn))
