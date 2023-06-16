@@ -31,11 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.btnAddMem = new System.Windows.Forms.Button();
             this.comboRelationship = new System.Windows.Forms.ComboBox();
+            this.qUANHEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dOAN8DataSet = new New_DOAN.DOAN8DataSet();
             this.dateTimePickerBirth = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerOccurred = new System.Windows.Forms.DateTimePicker();
             this.comboExistingMember = new System.Windows.Forms.ComboBox();
             this.tHANHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dOAN8DataSet = new New_DOAN.DOAN8DataSet();
             this.comboJob = new System.Windows.Forms.ComboBox();
             this.nGHENGHIEPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -56,10 +57,14 @@
             this.qUEQUANTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.QUEQUANTableAdapter();
             this.nGHENGHIEPTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.NGHENGHIEPTableAdapter();
             this.comboBoxGT = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
+            this.qUANHETableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.QUANHETableAdapter();
+            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.qUANHEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qUEQUANBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddMem
@@ -74,15 +79,26 @@
             // 
             // comboRelationship
             // 
+            this.comboRelationship.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.qUANHEBindingSource, "LoaiQH", true));
+            this.comboRelationship.DataSource = this.qUANHEBindingSource;
+            this.comboRelationship.DisplayMember = "LoaiQH";
             this.comboRelationship.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRelationship.FormattingEnabled = true;
-            this.comboRelationship.Items.AddRange(new object[] {
-            "Vợ / Chồng",
-            "Con"});
             this.comboRelationship.Location = new System.Drawing.Point(169, 129);
             this.comboRelationship.Name = "comboRelationship";
             this.comboRelationship.Size = new System.Drawing.Size(342, 24);
             this.comboRelationship.TabIndex = 56;
+            this.comboRelationship.ValueMember = "LoaiQH";
+            // 
+            // qUANHEBindingSource
+            // 
+            this.qUANHEBindingSource.DataMember = "QUANHE";
+            this.qUANHEBindingSource.DataSource = this.dOAN8DataSet;
+            // 
+            // dOAN8DataSet
+            // 
+            this.dOAN8DataSet.DataSetName = "DOAN8DataSet";
+            this.dOAN8DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dateTimePickerBirth
             // 
@@ -115,11 +131,6 @@
             // 
             this.tHANHVIENBindingSource.DataMember = "THANHVIEN";
             this.tHANHVIENBindingSource.DataSource = this.dOAN8DataSet;
-            // 
-            // dOAN8DataSet
-            // 
-            this.dOAN8DataSet.DataSetName = "DOAN8DataSet";
-            this.dOAN8DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboJob
             // 
@@ -285,6 +296,12 @@
             // 
             // comboBoxGT
             // 
+            this.comboBoxGT.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.comboBoxGT.AllowDrop = true;
+            this.comboBoxGT.AutoCompleteCustomSource.AddRange(new string[] {
+            "Nam"});
+            this.comboBoxGT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBoxGT.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBoxGT.FormattingEnabled = true;
             this.comboBoxGT.Items.AddRange(new object[] {
             "Nam",
@@ -294,6 +311,14 @@
             this.comboBoxGT.Size = new System.Drawing.Size(339, 24);
             this.comboBoxGT.TabIndex = 62;
             this.comboBoxGT.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // qUANHETableAdapter
+            // 
+            this.qUANHETableAdapter.ClearBeforeFill = true;
+            // 
+            // errorProvider5
+            // 
+            this.errorProvider5.ContainerControl = this;
             // 
             // frmAdd
             // 
@@ -324,10 +349,12 @@
             this.Name = "frmAdd";
             this.Text = "Thêm thành viên";
             this.Load += new System.EventHandler(this.frmAdd_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANHEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qUEQUANBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,5 +389,8 @@
         private System.Windows.Forms.BindingSource nGHENGHIEPBindingSource;
         private DOAN8DataSetTableAdapters.NGHENGHIEPTableAdapter nGHENGHIEPTableAdapter;
         private System.Windows.Forms.ComboBox comboBoxGT;
+        private System.Windows.Forms.BindingSource qUANHEBindingSource;
+        private DOAN8DataSetTableAdapters.QUANHETableAdapter qUANHETableAdapter;
+        private System.Windows.Forms.ErrorProvider errorProvider5;
     }
 }

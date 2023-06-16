@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,9 @@ namespace New_DOAN
             memberDAO = new MemberDAO();
             conn.Open();
             LoadMemberList1();
+            this.comboBoxGT.SelectedIndex = 0;
+            this.txtFullName.Text = "";
+            this.txtAddress.Text = "";
         }
 
         void loadNghe()
@@ -65,6 +69,17 @@ namespace New_DOAN
             comboExistingMember.DisplayMember = "HoTen"; // Thiết lập cột hiển thị
             comboExistingMember.ValueMember = "HoTen"; // Thiết lập cột giá trị
         }
+        void loadQH()
+        {
+            var cmdq = new SqlCommand("SELECT LoaiQH\r\nFROM (\r\n  SELECT LoaiQH, ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS RowNum\r\n  FROM QUANHE\r\n) AS T\r\nWHERE RowNum > 1;\r\n", conn);
+            var drq = cmdq.ExecuteReader();
+            var dtq = new DataTable();
+            dtq.Load(drq);
+            drq.Dispose();
+            comboRelationship.DataSource = dtq;
+            comboRelationship.DisplayMember = "LoaiQH"; // Thiết lập cột hiển thị
+            comboRelationship.ValueMember = "LoaiQH"; // Thiết lập cột giá trị
+        }
 
         public void LoadMemberList1()
         {
@@ -77,7 +92,7 @@ namespace New_DOAN
 
 
         private void btnAddMem_Click(object sender, EventArgs e)
-        {
+        {    
 
             MemberDTO newMember = new MemberDTO();
             if (comboExistingMember.SelectedItem != null)
@@ -116,14 +131,35 @@ namespace New_DOAN
                     }
                 }
             }
-            newMember.MAQH = comboRelationship.SelectedItem.ToString();
+            string maqh = "";
+            string tenqh = comboRelationship.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select MaQH from QUANHE where LoaiQH = @QUANHE", conn))
+            {
+
+                command.Parameters.AddWithValue("@QUANHE", tenqh);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        maqh = reader.GetString(0);
+                    }
+                }
+            }
+            newMember.MAQH = maqh;
             newMember.NGPSINH = DateTime.Parse(dateTimePickerOccurred.Text);
+            
             newMember.HOTEN = txtFullName.Text;
-            newMember.GT = comboBoxGT.SelectedItem.ToString();
+            newMember.GT = comboBoxGT.SelectedItem.ToString();  
             newMember.NGSINH = DateTime.Parse(dateTimePickerBirth.Text);
             newMember.MAQQ = maqq;// Lấy giá trị từ cột giá trị
             newMember.MANN = mann; // Lấy giá trị từ cột giá trị
-            newMember.DIACHI = txtAddress.Text;
+            if (txtAddress.Text == "" || txtFullName.Text=="")
+            {
+                errorProvider5.SetError(btnAddMem, "Chưa điền thông tin");
+            }
+            else newMember.DIACHI = txtAddress.Text;
             var querydemmatv = "Select count(*) from THANHVIEN";
             var count = 0;
             using (SqlCommand command = new SqlCommand(querydemmatv, conn))
@@ -149,8 +185,9 @@ namespace New_DOAN
                 }
             }
             string makt = "Them" + count.ToString();
-            ; newMember.MATV = makt;
-            if (newMember.MAQH == "Con")
+            ; 
+            newMember.MATV = makt;
+            if (newMember.MAQH == "qh1")
             {
                 newMember.DOI = count1 + 1;
             }
@@ -163,9 +200,11 @@ namespace New_DOAN
         public void frmAdd_Load(object sender, EventArgs e)
         {
 
+
             loadNghe();
             loadQue();
             loadTVcu();
+            loadQH();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

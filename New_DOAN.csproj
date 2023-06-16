@@ -185,6 +185,7 @@
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\MemberDAO.cs" />
     <Compile Include="DAO\MinusDAO.cs" />
+    <Compile Include="DAO\ReportDAO.cs" />
     <Compile Include="DOAN8DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +194,7 @@
     <Compile Include="DTO\AchiveDTO.cs" />
     <Compile Include="DTO\MemberDTO.cs" />
     <Compile Include="DTO\MinusDTO.cs" />
+    <Compile Include="DTO\ReportDTO.cs" />
     <Compile Include="fAchive.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +243,12 @@
     <Compile Include="fSearch.Designer.cs">
       <DependentUpon>fSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="fSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSetting.Designer.cs">
+      <DependentUpon>fSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="testingDataSet.Designer.cs">
@@ -286,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fSearch.resx">
       <DependentUpon>fSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSetting.resx">
+      <DependentUpon>fSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

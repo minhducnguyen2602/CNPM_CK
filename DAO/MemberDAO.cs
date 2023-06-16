@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,9 +15,10 @@ namespace New_DOAN.DAO
 
         public MemberDAO()
         {
-
+            
         }
-
+    
+        
         public void SaveMember(MemberDTO member)
         {
 
@@ -82,7 +84,7 @@ namespace New_DOAN.DAO
                     command.ExecuteNonQuery();
 
                     // Thông báo thành công
-                    MessageBox.Show("Dữ liệu đã được gửi thành công!");
+                    MessageBox.Show("Tên đăng nhập của bạn là: " + member.HOTEN.ToString() + " , mật khẩu là: 1");
 
                 }
                 catch (Exception ex)

@@ -102,3 +102,4 @@ C:\Users\ACER\Desktop\CNPM CK\CNPM_CK\bin\Debug\ru\Microsoft.Data.SqlClient.reso
 C:\Users\ACER\Desktop\CNPM CK\CNPM_CK\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\ACER\Desktop\CNPM CK\CNPM_CK\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\ACER\Desktop\CNPM CK\CNPM_CK\obj\Debug\New_DOAN.csproj.CopyComplete
+C:\Users\ACER\Desktop\CNPM CK\CNPM_CK\obj\Debug\New_DOAN.frmSetting.resources

@@ -69,6 +69,55 @@ namespace New_DOAN
             }
         }
 
+        public bool IsMemberExist(string matv)
+        {
+            string query = "SELECT COUNT(*) FROM KETTHUC WHERE MaTV = @MATV";
+            SqlCommand command = new SqlCommand(query, conn);
+            command.Parameters.AddWithValue("@MATV", matv);
+
+            bool exists = false;
+
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+
+            try
+            {
+                int count = (int)command.ExecuteScalar();
+                exists = count > 0;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+
+            return exists;
+        }
+
+
+
+        public void UpdateMinus(string matv, string nnmat, string ddmt)
+        {
+            string query = "UPDATE KETTHUC SET  MaNNhan = @NNMAT, MaDD = @DDMT WHERE MaTV = @MATV";
+            SqlCommand command = new SqlCommand(query, conn);
+            command.Parameters.AddWithValue("@NNMAT", nnmat);
+            command.Parameters.AddWithValue("@DDMT", ddmt);
+            command.Parameters.AddWithValue("@MATV", matv);
+
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+        }
+
         private void btnMinus_Click(object sender, EventArgs e)
         {
  
@@ -135,6 +184,7 @@ namespace New_DOAN
             minusDAO.SaveMinus(member);
         }
 
+
         private void frmMinus_Load(object sender, EventArgs e)
         {
             loadTV();
@@ -146,5 +196,7 @@ namespace New_DOAN
         {
 
         }
+
+        
     }
 }

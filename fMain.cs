@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace New_DOAN
 {
     public partial class frmMain : Form
     {
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
         private int key = 1;
         public frmMain()
         {
@@ -39,7 +41,7 @@ namespace New_DOAN
         {
             key = 1;
             LoadForm(new frmAdd());
-            string query = "Select TVCU as 'Thành viên cũ', MaQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP where THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -60,21 +62,24 @@ namespace New_DOAN
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            key = 5;
             LoadForm(new frmReport());
+            string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             key = 4;
             LoadForm(new frmSearch());
-            string query = "Select MaTV as 'Họ Tên', NgSinh as 'Ngày Sinh' , Doi as 'Đời', MaQH as 'Cha/Mẹ' from THANHVIEN";
+            string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
         public void LoadMemberList()
         {
             if (key == 1)
             {
-                string query = "Select TVCU as 'Thành viên cũ', MaQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP where THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+                string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
             }
             if (key == 2)
@@ -89,7 +94,12 @@ namespace New_DOAN
             }
             if (key == 4)
             {
-                string query = "Select MaTV as 'Họ Tên', NgSinh as 'Ngày Sinh' , Doi as 'Đời', MaQH as 'Cha/Mẹ' from THANHVIEN";
+                string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+                dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            } 
+            if (key == 5)
+            {
+                string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
             }    
         }
@@ -106,12 +116,83 @@ namespace New_DOAN
                 "",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
-            if (result == DialogResult.Yes) Close();
+            if (result == DialogResult.Yes)
+            {
+                fLogin lg = new fLogin();
+                this.Hide();
+
+                
+                lg.ShowDialog();
+            }
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
             LoadMemberList();
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            key = 1;
+            LoadForm(new frmSetting());
+            string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+               
+        }
+
+        private void khởiTạoLạiThànhViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True"))
+            {
+                connection.Open();
+                string query = "Delete from THANHVIEN; DELETE from THANHTICH; DELETE from KETTHUC";
+                using (SqlCommand command = new SqlCommand(query,connection))
+                {
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Đã xóa hết dữ liệu liên quan đến thành viên");
+                    fLogin lg = new fLogin();
+                    this.Hide();
+
+
+                    lg.ShowDialog();
+                }    
+
+            }
+
+        }
+
+        private void khởiTạoLạiThànhTíchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True"))
+            {
+                connection.Open();
+                string query = "DELETE from THANHTICH";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Đã xóa hết dữ liệu liên quan đến thành tích");
+                }
+
+            }
+        }
+
+        private void khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True"))
+            {
+                connection.Open();
+                string query = "DELETE from KETTHUC";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Đã xóa hết dữ liệu liên quan đến ghi nhận kết thúc");
+                }
+
+            }
         }
     }
     

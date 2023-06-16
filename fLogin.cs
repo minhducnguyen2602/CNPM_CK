@@ -7,31 +7,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
 namespace New_DOAN
 {
     public partial class fLogin : Form
     {
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
         public fLogin()
         {
             InitializeComponent();
+            txtAccount.Text = "";
+            txtPassword.Text = "";
+            conn.Open();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtAccount.Text != "admin")
-                errorProvider1.SetError(txtAccount, "Bạn chưa điền tên đăng nhập");
+            string madd = "";
+            string tendd = "Them0";
+            
+            using (SqlCommand command = new SqlCommand("Select HoTen from THANHVIEN where MaTV = @DIADIEM", conn))
+            {
+
+                command.Parameters.AddWithValue("@DIADIEM", tendd);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        madd = reader.GetString(0);
+                    }
+                }
+            }
+
+            if (txtAccount.Text != madd)
+            {
+  
+                errorProvider1.SetError(txtAccount, "Bạn chưa điền tên đăng nhập/Tên đăng nhập sai");
+            }    
+                
             else
             {
+
                 errorProvider1.Clear();
-                if (txtPassword.Text != "admin")
-                    errorProvider1.SetError(txtPassword, "Sai mật khẩu");
+                if (txtPassword.Text != "1")
+                    errorProvider1.SetError(txtPassword, "Bạn chưa nhập mật khẩu/Sai mật khẩu");
                 else
                 {
+
                     frmMain f = new frmMain();
                     this.Hide();
                     f.ShowDialog();
-                    this.Show();
                 }
             }
         }
@@ -43,12 +70,13 @@ namespace New_DOAN
                 "",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
-            if (result == DialogResult.Yes) Close();
+            if (result == DialogResult.Yes) Application.Exit();
         }
 
         private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Cảm ơn đã sử dụng phần mềm");
+            Application.Exit();
+
         }
 
         private void btnCreate_Click(object sender, EventArgs e)

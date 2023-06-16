@@ -47,6 +47,11 @@
             this.pContainer = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtgvShow = new System.Windows.Forms.DataGridView();
+            this.lblSetting = new System.Windows.Forms.Label();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.khởiTạoLạiThànhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.khởiTạoLạiThànhTíchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,15 +66,20 @@
             this.đăngXuấtToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1307, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1307, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // adminToolStripMenuItem
             // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.khởiTạoLạiThànhViênToolStripMenuItem,
+            this.khởiTạoLạiThànhTíchToolStripMenuItem,
+            this.khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
-            this.adminToolStripMenuItem.Text = "Admin";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
+            this.adminToolStripMenuItem.Text = "Khởi tạo lại";
+            this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
@@ -80,6 +90,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnSetting);
+            this.panel3.Controls.Add(this.lblSetting);
             this.panel3.Controls.Add(this.btnReload);
             this.panel3.Controls.Add(this.btnMinus);
             this.panel3.Controls.Add(this.btnAchive);
@@ -229,13 +241,58 @@
             // 
             // dtgvShow
             // 
+            this.dtgvShow.AllowUserToAddRows = false;
+            this.dtgvShow.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dtgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvShow.Location = new System.Drawing.Point(0, 4);
             this.dtgvShow.Name = "dtgvShow";
+            this.dtgvShow.ReadOnly = true;
             this.dtgvShow.RowHeadersWidth = 51;
             this.dtgvShow.RowTemplate.Height = 24;
             this.dtgvShow.Size = new System.Drawing.Size(728, 723);
             this.dtgvShow.TabIndex = 0;
+            // 
+            // lblSetting
+            // 
+            this.lblSetting.AutoSize = true;
+            this.lblSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSetting.Location = new System.Drawing.Point(907, 10);
+            this.lblSetting.Name = "lblSetting";
+            this.lblSetting.Size = new System.Drawing.Size(130, 16);
+            this.lblSetting.TabIndex = 15;
+            this.lblSetting.Text = "Thay đổi thông tin";
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSetting.BackgroundImage")));
+            this.btnSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSetting.Location = new System.Drawing.Point(862, 0);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(39, 36);
+            this.btnSetting.TabIndex = 16;
+            this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
+            // khởiTạoLạiThànhViênToolStripMenuItem
+            // 
+            this.khởiTạoLạiThànhViênToolStripMenuItem.Name = "khởiTạoLạiThànhViênToolStripMenuItem";
+            this.khởiTạoLạiThànhViênToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+            this.khởiTạoLạiThànhViênToolStripMenuItem.Text = "Khởi tạo lại Thành viên";
+            this.khởiTạoLạiThànhViênToolStripMenuItem.Click += new System.EventHandler(this.khởiTạoLạiThànhViênToolStripMenuItem_Click);
+            // 
+            // khởiTạoLạiThànhTíchToolStripMenuItem
+            // 
+            this.khởiTạoLạiThànhTíchToolStripMenuItem.Name = "khởiTạoLạiThànhTíchToolStripMenuItem";
+            this.khởiTạoLạiThànhTíchToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+            this.khởiTạoLạiThànhTíchToolStripMenuItem.Text = "Khởi tạo lại Thành tích";
+            this.khởiTạoLạiThànhTíchToolStripMenuItem.Click += new System.EventHandler(this.khởiTạoLạiThànhTíchToolStripMenuItem_Click);
+            // 
+            // khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem
+            // 
+            this.khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem.Name = "khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem";
+            this.khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+            this.khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem.Text = "Khởi tạo lại Ghi nhận kết thúc";
+            this.khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem.Click += new System.EventHandler(this.khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -282,5 +339,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dtgvShow;
         private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Label lblSetting;
+        private System.Windows.Forms.ToolStripMenuItem khởiTạoLạiThànhViênToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem khởiTạoLạiThànhTíchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem khởiTạoLạiGhiNhậnKếtThúcToolStripMenuItem;
     }
 }

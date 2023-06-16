@@ -22,6 +22,7 @@ namespace New_DOAN
             InitializeComponent();
             memberDAO = new MemberDAO();
             connect.Open();
+            this.comboBox1.SelectedIndex = 0;
         }
 
         void loadNghe()
@@ -50,8 +51,11 @@ namespace New_DOAN
 
         private void btnGetInfo_Click(object sender, EventArgs e)
         {
+            // Kiểm tra nếu mã thành viên "Them0" đã tồn tại
+            
+
             MemberDTO newMember = new MemberDTO();
-            newMember.MAQH = "NONE";
+            newMember.MAQH = "qh0";
             newMember.NGPSINH = DateTime.Parse(dateTimePicker1.Text);
             newMember.HOTEN = txtName.Text;
             newMember.GT = comboBox1.SelectedItem.ToString();
@@ -87,12 +91,44 @@ namespace New_DOAN
                     }
                 }
             }
+            connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
+            int count = 0;
+            connect.Open();
+            string name = "";
+            using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM THANHVIEN WHERE MaTV = @MemberCode", connect))
+            {
+                command.Parameters.AddWithValue("@MemberCode", "Them0");
+                count = (int)command.ExecuteScalar();
+  
+            }
+            if (count != 0)
+            {
+                using (SqlCommand command = new SqlCommand("SELECT HoTen FROM THANHVIEN WHERE MaTV = @MemberCode", connect))
+                {
+                    command.Parameters.AddWithValue("@MemberCode", "Them0");
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            name = reader.GetString(0);
+                        }
+                    }
+                    connect.Close();
+
+                }
+                MessageBox.Show("Đã tồn tại một cây gia phả! Tên tài khoản cũ của bạn là: " + name.ToString(), "Thông báo");
+                fLogin l = new fLogin();
+                this.Hide();
+                l.ShowDialog();
+                this.Show();
+
+            }
             newMember.NGSINH = DateTime.Parse(datBirthday.Text);
             newMember.MAQQ = maqq;// Lấy giá trị từ cột giá trị
             newMember.MANN = mann;// Lấy giá trị từ cột giá trị
             newMember.DIACHI = txtAddress.Text;
             newMember.TVCU = "NONE";
-            newMember.MATV = newMember.HOTEN;
+            newMember.MATV = "Them0";
             newMember.DOI = 0;
             memberDAO.SaveRoot(newMember);
             frmMain f = new frmMain();
@@ -100,6 +136,7 @@ namespace New_DOAN
             f.ShowDialog();
             this.Show();
         }
+
         private void frmCreate_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'testingDataSet6.NGHENGHIEP' table. You can move, or remove it, as needed.

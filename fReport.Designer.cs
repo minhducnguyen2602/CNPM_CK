@@ -28,28 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.lblYear1 = new System.Windows.Forms.Label();
             this.lblYear2 = new System.Windows.Forms.Label();
             this.btnBorn = new System.Windows.Forms.Button();
             this.btnAchive = new System.Windows.Forms.Button();
             this.lblReport = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.dtgvReport = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvReport)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(203, 77);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(300, 22);
-            this.dateTimePicker1.TabIndex = 0;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(203, 139);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(300, 22);
-            this.dateTimePicker2.TabIndex = 1;
             // 
             // lblYear1
             // 
@@ -79,6 +67,7 @@
             this.btnBorn.TabIndex = 4;
             this.btnBorn.Text = "Báo cáo tăng / giảm";
             this.btnBorn.UseVisualStyleBackColor = true;
+            this.btnBorn.Click += new System.EventHandler(this.btnBorn_Click);
             // 
             // btnAchive
             // 
@@ -88,6 +77,7 @@
             this.btnAchive.TabIndex = 5;
             this.btnAchive.Text = "Báo cáo thành tích";
             this.btnAchive.UseVisualStyleBackColor = true;
+            this.btnAchive.Click += new System.EventHandler(this.btnAchive_Click);
             // 
             // lblReport
             // 
@@ -100,34 +90,64 @@
             this.lblReport.TabIndex = 7;
             this.lblReport.Text = "LẬP BÁO CÁO";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(199, 79);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(293, 22);
+            this.textBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(199, 141);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(293, 22);
+            this.textBox2.TabIndex = 9;
+            // 
+            // dtgvReport
+            // 
+            this.dtgvReport.AllowUserToAddRows = false;
+            this.dtgvReport.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dtgvReport.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dtgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvReport.Location = new System.Drawing.Point(13, 271);
+            this.dtgvReport.Name = "dtgvReport";
+            this.dtgvReport.ReadOnly = true;
+            this.dtgvReport.RowHeadersWidth = 51;
+            this.dtgvReport.RowTemplate.Height = 24;
+            this.dtgvReport.Size = new System.Drawing.Size(522, 459);
+            this.dtgvReport.TabIndex = 10;
+            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 742);
+            this.Controls.Add(this.dtgvReport);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblReport);
             this.Controls.Add(this.btnAchive);
             this.Controls.Add(this.btnBorn);
             this.Controls.Add(this.lblYear2);
             this.Controls.Add(this.lblYear1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReport";
             this.Text = "fReport";
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label lblYear1;
         private System.Windows.Forms.Label lblYear2;
         private System.Windows.Forms.Button btnBorn;
         private System.Windows.Forms.Button btnAchive;
         private System.Windows.Forms.Label lblReport;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridView dtgvReport;
     }
 }

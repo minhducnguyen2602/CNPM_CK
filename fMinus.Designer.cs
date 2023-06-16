@@ -34,26 +34,26 @@
             this.lblPlace = new System.Windows.Forms.Label();
             this.btnMinus = new System.Windows.Forms.Button();
             this.comboMinusName = new System.Windows.Forms.ComboBox();
+            this.tHANHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testingDataSet = new New_DOAN.testingDataSet();
             this.comboMinusCause = new System.Windows.Forms.ComboBox();
+            this.nNMATBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testingDataSet1 = new New_DOAN.testingDataSet1();
             this.comboMinusPlace = new System.Windows.Forms.ComboBox();
+            this.dDMTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testingDataSet2 = new New_DOAN.testingDataSet2();
             this.lblMinus = new System.Windows.Forms.Label();
             this.lblMinusDate = new System.Windows.Forms.Label();
             this.dateTimePickerMinus = new System.Windows.Forms.DateTimePicker();
-            this.dDMTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.testingDataSet2 = new New_DOAN.testingDataSet2();
-            this.nNMATBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.testingDataSet1 = new New_DOAN.testingDataSet1();
-            this.tHANHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.testingDataSet = new New_DOAN.testingDataSet();
             this.tHANHVIENTableAdapter = new New_DOAN.testingDataSetTableAdapters.THANHVIENTableAdapter();
             this.nNMATTableAdapter = new New_DOAN.testingDataSet1TableAdapters.NNMATTableAdapter();
             this.dDMTTableAdapter = new New_DOAN.testingDataSet2TableAdapters.DDMTTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dDMTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nNMATBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nNMATBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dDMTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMinusName
@@ -88,11 +88,11 @@
             // 
             // btnMinus
             // 
-            this.btnMinus.Location = new System.Drawing.Point(236, 301);
+            this.btnMinus.Location = new System.Drawing.Point(224, 293);
             this.btnMinus.Name = "btnMinus";
-            this.btnMinus.Size = new System.Drawing.Size(75, 23);
+            this.btnMinus.Size = new System.Drawing.Size(155, 33);
             this.btnMinus.TabIndex = 3;
-            this.btnMinus.Text = "Ghi nhận";
+            this.btnMinus.Text = "Ghi nhận / Cập Nhật";
             this.btnMinus.UseVisualStyleBackColor = true;
             this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
             // 
@@ -106,6 +106,16 @@
             this.comboMinusName.TabIndex = 4;
             this.comboMinusName.SelectedIndexChanged += new System.EventHandler(this.comboMinusName_SelectedIndexChanged);
             // 
+            // tHANHVIENBindingSource
+            // 
+            this.tHANHVIENBindingSource.DataMember = "THANHVIEN";
+            this.tHANHVIENBindingSource.DataSource = this.testingDataSet;
+            // 
+            // testingDataSet
+            // 
+            this.testingDataSet.DataSetName = "testingDataSet";
+            this.testingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // comboMinusCause
             // 
             this.comboMinusCause.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nNMATBindingSource, "LoaiNN", true));
@@ -115,6 +125,16 @@
             this.comboMinusCause.Size = new System.Drawing.Size(287, 24);
             this.comboMinusCause.TabIndex = 5;
             // 
+            // nNMATBindingSource
+            // 
+            this.nNMATBindingSource.DataMember = "NNMAT";
+            this.nNMATBindingSource.DataSource = this.testingDataSet1;
+            // 
+            // testingDataSet1
+            // 
+            this.testingDataSet1.DataSetName = "testingDataSet1";
+            this.testingDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // comboMinusPlace
             // 
             this.comboMinusPlace.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.dDMTBindingSource, "DiaDiem", true));
@@ -123,6 +143,16 @@
             this.comboMinusPlace.Name = "comboMinusPlace";
             this.comboMinusPlace.Size = new System.Drawing.Size(287, 24);
             this.comboMinusPlace.TabIndex = 6;
+            // 
+            // dDMTBindingSource
+            // 
+            this.dDMTBindingSource.DataMember = "DDMT";
+            this.dDMTBindingSource.DataSource = this.testingDataSet2;
+            // 
+            // testingDataSet2
+            // 
+            this.testingDataSet2.DataSetName = "testingDataSet2";
+            this.testingDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblMinus
             // 
@@ -151,36 +181,6 @@
             this.dateTimePickerMinus.Name = "dateTimePickerMinus";
             this.dateTimePickerMinus.Size = new System.Drawing.Size(287, 22);
             this.dateTimePickerMinus.TabIndex = 9;
-            // 
-            // dDMTBindingSource
-            // 
-            this.dDMTBindingSource.DataMember = "DDMT";
-            this.dDMTBindingSource.DataSource = this.testingDataSet2;
-            // 
-            // testingDataSet2
-            // 
-            this.testingDataSet2.DataSetName = "testingDataSet2";
-            this.testingDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nNMATBindingSource
-            // 
-            this.nNMATBindingSource.DataMember = "NNMAT";
-            this.nNMATBindingSource.DataSource = this.testingDataSet1;
-            // 
-            // testingDataSet1
-            // 
-            this.testingDataSet1.DataSetName = "testingDataSet1";
-            this.testingDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tHANHVIENBindingSource
-            // 
-            this.tHANHVIENBindingSource.DataMember = "THANHVIEN";
-            this.tHANHVIENBindingSource.DataSource = this.testingDataSet;
-            // 
-            // testingDataSet
-            // 
-            this.testingDataSet.DataSetName = "testingDataSet";
-            this.testingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tHANHVIENTableAdapter
             // 
@@ -213,12 +213,12 @@
             this.Name = "frmMinus";
             this.Text = "Ghi nhận kết thúc";
             this.Load += new System.EventHandler(this.frmMinus_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dDMTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nNMATBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nNMATBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dDMTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testingDataSet2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

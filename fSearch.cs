@@ -17,23 +17,12 @@ namespace New_DOAN
     public partial class frmSearch : Form
     {
         SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True");
-        private MemberDAO memberDAO;
-        public DataGridView MemberDataGridView { get; set; }
 
         public frmSearch()
         {
             InitializeComponent();
-            memberDAO = new MemberDAO();
             conn.Open();
 
-        }
-        public void LoadMemberList1(string query)
-        {
-            
-            if (MemberDataGridView != null)
-            {
-                MemberDataGridView.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            }
         }
         void loadTVcu()
         {
@@ -60,18 +49,87 @@ namespace New_DOAN
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string ten = comboSearchName.SelectedValue.ToString();
-            string query = "Select * from THANHVIEN WHERE HoTen = @HOTEN";
-            using (SqlCommand command = new SqlCommand("Select HoTen from THANHVIEN where HoTen = @HOTEN", conn))
+            string madh = "";
+            string tendh = comboSearchName.SelectedValue.ToString();
+            using (SqlCommand command1 = new SqlCommand("Select MaQH from THANHVIEN where HoTen = @HOTEN", conn))
             {
-                // Thêm tham số @HOTEN và giá trị của biến vào câu truy vấn
-                command.Parameters.AddWithValue("@HOTEN", ten);
 
+                command1.Parameters.AddWithValue("@HOTEN", tendh);
+
+
+                using (SqlDataReader reader = command1.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        madh= reader.GetString(0);
+                    }
+                }
+            }
+            string query = "";
+            if (madh == "qh0")
+            {
+                query = "SELECT HoTen AS 'Họ Tên', NgSinh AS 'Ngày Sinh', Doi AS 'Đời', @TVCU AS 'Cha/Mẹ' FROM THANHVIEN WHERE HoTen = @HoTen";
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@HoTen", tendh);
+                command.Parameters.AddWithValue("@TVCU", "NONE");
+                DataTable data = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(data);
+                dtgvSearch.DataSource = data;
+            }    
+            else if (madh == "qh1")
+            {
+                query = "SELECT HoTen AS 'Họ Tên', NgSinh AS 'Ngày Sinh', Doi AS 'Đời', TVCu AS 'Cha/Mẹ' FROM THANHVIEN WHERE HoTen = @HoTen";
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@HoTen", tendh);
+                DataTable data = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(data);
+                dtgvSearch.DataSource = data;
+            }    
+            else
+            {
+                string tenchong = "";
+                string tenbochong = "";
+                using (SqlCommand command1 = new SqlCommand("Select TVCu from THANHVIEN where HoTen = @HOTEN", conn))
+                {
+
+                    command1.Parameters.AddWithValue("@HOTEN", tendh);
+
+
+                    using (SqlDataReader reader = command1.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            tenchong = reader.GetString(0);
+                        }
+                    }
+                }
+                using (SqlCommand command1 = new SqlCommand("Select TVCu from THANHVIEN where HoTen = @HOTENCHONG", conn))
+                {
+
+                    command1.Parameters.AddWithValue("@HOTENCHONG", tenchong);
+
+
+                    using (SqlDataReader reader = command1.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            tenbochong = reader.GetString(0);
+                        }
+                    }
+                }
+                query = "SELECT HoTen AS 'Họ Tên', NgSinh AS 'Ngày Sinh', Doi AS 'Đời', @tenchong AS 'Cha/Mẹ' FROM THANHVIEN WHERE HoTen = @HoTen";
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@HoTen", tendh);
+                command.Parameters.AddWithValue("@tenchong", tenbochong);
+                DataTable data = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(data);
+                dtgvSearch.DataSource = data;
 
             }
-
-
-            LoadMemberList1(query);
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
