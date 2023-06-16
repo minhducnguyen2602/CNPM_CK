@@ -39,14 +39,14 @@ namespace New_DOAN
         }
         void loadTV()
         {
-            var cmdq = new SqlCommand("Select HoTen from THANHVIEN", conn);
+            var cmdq = new SqlCommand("Select MaTV from THANHVIEN", conn);
             var drq = cmdq.ExecuteReader();
             var dtq = new DataTable();
             dtq.Load(drq);
             drq.Dispose();
             comboAchiveName.DataSource = dtq;
-            comboAchiveName.DisplayMember = "HoTen"; // Thiết lập cột hiển thị
-            comboAchiveName.ValueMember = "HoTen"; // Thiết lập cột giá trị
+            comboAchiveName.DisplayMember = "MaTV"; // Thiết lập cột hiển thị
+            comboAchiveName.ValueMember = "MaTV"; // Thiết lập cột giá trị
         }
         void loadTT()
         {
@@ -71,24 +71,24 @@ namespace New_DOAN
         private void btnAchive_Click(object sender, EventArgs e)
         {
             AchiveDTO member = new AchiveDTO();
-            string matvv = "";
-            string ten = comboAchiveName.SelectedValue.ToString();
-            using (SqlCommand command = new SqlCommand("Select MaTV from THANHVIEN where HoTen = @HOTEN", conn))
-            {
+            //string matvv = "";
+            //string ten = comboAchiveName.SelectedValue.ToString();
+            //using (SqlCommand command = new SqlCommand("Select MaTV from THANHVIEN where HoTen = @HOTEN", conn))
+            //{
 
-                command.Parameters.AddWithValue("@HOTEN", ten);
+            //    command.Parameters.AddWithValue("@HOTEN", ten);
 
 
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        matvv = reader.GetString(0);
-                    }
-                }
-            }
-            member.MATV = matvv.ToString();
-            
+            //    using (SqlDataReader reader = command.ExecuteReader())
+            //    {
+            //        while (reader.Read())
+            //        {
+            //            matvv = reader.GetString(0);
+            //        }
+            //    }
+            //}
+            member.MATV = comboAchiveName.SelectedValue.ToString();
+
             string mattt = "";
             string tentt = comboAchiveType.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select LOAITT from NHAPTT where TenTT = @Tentt", conn))

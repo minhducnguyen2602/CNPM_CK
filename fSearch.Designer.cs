@@ -38,10 +38,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgvSearch = new System.Windows.Forms.DataGridView();
             this.tHANHVIENTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.THANHVIENTableAdapter();
+            this.tHANHVIENBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSearch
@@ -61,21 +63,21 @@
             this.lblSearchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearchName.Location = new System.Drawing.Point(60, 87);
             this.lblSearchName.Name = "lblSearchName";
-            this.lblSearchName.Size = new System.Drawing.Size(77, 16);
+            this.lblSearchName.Size = new System.Drawing.Size(73, 16);
             this.lblSearchName.TabIndex = 1;
-            this.lblSearchName.Text = "Họ và tên:";
+            this.lblSearchName.Text = "Họ và tên";
             // 
             // comboSearchName
             // 
-            this.comboSearchName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHANHVIENBindingSource, "HoTen", true));
-            this.comboSearchName.DataSource = this.tHANHVIENBindingSource;
-            this.comboSearchName.DisplayMember = "HoTen";
+            this.comboSearchName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHANHVIENBindingSource, "MaTV", true));
+            this.comboSearchName.DataSource = this.tHANHVIENBindingSource1;
+            this.comboSearchName.DisplayMember = "MaTV";
             this.comboSearchName.FormattingEnabled = true;
             this.comboSearchName.Location = new System.Drawing.Point(221, 83);
             this.comboSearchName.Name = "comboSearchName";
             this.comboSearchName.Size = new System.Drawing.Size(265, 24);
             this.comboSearchName.TabIndex = 2;
-            this.comboSearchName.ValueMember = "HoTen";
+            this.comboSearchName.ValueMember = "MaTV";
             this.comboSearchName.SelectedIndexChanged += new System.EventHandler(this.comboSearchName_SelectedIndexChanged);
             // 
             // tHANHVIENBindingSource
@@ -121,6 +123,11 @@
             // 
             this.tHANHVIENTableAdapter.ClearBeforeFill = true;
             // 
+            // tHANHVIENBindingSource1
+            // 
+            this.tHANHVIENBindingSource1.DataMember = "THANHVIEN";
+            this.tHANHVIENBindingSource1.DataSource = this.dOAN8DataSet;
+            // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -139,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +163,6 @@
         private DOAN8DataSet dOAN8DataSet;
         private System.Windows.Forms.BindingSource tHANHVIENBindingSource;
         private DOAN8DataSetTableAdapters.THANHVIENTableAdapter tHANHVIENTableAdapter;
+        private System.Windows.Forms.BindingSource tHANHVIENBindingSource1;
     }
 }

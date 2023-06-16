@@ -250,9 +250,9 @@
             this.lblExistingMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExistingMember.Location = new System.Drawing.Point(30, 81);
             this.lblExistingMember.Name = "lblExistingMember";
-            this.lblExistingMember.Size = new System.Drawing.Size(107, 16);
+            this.lblExistingMember.Size = new System.Drawing.Size(122, 16);
             this.lblExistingMember.TabIndex = 40;
-            this.lblExistingMember.Text = "Thành viên cũ:";
+            this.lblExistingMember.Text = "Mã thành viên cũ";
             // 
             // lblAdd
             // 

@@ -61,7 +61,7 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        madh= reader.GetString(0);
+                        madh = reader.GetString(0);
                     }
                 }
             }
@@ -76,7 +76,7 @@ namespace New_DOAN
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(data);
                 dtgvSearch.DataSource = data;
-            }    
+            }
             else if (madh == "qh1")
             {
                 query = "SELECT HoTen AS 'Họ Tên', NgSinh AS 'Ngày Sinh', Doi AS 'Đời', TVCu AS 'Cha/Mẹ' FROM THANHVIEN WHERE HoTen = @HoTen";
@@ -86,7 +86,7 @@ namespace New_DOAN
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(data);
                 dtgvSearch.DataSource = data;
-            }    
+            }
             else
             {
                 string tenchong = "";
@@ -129,7 +129,7 @@ namespace New_DOAN
                 dtgvSearch.DataSource = data;
 
             }
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

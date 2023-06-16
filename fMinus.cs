@@ -28,14 +28,14 @@ namespace New_DOAN
         }
         void loadTV()
         {
-            var cmdq = new SqlCommand("Select HoTen from THANHVIEN", conn);
+            var cmdq = new SqlCommand("Select MaTV from THANHVIEN", conn);
             var drq = cmdq.ExecuteReader();
             var dtq = new DataTable();
             dtq.Load(drq);
             drq.Dispose();
             comboMinusName.DataSource = dtq;
-            comboMinusName.DisplayMember = "HoTen"; // Thiết lập cột hiển thị
-            comboMinusName.ValueMember = "HoTen"; // Thiết lập cột giá trị
+            comboMinusName.DisplayMember = "MaTV"; // Thiết lập cột hiển thị
+            comboMinusName.ValueMember = "MaTV"; // Thiết lập cột giá trị
         }
         void loadNN()
         {
@@ -122,23 +122,25 @@ namespace New_DOAN
         {
  
             MinusDTO member = new MinusDTO();
-            string matvv = "";
-            string ten = comboMinusName.SelectedValue.ToString();
-            using (SqlCommand command = new SqlCommand("Select MaTV from THANHVIEN where HoTen = @HOTEN", conn))
-            {
+            //string matvv = "";
+            //string ten = comboMinusName.SelectedValue.ToString();
+            //using (SqlCommand command = new SqlCommand("Select MaTV from THANHVIEN where HoTen = @HOTEN", conn))
+            //{
          
-                command.Parameters.AddWithValue("@HOTEN", ten);
+            //    command.Parameters.AddWithValue("@HOTEN", ten);
 
 
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                       matvv = reader.GetString(0);
-                    }
-                }
-            }
-            member.MATV = matvv;
+            //    using (SqlDataReader reader = command.ExecuteReader())
+            //    {
+            //        while (reader.Read())
+            //        {
+            //           matvv = reader.GetString(0);
+            //        }
+            //    }
+            //}
+            //member.MATV = matvv;
+
+            member.MATV = comboMinusName.SelectedValue.ToString();
             string mann = "";
             string tennn = comboMinusCause.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select MaNNhan from NNMAT where LoaiNN = @LOAINN", conn))

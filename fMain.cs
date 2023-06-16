@@ -41,7 +41,7 @@ namespace New_DOAN
         {
             key = 1;
             LoadForm(new frmAdd());
-            string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            string query = "Select THANHVIEN.MaTV as 'Mã thành viên',TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -49,14 +49,14 @@ namespace New_DOAN
         {
             key = 2;
             LoadForm(new frmMinus());
-            string query = "select THANHVIEN.HoTen as 'Họ tên', KETTHUC.NgayMat as 'Ngày giờ mất', NNMAT.LoaiNN as 'Nguyên nhân', DDMT.DiaDiem as 'Địa điểm mai táng'\r\nfrom THANHVIEN, NNMAT, DDMT, KETTHUC\r\nwhere THANHVIEN.MaTV = KETTHUC.MaTV and KETTHUC.MaDD = DDMT.MaDD and KETTHUC.MaNNhan = NNMAT.MaNNhan";
+            string query = "select THANHVIEN.MaTV as 'Mã thành viên',THANHVIEN.HoTen as 'Họ tên', KETTHUC.NgayMat as 'Ngày giờ mất', NNMAT.LoaiNN as 'Nguyên nhân', DDMT.DiaDiem as 'Địa điểm mai táng'\r\nfrom THANHVIEN, NNMAT, DDMT, KETTHUC\r\nwhere THANHVIEN.MaTV = KETTHUC.MaTV and KETTHUC.MaDD = DDMT.MaDD and KETTHUC.MaNNhan = NNMAT.MaNNhan";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
         private void btnAchive_Click(object sender, EventArgs e)
         {
             key = 3;
             LoadForm(new frmAchive());
-            string query = "select THANHVIEN.HoTen as 'Họ tên', NHAPTT.TenTT as 'Loại thành tích', THANHTICH.NgPSinhTT as 'Ngày phát sinh'\r\nfrom THANHVIEN, NHAPTT,THANHTICH\r\nwhere THANHVIEN.MaTV = THANHTICH.MaTV and THANHTICH.LoaiTT = NHAPTT.LoaiTT";
+            string query = "select THANHVIEN.MaTV as 'Mã thành viên',THANHVIEN.HoTen as 'Họ tên', NHAPTT.TenTT as 'Loại thành tích', THANHTICH.NgPSinhTT as 'Ngày phát sinh'\r\nfrom THANHVIEN, NHAPTT,THANHTICH\r\nwhere THANHVIEN.MaTV = THANHTICH.MaTV and THANHTICH.LoaiTT = NHAPTT.LoaiTT";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -64,7 +64,7 @@ namespace New_DOAN
         {
             key = 5;
             LoadForm(new frmReport());
-            string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            string query = "Select THANHVIEN.MaTV as 'Mã thành viên',TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -72,34 +72,34 @@ namespace New_DOAN
         {
             key = 4;
             LoadForm(new frmSearch());
-            string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            string query = "Select THANHVIEN.MaTV as 'Mã thành viên', TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
         public void LoadMemberList()
         {
             if (key == 1)
             {
-                string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+                string query = "Select MaTV as 'Mã thành viên', TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
             }
             if (key == 2)
             {
-                string query = "select THANHVIEN.HoTen as 'Họ tên', KETTHUC.NgayMat as 'Ngày giờ mất', NNMAT.LoaiNN as 'Nguyên nhân', DDMT.DiaDiem as 'Địa điểm mai táng'\r\nfrom THANHVIEN, NNMAT, DDMT, KETTHUC\r\nwhere THANHVIEN.MaTV = KETTHUC.MaTV and KETTHUC.MaDD = DDMT.MaDD and KETTHUC.MaNNhan = NNMAT.MaNNhan";
+                string query = "select THANHVIEN.MaTV as 'Mã thành viên',THANHVIEN.HoTen as 'Họ tên', KETTHUC.NgayMat as 'Ngày giờ mất', NNMAT.LoaiNN as 'Nguyên nhân', DDMT.DiaDiem as 'Địa điểm mai táng'\r\nfrom THANHVIEN, NNMAT, DDMT, KETTHUC\r\nwhere THANHVIEN.MaTV = KETTHUC.MaTV and KETTHUC.MaDD = DDMT.MaDD and KETTHUC.MaNNhan = NNMAT.MaNNhan";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
             }
             if (key == 3)
             {
-                string query = "select THANHVIEN.HoTen as 'Họ tên', NHAPTT.TenTT as 'Loại thành tích', THANHTICH.NgPSinhTT as 'Ngày phát sinh'\r\nfrom THANHVIEN, NHAPTT,THANHTICH\r\nwhere THANHVIEN.MaTV = THANHTICH.MaTV and THANHTICH.LoaiTT = NHAPTT.LoaiTT";
+                string query = "select THANHVIEN.MaTV as 'Mã thành viên',THANHVIEN.HoTen as 'Họ tên', NHAPTT.TenTT as 'Loại thành tích', THANHTICH.NgPSinhTT as 'Ngày phát sinh'\r\nfrom THANHVIEN, NHAPTT,THANHTICH\r\nwhere THANHVIEN.MaTV = THANHTICH.MaTV and THANHTICH.LoaiTT = NHAPTT.LoaiTT";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
             }
             if (key == 4)
             {
-                string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+                string query = "Select THANHVIEN.MaTV as 'Mã thành viên',TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
             } 
             if (key == 5)
             {
-                string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+                string query = "Select THANHVIEN.MaTV as 'Mã thành viên',TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
             }    
         }
@@ -135,7 +135,7 @@ namespace New_DOAN
         {
             key = 1;
             LoadForm(new frmSetting());
-            string query = "Select TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            string query = "Select MaTV as 'Mã thành viên', TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', HoTen as 'Họ và tên', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 

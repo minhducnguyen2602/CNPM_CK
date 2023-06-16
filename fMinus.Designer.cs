@@ -62,9 +62,9 @@
             this.lblMinusName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMinusName.Location = new System.Drawing.Point(35, 87);
             this.lblMinusName.Name = "lblMinusName";
-            this.lblMinusName.Size = new System.Drawing.Size(77, 16);
+            this.lblMinusName.Size = new System.Drawing.Size(102, 16);
             this.lblMinusName.TabIndex = 0;
-            this.lblMinusName.Text = "Họ và tên:";
+            this.lblMinusName.Text = "Mã thành viên";
             // 
             // lblCause
             // 

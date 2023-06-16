@@ -49,14 +49,14 @@ namespace New_DOAN
         }
         void loadMaTV()
         {
-            var cmdq = new SqlCommand("Select HoTen from THANHVIEN", conn);
+            var cmdq = new SqlCommand("Select MaTV from THANHVIEN", conn);
             var drq = cmdq.ExecuteReader();
             var dtq = new DataTable();
             dtq.Load(drq);
             drq.Dispose();
             comboMaTV.DataSource = dtq;
-            comboMaTV.DisplayMember = "HoTen"; // Thiết lập cột hiển thị
-            comboMaTV.ValueMember = "HoTen"; // Thiết lập cột giá trị
+            comboMaTV.DisplayMember = "MaTV"; // Thiết lập cột hiển thị
+            comboMaTV.ValueMember = "MaTV"; // Thiết lập cột giá trị
         }
         void loadNN()
         {
@@ -119,7 +119,7 @@ namespace New_DOAN
                 }
             }
             string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN8;Integrated Security=True";
-            string query = "UPDATE THANHVIEN SET MaNNghiep = @MANN, MaQQ = @MAQQ WHERE HoTen = @MATV";
+            string query = "UPDATE THANHVIEN SET MaNNghiep = @MANN, MaQQ = @MAQQ WHERE MaTV = @MATV";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, conn))
             {

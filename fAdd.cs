@@ -60,14 +60,14 @@ namespace New_DOAN
 
         void loadTVcu()
         {
-            var cmdq = new SqlCommand("Select HoTen from THANHVIEN", conn);
+            var cmdq = new SqlCommand("Select MaTV from THANHVIEN", conn);
             var drq = cmdq.ExecuteReader();
             var dtq = new DataTable();
             dtq.Load(drq);
             drq.Dispose();
             comboExistingMember.DataSource = dtq;
-            comboExistingMember.DisplayMember = "HoTen"; // Thiết lập cột hiển thị
-            comboExistingMember.ValueMember = "HoTen"; // Thiết lập cột giá trị
+            comboExistingMember.DisplayMember = "MaTV"; // Thiết lập cột hiển thị
+            comboExistingMember.ValueMember = "MaTV"; // Thiết lập cột giá trị
         }
         void loadQH()
         {
@@ -92,12 +92,26 @@ namespace New_DOAN
 
 
         private void btnAddMem_Click(object sender, EventArgs e)
-        {    
-
+        {
+            string matvcu = "";
             MemberDTO newMember = new MemberDTO();
             if (comboExistingMember.SelectedItem != null)
             {
-                newMember.TVCU = comboExistingMember.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
+                matvcu = comboExistingMember.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
+            }
+            using (SqlCommand command = new SqlCommand("Select HoTen from THANHVIEN where MaTV = @MaTV", conn))
+            {
+
+                command.Parameters.AddWithValue("@MaTV", matvcu);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        newMember.TVCU = reader.GetString(0);
+                    }
+                }
             }
             string mann = "";
             string tennn = comboJob.SelectedValue.ToString();

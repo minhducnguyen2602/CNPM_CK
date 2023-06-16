@@ -33,21 +33,21 @@
             this.lblJob = new System.Windows.Forms.Label();
             this.lblTown = new System.Windows.Forms.Label();
             this.comboMaTV = new System.Windows.Forms.ComboBox();
-            this.comboMemberJob = new System.Windows.Forms.ComboBox();
-            this.comboTown = new System.Windows.Forms.ComboBox();
-            this.btnUpdateMember = new System.Windows.Forms.Button();
-            this.dOAN8DataSet = new New_DOAN.DOAN8DataSet();
             this.tHANHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tHANHVIENTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.THANHVIENTableAdapter();
-            this.qUEQUANBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qUEQUANTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.QUEQUANTableAdapter();
+            this.dOAN8DataSet = new New_DOAN.DOAN8DataSet();
+            this.comboMemberJob = new System.Windows.Forms.ComboBox();
             this.nGHENGHIEPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboTown = new System.Windows.Forms.ComboBox();
+            this.qUEQUANBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnUpdateMember = new System.Windows.Forms.Button();
+            this.tHANHVIENTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.THANHVIENTableAdapter();
+            this.qUEQUANTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.QUEQUANTableAdapter();
             this.nGHENGHIEPTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.NGHENGHIEPTableAdapter();
             this.lblMaTV = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUEQUANBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUEQUANBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -93,6 +93,16 @@
             this.comboMaTV.TabIndex = 4;
             this.comboMaTV.ValueMember = "MaTV";
             // 
+            // tHANHVIENBindingSource
+            // 
+            this.tHANHVIENBindingSource.DataMember = "THANHVIEN";
+            this.tHANHVIENBindingSource.DataSource = this.dOAN8DataSet;
+            // 
+            // dOAN8DataSet
+            // 
+            this.dOAN8DataSet.DataSetName = "DOAN8DataSet";
+            this.dOAN8DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // comboMemberJob
             // 
             this.comboMemberJob.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nGHENGHIEPBindingSource, "TenNN", true));
@@ -104,6 +114,11 @@
             this.comboMemberJob.Size = new System.Drawing.Size(280, 24);
             this.comboMemberJob.TabIndex = 5;
             this.comboMemberJob.ValueMember = "TenNN";
+            // 
+            // nGHENGHIEPBindingSource
+            // 
+            this.nGHENGHIEPBindingSource.DataMember = "NGHENGHIEP";
+            this.nGHENGHIEPBindingSource.DataSource = this.dOAN8DataSet;
             // 
             // comboTown
             // 
@@ -117,6 +132,11 @@
             this.comboTown.TabIndex = 6;
             this.comboTown.ValueMember = "TenQueQuan";
             // 
+            // qUEQUANBindingSource
+            // 
+            this.qUEQUANBindingSource.DataMember = "QUEQUAN";
+            this.qUEQUANBindingSource.DataSource = this.dOAN8DataSet;
+            // 
             // btnUpdateMember
             // 
             this.btnUpdateMember.Location = new System.Drawing.Point(205, 341);
@@ -127,33 +147,13 @@
             this.btnUpdateMember.UseVisualStyleBackColor = true;
             this.btnUpdateMember.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dOAN8DataSet
-            // 
-            this.dOAN8DataSet.DataSetName = "DOAN8DataSet";
-            this.dOAN8DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tHANHVIENBindingSource
-            // 
-            this.tHANHVIENBindingSource.DataMember = "THANHVIEN";
-            this.tHANHVIENBindingSource.DataSource = this.dOAN8DataSet;
-            // 
             // tHANHVIENTableAdapter
             // 
             this.tHANHVIENTableAdapter.ClearBeforeFill = true;
             // 
-            // qUEQUANBindingSource
-            // 
-            this.qUEQUANBindingSource.DataMember = "QUEQUAN";
-            this.qUEQUANBindingSource.DataSource = this.dOAN8DataSet;
-            // 
             // qUEQUANTableAdapter
             // 
             this.qUEQUANTableAdapter.ClearBeforeFill = true;
-            // 
-            // nGHENGHIEPBindingSource
-            // 
-            this.nGHENGHIEPBindingSource.DataMember = "NGHENGHIEP";
-            this.nGHENGHIEPBindingSource.DataSource = this.dOAN8DataSet;
             // 
             // nGHENGHIEPTableAdapter
             // 
@@ -165,9 +165,9 @@
             this.lblMaTV.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaTV.Location = new System.Drawing.Point(61, 138);
             this.lblMaTV.Name = "lblMaTV";
-            this.lblMaTV.Size = new System.Drawing.Size(112, 16);
+            this.lblMaTV.Size = new System.Drawing.Size(102, 16);
             this.lblMaTV.TabIndex = 2;
-            this.lblMaTV.Text = "Tên thành viên:";
+            this.lblMaTV.Text = "Mã thành viên";
             // 
             // frmSetting
             // 
@@ -185,10 +185,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSetting";
             this.Load += new System.EventHandler(this.frmSetting_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUEQUANBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUEQUANBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
