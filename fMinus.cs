@@ -96,28 +96,7 @@ namespace New_DOAN
 
 
 
-        public void UpdateMinus(string matv, string nnmat, string ddmt)
-        {
-            string query = "UPDATE KETTHUC SET  MaNNhan = @NNMAT, MaDD = @DDMT WHERE MaTV = @MATV";
-            SqlCommand command = new SqlCommand(query, conn);
-            command.Parameters.AddWithValue("@NNMAT", nnmat);
-            command.Parameters.AddWithValue("@DDMT", ddmt);
-            command.Parameters.AddWithValue("@MATV", matv);
-
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-
-            try
-            {
-                command.ExecuteNonQuery();
-            }
-            finally
-            {
-                if (conn.State != ConnectionState.Closed)
-                    conn.Close();
-            }
-        }
-
+        
         private void btnMinus_Click(object sender, EventArgs e)
         {
  
@@ -183,6 +162,7 @@ namespace New_DOAN
                 count = (int)command.ExecuteScalar();
             }
             member.MAKT = "KETTHUC" + count.ToString();
+
             minusDAO.SaveMinus(member);
         }
 

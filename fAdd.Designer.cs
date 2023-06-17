@@ -270,6 +270,7 @@
             this.comboBoxQue.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.qUEQUANBindingSource, "TenQueQuan", true));
             this.comboBoxQue.DataSource = this.qUEQUANBindingSource;
             this.comboBoxQue.DisplayMember = "TenQueQuan";
+            this.comboBoxQue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxQue.FormattingEnabled = true;
             this.comboBoxQue.Location = new System.Drawing.Point(169, 409);
             this.comboBoxQue.Name = "comboBoxQue";
@@ -300,8 +301,8 @@
             this.comboBoxGT.AllowDrop = true;
             this.comboBoxGT.AutoCompleteCustomSource.AddRange(new string[] {
             "Nam"});
-            this.comboBoxGT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBoxGT.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBoxGT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGT.FormattingEnabled = true;
             this.comboBoxGT.Items.AddRange(new object[] {
             "Nam",

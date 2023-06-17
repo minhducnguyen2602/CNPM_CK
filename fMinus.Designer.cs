@@ -88,7 +88,7 @@
             // 
             // btnMinus
             // 
-            this.btnMinus.Location = new System.Drawing.Point(224, 293);
+            this.btnMinus.Location = new System.Drawing.Point(196, 293);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(155, 33);
             this.btnMinus.TabIndex = 3;
@@ -99,6 +99,7 @@
             // comboMinusName
             // 
             this.comboMinusName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHANHVIENBindingSource, "HoTen", true));
+            this.comboMinusName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMinusName.FormattingEnabled = true;
             this.comboMinusName.Location = new System.Drawing.Point(224, 83);
             this.comboMinusName.Name = "comboMinusName";
@@ -119,6 +120,7 @@
             // comboMinusCause
             // 
             this.comboMinusCause.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nNMATBindingSource, "LoaiNN", true));
+            this.comboMinusCause.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMinusCause.FormattingEnabled = true;
             this.comboMinusCause.Location = new System.Drawing.Point(224, 187);
             this.comboMinusCause.Name = "comboMinusCause";
@@ -138,6 +140,7 @@
             // comboMinusPlace
             // 
             this.comboMinusPlace.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.dDMTBindingSource, "DiaDiem", true));
+            this.comboMinusPlace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMinusPlace.FormattingEnabled = true;
             this.comboMinusPlace.Location = new System.Drawing.Point(224, 239);
             this.comboMinusPlace.Name = "comboMinusPlace";

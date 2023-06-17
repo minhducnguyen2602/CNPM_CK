@@ -136,5 +136,15 @@ namespace New_DOAN
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOccurrenceDate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

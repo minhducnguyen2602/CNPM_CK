@@ -190,3 +190,9 @@ C:\Users\ACER\Desktop\test\tưss\CNPM_CK\obj\Debug\New_DOAN.csproj.CoreCompileIn
 C:\Users\ACER\Desktop\test\tưss\CNPM_CK\obj\Debug\New_DOAN.csproj.CopyComplete
 C:\Users\ACER\Desktop\test\tưss\CNPM_CK\obj\Debug\New_DOAN.exe
 C:\Users\ACER\Desktop\test\tưss\CNPM_CK\obj\Debug\New_DOAN.pdb
+C:\Users\ACER\Desktop\test\tưss\CNPM_CK\obj\Debug\New_DOAN.frmChange.resources
+C:\Users\ACER\Desktop\test\tưss\CNPM_CK\obj\Debug\New_DOAN.frmCause.resources
+C:\Users\ACER\Desktop\test\tưss\CNPM_CK\obj\Debug\New_DOAN.frmJob.resources
+C:\Users\ACER\Desktop\test\tưss\CNPM_CK\obj\Debug\New_DOAN.frmPlace.resources
+C:\Users\ACER\Desktop\test\tưss\CNPM_CK\obj\Debug\New_DOAN.frmTown.resources
+C:\Users\ACER\Desktop\test\tưss\CNPM_CK\obj\Debug\New_DOAN.frmType.resources

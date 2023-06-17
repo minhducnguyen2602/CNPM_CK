@@ -86,6 +86,7 @@
             this.comboMaTV.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHANHVIENBindingSource, "MaTV", true));
             this.comboMaTV.DataSource = this.tHANHVIENBindingSource;
             this.comboMaTV.DisplayMember = "MaTV";
+            this.comboMaTV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMaTV.FormattingEnabled = true;
             this.comboMaTV.Location = new System.Drawing.Point(205, 138);
             this.comboMaTV.Name = "comboMaTV";
@@ -108,6 +109,7 @@
             this.comboMemberJob.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nGHENGHIEPBindingSource, "TenNN", true));
             this.comboMemberJob.DataSource = this.nGHENGHIEPBindingSource;
             this.comboMemberJob.DisplayMember = "TenNN";
+            this.comboMemberJob.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMemberJob.FormattingEnabled = true;
             this.comboMemberJob.Location = new System.Drawing.Point(205, 202);
             this.comboMemberJob.Name = "comboMemberJob";
@@ -125,6 +127,7 @@
             this.comboTown.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.qUEQUANBindingSource, "TenQueQuan", true));
             this.comboTown.DataSource = this.qUEQUANBindingSource;
             this.comboTown.DisplayMember = "TenQueQuan";
+            this.comboTown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboTown.FormattingEnabled = true;
             this.comboTown.Location = new System.Drawing.Point(205, 265);
             this.comboTown.Name = "comboTown";

@@ -29,7 +29,7 @@ namespace New_DOAN
         }
         public void UpdateMember(string matv, string tenNN, string tenQQ)
         {
-            string query = "UPDATE THANHVIEN SET  THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep, THANHVIEN.MaQQ=QUEQUAN.MaQQ  WHERE NGHENGHIEP.TenNNghiep=@tenNN and QUEQUAN.TenQueQuan=@tenQQ";
+            string query = "UPDATE THANHVIEN SET THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep, THANHVIEN.MaQQ=QUEQUAN.MaQQ  WHERE NGHENGHIEP.TenNNghiep=@tenNN and QUEQUAN.TenQueQuan=@tenQQ";
             SqlCommand command = new SqlCommand(query, conn);
             command.Parameters.AddWithValue("@tenNN", tenNN);
             command.Parameters.AddWithValue("@tenQQ", tenQQ);

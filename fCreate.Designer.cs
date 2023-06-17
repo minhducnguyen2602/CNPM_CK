@@ -160,6 +160,7 @@
             // 
             this.comboJob.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nGHENGHIEPBindingSource, "TenNN", true));
             this.comboJob.DataSource = this.nGHENGHIEPBindingSource;
+            this.comboJob.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboJob.FormattingEnabled = true;
             this.comboJob.Location = new System.Drawing.Point(181, 295);
             this.comboJob.Name = "comboJob";
@@ -178,6 +179,7 @@
             // 
             // comboBoxQue
             // 
+            this.comboBoxQue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxQue.FormattingEnabled = true;
             this.comboBoxQue.Location = new System.Drawing.Point(181, 342);
             this.comboBoxQue.Name = "comboBoxQue";
@@ -207,6 +209,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Nam",

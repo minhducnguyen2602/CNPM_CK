@@ -96,6 +96,7 @@
             this.comboAchiveName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHANHVIENBindingSource, "HoTen", true));
             this.comboAchiveName.DataSource = this.tHANHVIENBindingSource;
             this.comboAchiveName.DisplayMember = "HoTen";
+            this.comboAchiveName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboAchiveName.FormattingEnabled = true;
             this.comboAchiveName.Location = new System.Drawing.Point(197, 79);
             this.comboAchiveName.Name = "comboAchiveName";
@@ -119,6 +120,7 @@
             this.comboAchiveType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nHAPTTBindingSource, "TenTT", true));
             this.comboAchiveType.DataSource = this.nHAPTTBindingSource;
             this.comboAchiveType.DisplayMember = "TenTT";
+            this.comboAchiveType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboAchiveType.FormattingEnabled = true;
             this.comboAchiveType.Location = new System.Drawing.Point(197, 150);
             this.comboAchiveType.Name = "comboAchiveType";

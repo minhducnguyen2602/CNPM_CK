@@ -207,11 +207,29 @@
     <Compile Include="fAdd.Designer.cs">
       <DependentUpon>fAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="fCause.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCause.Designer.cs">
+      <DependentUpon>fCause.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChange.Designer.cs">
+      <DependentUpon>fChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="fCreate.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fCreate.Designer.cs">
       <DependentUpon>fCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fJob.Designer.cs">
+      <DependentUpon>fJob.cs</DependentUpon>
     </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
@@ -231,6 +249,12 @@
     <Compile Include="fMinus.Designer.cs">
       <DependentUpon>fMinus.cs</DependentUpon>
     </Compile>
+    <Compile Include="fPlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPlace.Designer.cs">
+      <DependentUpon>fPlace.cs</DependentUpon>
+    </Compile>
     <Compile Include="fReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +272,18 @@
     </Compile>
     <Compile Include="fSetting.Designer.cs">
       <DependentUpon>fSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fTown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTown.Designer.cs">
+      <DependentUpon>fTown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fType.Designer.cs">
+      <DependentUpon>fType.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -277,8 +313,17 @@
     <EmbeddedResource Include="fAdd.resx">
       <DependentUpon>fAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fCause.resx">
+      <DependentUpon>fCause.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fChange.resx">
+      <DependentUpon>fChange.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fCreate.resx">
       <DependentUpon>fCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fJob.resx">
+      <DependentUpon>fJob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
@@ -289,6 +334,9 @@
     <EmbeddedResource Include="fMinus.resx">
       <DependentUpon>fMinus.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fPlace.resx">
+      <DependentUpon>fPlace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fReport.resx">
       <DependentUpon>fReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +345,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fSetting.resx">
       <DependentUpon>fSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTown.resx">
+      <DependentUpon>fTown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fType.resx">
+      <DependentUpon>fType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -112,7 +112,6 @@
             this.dtgvReport.AllowUserToAddRows = false;
             this.dtgvReport.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dtgvReport.BackgroundColor = System.Drawing.Color.LightCyan;
-            this.dtgvReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvReport.Location = new System.Drawing.Point(13, 271);
             this.dtgvReport.Name = "dtgvReport";

@@ -205,6 +205,7 @@ namespace New_DOAN
             if (newMember.MAQH == "qh1")
             {
                 newMember.DOI = count1 + 1;
+                newMember.NGPSINH = newMember.NGSINH;
             }
             else newMember.DOI = count1;
 

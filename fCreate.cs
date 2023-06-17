@@ -140,6 +140,7 @@ namespace New_DOAN
             newMember.TVCU = "NONE";
             newMember.MATV = "TV0";
             newMember.DOI = 0;
+            newMember.NGPSINH = newMember.NGSINH;
             memberDAO.SaveRoot(newMember);
             frmMain f = new frmMain();
             this.Hide();
