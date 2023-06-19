@@ -38,6 +38,10 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dtgvReport = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.lblReportName = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -118,12 +122,38 @@
             this.dtgvReport.ReadOnly = true;
             this.dtgvReport.RowHeadersWidth = 51;
             this.dtgvReport.RowTemplate.Height = 24;
-            this.dtgvReport.Size = new System.Drawing.Size(522, 459);
+            this.dtgvReport.Size = new System.Drawing.Size(522, 388);
             this.dtgvReport.TabIndex = 10;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(380, 678);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(112, 40);
+            this.btnExport.TabIndex = 11;
+            this.btnExport.Text = "Lưu báo cáo";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // lblReportName
+            // 
+            this.lblReportName.AutoSize = true;
+            this.lblReportName.Location = new System.Drawing.Point(13, 690);
+            this.lblReportName.Name = "lblReportName";
+            this.lblReportName.Size = new System.Drawing.Size(77, 16);
+            this.lblReportName.TabIndex = 12;
+            this.lblReportName.Text = "Tên bản lưu";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(108, 687);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(265, 22);
+            this.textBox3.TabIndex = 13;
             // 
             // frmReport
             // 
@@ -131,6 +161,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(547, 742);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.lblReportName);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.dtgvReport);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -159,5 +192,9 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dtgvReport;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label lblReportName;
     }
 }

@@ -15,7 +15,7 @@ namespace New_DOAN.DAO
         public void SaveAchive(AchiveDTO member)
         {
 
-            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True";
+            string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
             string query = "INSERT INTO THANHTICH (MaTT, MaTV, LoaiTT, NgPSinhTT) VALUES (@MATT, @MATV, @LOAITT, @NGPSINHTT)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))

@@ -124,10 +124,12 @@
             // 
             // dtgvSearch
             // 
+            this.dtgvSearch.AllowUserToAddRows = false;
             this.dtgvSearch.BackgroundColor = System.Drawing.Color.LightCyan;
             this.dtgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvSearch.Location = new System.Drawing.Point(4, 4);
             this.dtgvSearch.Name = "dtgvSearch";
+            this.dtgvSearch.ReadOnly = true;
             this.dtgvSearch.RowHeadersWidth = 51;
             this.dtgvSearch.RowTemplate.Height = 24;
             this.dtgvSearch.Size = new System.Drawing.Size(514, 252);

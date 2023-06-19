@@ -15,7 +15,7 @@ namespace New_DOAN
 {
     public partial class frmAchive : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
         private AchiveDAO achiveDAO;
         public DataGridView MemberDataGridView { get; set; }
         public frmAchive()

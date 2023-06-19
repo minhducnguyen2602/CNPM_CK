@@ -12,7 +12,7 @@ namespace New_DOAN
 {
     public partial class frmType : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
         public frmType()
         {
             InitializeComponent();
@@ -57,7 +57,7 @@ namespace New_DOAN
                 return;
             }
 
-            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True";
+            string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
 
             string query1 = "UPDATE NHAPTT\r\n\r\nSET TenTT = @moi\r\n\r\nWHERE TenTT = @cu";
 

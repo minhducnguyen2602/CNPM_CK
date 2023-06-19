@@ -1,21 +1,16 @@
 ﻿using New_DOAN.DAO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace New_DOAN
 {
     public partial class frmReport : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
         public DataGridView MemberDataGridView { get; set; }
 
         public frmReport()
@@ -76,7 +71,6 @@ namespace New_DOAN
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(data);
                 dtgvReport.DataSource = data;
-
             }
         }
 
@@ -125,6 +119,45 @@ namespace New_DOAN
 
             }
            
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+            string name = textBox3.Text;
+            if (name == "")
+            {
+                errorProvider1.SetError(btnExport, "Chưa điền tên file");
+                return;
+            }
+            DialogResult res = MessageBox.Show("Bạn có muốn xuất file báo cáo?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                folderBrowserDialog1.ShowDialog();
+                string path = folderBrowserDialog1.SelectedPath;
+                string file = Path.Combine(path, name+".xlsx");
+                Excel.Application excelApp = new Excel.Application();
+                Excel.Workbook workbook = excelApp.Workbooks.Add();
+                Excel.Worksheet worksheet = workbook.ActiveSheet;
+                for (int i = 0; i < dtgvReport.Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1] = dtgvReport.Columns[i].HeaderText;
+                }
+
+                for (int i = 0; i < dtgvReport.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dtgvReport.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dtgvReport.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+
+                workbook.SaveAs(file);
+                MessageBox.Show("Lưu thành công");
+                workbook.Close();
+                excelApp.Quit();
+
+            }
         }
     }
 }

@@ -48,12 +48,14 @@
             this.tHANHVIENTableAdapter = new New_DOAN.testingDataSetTableAdapters.THANHVIENTableAdapter();
             this.nNMATTableAdapter = new New_DOAN.testingDataSet1TableAdapters.NNMATTableAdapter();
             this.dDMTTableAdapter = new New_DOAN.testingDataSet2TableAdapters.DDMTTableAdapter();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nNMATBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dDMTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMinusName
@@ -197,6 +199,10 @@
             // 
             this.dDMTTableAdapter.ClearBeforeFill = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmMinus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -223,6 +229,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.testingDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dDMTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +256,6 @@
         private testingDataSet2 testingDataSet2;
         private System.Windows.Forms.BindingSource dDMTBindingSource;
         private testingDataSet2TableAdapters.DDMTTableAdapter dDMTTableAdapter;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

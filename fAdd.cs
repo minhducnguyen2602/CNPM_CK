@@ -17,7 +17,7 @@ namespace New_DOAN
 {
     public partial class frmAdd : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
         private MemberDAO memberDAO;
         public DataGridView MemberDataGridView { get; set; }
 
@@ -170,11 +170,24 @@ namespace New_DOAN
             newMember.NGSINH = DateTime.Parse(dateTimePickerBirth.Text);
             newMember.MAQQ = maqq;// Lấy giá trị từ cột giá trị
             newMember.MANN = mann; // Lấy giá trị từ cột giá trị
-            if (txtAddress.Text == "" || txtFullName.Text=="")
+            if (txtFullName.Text=="")
             {
+                errorProvider5.Clear();
                 errorProvider5.SetError(btnAddMem, "Chưa điền thông tin");
             }
             else newMember.DIACHI = txtAddress.Text;
+            if (newMember.MAQH=="qh1" && newMember.NGPSINH != newMember.NGSINH)
+            {
+                errorProvider5.Clear();
+                errorProvider5.SetError(dateTimePickerOccurred, "Sai thông tin");
+                return;
+            }
+            if (newMember.MAQH == "qh2" && newMember.NGPSINH < newMember.NGSINH)
+            {
+                errorProvider5.Clear();
+                errorProvider5.SetError(dateTimePickerOccurred, "Sai thông tin");
+                return;
+            }
             var querydemmatv = "Select count(*) from THANHVIEN";
             var count = 0;
             using (SqlCommand command = new SqlCommand(querydemmatv, conn))

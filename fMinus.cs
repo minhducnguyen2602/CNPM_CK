@@ -16,7 +16,7 @@ namespace New_DOAN
 {
     public partial class frmMinus : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
         private MinusDAO minusDAO;
         public DataGridView MemberDataGridView { get; set; }
         public frmMinus()
@@ -101,25 +101,9 @@ namespace New_DOAN
         {
  
             MinusDTO member = new MinusDTO();
-            //string matvv = "";
-            //string ten = comboMinusName.SelectedValue.ToString();
-            //using (SqlCommand command = new SqlCommand("Select MaTV from THANHVIEN where HoTen = @HOTEN", conn))
-            //{
-         
-            //    command.Parameters.AddWithValue("@HOTEN", ten);
-
-
-            //    using (SqlDataReader reader = command.ExecuteReader())
-            //    {
-            //        while (reader.Read())
-            //        {
-            //           matvv = reader.GetString(0);
-            //        }
-            //    }
-            //}
-            //member.MATV = matvv;
-
+            
             member.MATV = comboMinusName.SelectedValue.ToString();
+            string matv=member.MATV;
             string mann = "";
             string tennn = comboMinusCause.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select MaNNhan from NNMAT where LoaiNN = @LOAINN", conn))
@@ -137,6 +121,27 @@ namespace New_DOAN
                 }
             }
             member.NGAYMAT = DateTime.Parse(dateTimePickerMinus.Text);
+            string query = "SELECT NgSinh FROM THANHVIEN WHERE MaTV = @MATV";
+
+            // Chuẩn bị và thực thi câu truy vấn
+            using (SqlCommand command = new SqlCommand(query, conn))
+            {
+                command.Parameters.AddWithValue("@MATV", matv);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DateTime ngSinh = reader.GetDateTime(0);
+                        if (ngSinh > member.NGAYMAT)
+                        {
+                            errorProvider1.Clear();
+                            errorProvider1.SetError(dateTimePickerMinus, "Sai dữ liệu");
+                            return;
+                        }
+                        
+                    }
+                }
+            }
             member.NNMAT = mann.ToString();
             string madd = "";
             string tendd = comboMinusPlace.SelectedValue.ToString();

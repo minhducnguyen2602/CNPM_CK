@@ -15,7 +15,7 @@ namespace New_DOAN
 {
     public partial class frmCreate : Form
     {
-        SqlConnection connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection connect = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
         private MemberDAO memberDAO;
         public frmCreate()
         {
@@ -58,12 +58,6 @@ namespace New_DOAN
                 errorProvider1.SetError(txtName, "Chưa nhập thông tin");
                 return;
             }
-            if (txtAddress.Text == "")
-            {
-                errorProvider1.Clear();
-                errorProvider1.SetError(txtAddress, "Chưa nhập thông tin");
-                return;
-            }
             MemberDTO newMember = new MemberDTO();
             newMember.MAQH = "qh0";
             newMember.NGPSINH = DateTime.Parse(dateTimePicker1.Text);
@@ -101,7 +95,7 @@ namespace New_DOAN
                     }
                 }
             }
-            connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
+            connect = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
             int count = 0;
             connect.Open();
             string name = "";
@@ -140,7 +134,12 @@ namespace New_DOAN
             newMember.TVCU = "NONE";
             newMember.MATV = "TV0";
             newMember.DOI = 0;
-            newMember.NGPSINH = newMember.NGSINH;
+            if (newMember.NGPSINH != newMember.NGSINH)
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(dateTimePicker1, "Sai thông tin");
+                return;
+            }
             memberDAO.SaveRoot(newMember);
             frmMain f = new frmMain();
             this.Hide();
@@ -151,7 +150,7 @@ namespace New_DOAN
         private void frmCreate_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'testingDataSet6.NGHENGHIEP' table. You can move, or remove it, as needed.
-            this.nGHENGHIEPTableAdapter.Fill(this.testingDataSet6.NGHENGHIEP);
+            //this.nGHENGHIEPTableAdapter.Fill(this.testingDataSet6.NGHENGHIEP);
             loadNghe();
             loadQue();
         }

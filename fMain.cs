@@ -14,7 +14,7 @@ namespace New_DOAN
 {
     public partial class frmMain : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
         private int key = 1;
         public frmMain()
         {
@@ -149,7 +149,7 @@ namespace New_DOAN
             DialogResult res=MessageBox.Show("Bạn có chắc muốn xóa toàn bộ thông tin liên quan đến thành viên", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(res==DialogResult.Yes)
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True"))
                 {
                     connection.Open();
                     string query = "DELETE from THANHTICH; DELETE from KETTHUC;Delete from THANHVIEN";
@@ -176,7 +176,7 @@ namespace New_DOAN
             DialogResult res = MessageBox.Show("Bạn có chắc muốn xóa toàn bộ thông tin liên quan đến thành tích", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True"))
                 {
                     connection.Open();
                     string query = "DELETE from THANHTICH";
@@ -194,7 +194,7 @@ namespace New_DOAN
             DialogResult res = MessageBox.Show("Bạn có chắc muốn xóa toàn bộ thông tin liên quan đến kết thúc", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN9;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True"))
                 {
                     connection.Open();
                     string query = "DELETE from KETTHUC";
