@@ -20,7 +20,7 @@ namespace New_DOAN
         }
         void loadTOWN()
         {
-            var cmd = new SqlCommand("Select TenNN from NGHENGHIEP", conn);
+            var cmd = new SqlCommand("Select TenNN from NGHENGHIEP where TenNN <>'NONE'", conn);
             var dr = cmd.ExecuteReader();
             var dt = new DataTable();
             dt.Load(dr);
@@ -37,57 +37,120 @@ namespace New_DOAN
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             
-
+            string add=txtAddValue.Text;
             string tencu = comboBox1.SelectedValue.ToString();
             string tenmoi = textBox1.Text;
-            if (tenmoi == "")
-            {
-                errorProvider1.SetError(textBox1, "Thông tin trống");
-                return;
-            }
-            errorProvider1.Clear();
-            if (tenmoi == tencu)
-            {
-                MessageBox.Show("Đã tồn tại");
-                return;
-            }
-
             string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
 
             string query1 = "UPDATE NGHENGHIEP\r\n\r\nSET TenNN = @moi\r\n\r\nWHERE TenNN = @cu";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (add != "")
             {
-                connection.Open();
-
-                // Kiểm tra nếu tên mới đã tồn tại trong tên cũ
-                string checkQuery = "SELECT COUNT(*) FROM NGHENGHIEP WHERE TenNN = @moi";
-                using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                var count1 = 0;
+                var querydemmatv = "Select count(*) from NGHENGHIEP";
+                using (SqlCommand command = new SqlCommand(querydemmatv, conn))
                 {
-                    checkCommand.Parameters.AddWithValue("@moi", tenmoi);
-                    int count = (int)checkCommand.ExecuteScalar();
-                    if (count > 0)
-                    {
-                        MessageBox.Show("Đã tồn tại");
-                        return;
-                    }
+                    count1 = (int)command.ExecuteScalar();
                 }
-
-                // Tiến hành cập nhật nếu không có tên mới trong tên cũ
-                using (SqlCommand command = new SqlCommand(query1, connection))
+                string matt = "n" + (count1 + 1).ToString();
+                string q = "INSERT INTO NGHENGHIEP (MaNNghiep, TenNN) values (@MNN, @TNN)";
+                using (SqlCommand command = new SqlCommand(q, conn))
                 {
-                    command.Parameters.AddWithValue("@moi", tenmoi);
-                    command.Parameters.AddWithValue("@cu", tencu);
+                    command.Parameters.AddWithValue("@TNN", add);
+                    command.Parameters.AddWithValue("@MNN", matt);
+
                     command.ExecuteNonQuery();
                 }
+                loadTOWN();
+                MessageBox.Show("Đã thêm nghề nghiệp");
             }
-            loadTOWN();
-            MessageBox.Show("Đã sửa");
+            else
+            {
+                if (tenmoi == "")
+                {
+                    errorProvider1.SetError(textBox1, "Thông tin trống");
+                    return;
+                }
+                errorProvider1.Clear();
+                if (tenmoi == tencu)
+                {
+                    MessageBox.Show("Đã tồn tại");
+                    return;
+                }
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Kiểm tra nếu tên mới đã tồn tại trong tên cũ
+                    string checkQuery = "SELECT COUNT(*) FROM NGHENGHIEP WHERE TenNN = @moi";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@moi", tenmoi);
+                        int count = (int)checkCommand.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Đã tồn tại");
+                            return;
+                        }
+                    }
+
+                    // Tiến hành cập nhật nếu không có tên mới trong tên cũ
+                    using (SqlCommand command = new SqlCommand(query1, connection))
+                    {
+                        command.Parameters.AddWithValue("@moi", tenmoi);
+                        command.Parameters.AddWithValue("@cu", tencu);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                loadTOWN();
+                MessageBox.Show("Đã sửa");
+            }
         }
 
         private void frmJob_Load(object sender, EventArgs e)
         {
             loadTOWN();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string tencu = comboBox1.SelectedValue.ToString();
+            string maaa = "";
+            string Matt = "SELECT MaNNghiep FROM NGHENGHIEP WHERE TenNN = @moi";
+            using (SqlCommand checkCommand = new SqlCommand(Matt, conn))
+            {
+
+                checkCommand.Parameters.AddWithValue("@moi", tencu);
+                using (SqlDataReader reader = checkCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        maaa = reader.GetString(0);
+                    }
+                }
+                string qq = "SELECT COUNT(*) FROM THANHVIEN WHERE MaNNghiep = @ma";
+                using (SqlCommand command = new SqlCommand(qq, conn))
+                {
+                    command.Parameters.AddWithValue("@ma", maaa);
+                    int cc = (int)command.ExecuteScalar();
+                    if (cc > 0)
+                    {
+                        MessageBox.Show("Không thể xóa do đã tồn tại");
+                        return;
+                    }
+                    else
+                    {
+                        string q = "UPDATE NGHENGHIEP SET TenNN = 'NONE' WHERE TenNN=@TTT";
+                        using (SqlCommand ccommand = new SqlCommand(q, conn))
+                        {
+                            ccommand.Parameters.AddWithValue("@TTT", tencu);
+
+                            ccommand.ExecuteNonQuery();
+                        }
+                        loadTOWN();
+                        MessageBox.Show("Đã xóa nghề nghiệp");
+                    }
+                }
+            }
         }
     }
 }

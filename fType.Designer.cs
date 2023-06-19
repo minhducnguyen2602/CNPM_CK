@@ -36,6 +36,9 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblAddValue = new System.Windows.Forms.Label();
+            this.txtAddValue = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +67,7 @@
             // 
             this.lblReplace.AutoSize = true;
             this.lblReplace.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReplace.Location = new System.Drawing.Point(51, 173);
+            this.lblReplace.Location = new System.Drawing.Point(51, 139);
             this.lblReplace.Name = "lblReplace";
             this.lblReplace.Size = new System.Drawing.Size(110, 16);
             this.lblReplace.TabIndex = 2;
@@ -74,15 +77,15 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(196, 86);
+            this.comboBox1.Location = new System.Drawing.Point(235, 86);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(254, 24);
+            this.comboBox1.Size = new System.Drawing.Size(215, 24);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(201, 231);
+            this.btnUpdate.Location = new System.Drawing.Point(98, 252);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(99, 47);
             this.btnUpdate.TabIndex = 5;
@@ -92,21 +95,53 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(196, 171);
+            this.textBox1.Location = new System.Drawing.Point(235, 137);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(254, 22);
+            this.textBox1.Size = new System.Drawing.Size(215, 22);
             this.textBox1.TabIndex = 6;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // lblAddValue
+            // 
+            this.lblAddValue.AutoSize = true;
+            this.lblAddValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddValue.Location = new System.Drawing.Point(51, 192);
+            this.lblAddValue.Name = "lblAddValue";
+            this.lblAddValue.Size = new System.Drawing.Size(149, 16);
+            this.lblAddValue.TabIndex = 7;
+            this.lblAddValue.Text = "Thêm loại thành tích:";
+            this.lblAddValue.Click += new System.EventHandler(this.lblAddValue_Click);
+            // 
+            // txtAddValue
+            // 
+            this.txtAddValue.Location = new System.Drawing.Point(235, 189);
+            this.txtAddValue.Name = "txtAddValue";
+            this.txtAddValue.Size = new System.Drawing.Size(215, 22);
+            this.txtAddValue.TabIndex = 8;
+            this.txtAddValue.TextChanged += new System.EventHandler(this.txtAddValue_TextChanged);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(301, 252);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(99, 47);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.Text = "Xóa thành tích";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // frmType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(500, 312);
+            this.ClientSize = new System.Drawing.Size(500, 328);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.txtAddValue);
+            this.Controls.Add(this.lblAddValue);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.comboBox1);
@@ -132,5 +167,8 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox txtAddValue;
+        private System.Windows.Forms.Label lblAddValue;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

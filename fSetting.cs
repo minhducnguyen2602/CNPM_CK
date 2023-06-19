@@ -27,26 +27,7 @@ namespace New_DOAN
             memberDAO = new MemberDAO();
             conn.Open();
         }
-        public void UpdateMember(string matv, string tenNN, string tenQQ)
-        {
-            string query = "UPDATE THANHVIEN SET THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep, THANHVIEN.MaQQ=QUEQUAN.MaQQ  WHERE NGHENGHIEP.TenNNghiep=@tenNN and QUEQUAN.TenQueQuan=@tenQQ";
-            SqlCommand command = new SqlCommand(query, conn);
-            command.Parameters.AddWithValue("@tenNN", tenNN);
-            command.Parameters.AddWithValue("@tenQQ", tenQQ);
-
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-
-            try
-            {
-                command.ExecuteNonQuery();
-            }
-            finally
-            {
-                if (conn.State != ConnectionState.Closed)
-                    conn.Close();
-            }
-        }
+        
         void loadMaTV()
         {
             var cmdq = new SqlCommand("Select MaTV from THANHVIEN", conn);

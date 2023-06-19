@@ -20,7 +20,7 @@ namespace New_DOAN
         }
         void loadTOWN()
         {
-            var cmd = new SqlCommand("Select TenQueQuan from QUEQUAN", conn);
+            var cmd = new SqlCommand("Select TenQueQuan from QUEQUAN where TenQueQuan <> 'NONE'", conn);
             var dr = cmd.ExecuteReader();
             var dt = new DataTable();
             dt.Load(dr);
@@ -43,51 +43,114 @@ namespace New_DOAN
     
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string add=txtAddValue.Text;
             string tencu = comboBox1.SelectedValue.ToString();
             string tenmoi = textBox1.Text;
-            if (tenmoi == "")
-            {
-                errorProvider1.SetError(textBox1, "Thông tin trống");
-                return;
-            }
-            errorProvider1.Clear();
-            if (tenmoi == tencu)
-            {
-                MessageBox.Show("Đã tồn tại");
-                return;
-            }
-
             string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
 
             string query1 = "UPDATE QUEQUAN\r\n\r\nSET TenQueQuan = @moi\r\n\r\nWHERE TenQueQuan = @cu";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (add != "")
             {
-                connection.Open();
-
-                // Kiểm tra nếu tên mới đã tồn tại trong tên cũ
-                string checkQuery = "SELECT COUNT(*) FROM QUEQUAN WHERE TenQueQuan = @moi";
-                using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                var count1 = 0;
+                var querydemmatv = "Select count(*) from QUEQUAN";
+                using (SqlCommand command = new SqlCommand(querydemmatv, conn))
                 {
-                    checkCommand.Parameters.AddWithValue("@moi", tenmoi);
-                    int count = (int)checkCommand.ExecuteScalar();
-                    if (count > 0)
-                    {
-                        MessageBox.Show("Đã tồn tại");
-                        return;
-                    }
+                    count1 = (int)command.ExecuteScalar();
                 }
-
-                // Tiến hành cập nhật nếu không có tên mới trong tên cũ
-                using (SqlCommand command = new SqlCommand(query1, connection))
+                string matt = "q" + (count1 + 1).ToString();
+                string q = "INSERT INTO QUEQUAN (MaQQ, TenQueQuan) values (@MQQ, @TQQ)";
+                using (SqlCommand command = new SqlCommand(q, conn))
                 {
-                    command.Parameters.AddWithValue("@moi", tenmoi);
-                    command.Parameters.AddWithValue("@cu", tencu);
+                    command.Parameters.AddWithValue("@TQQ", add);
+                    command.Parameters.AddWithValue("@MQQ", matt);
+
                     command.ExecuteNonQuery();
                 }
+                loadTOWN();
+                MessageBox.Show("Đã thêm quê quán");
             }
-            loadTOWN();
-            MessageBox.Show("Đã sửa");
+            else
+            {
+                if (tenmoi == "")
+                {
+                    errorProvider1.SetError(textBox1, "Thông tin trống");
+                    return;
+                }
+                errorProvider1.Clear();
+                if (tenmoi == tencu)
+                {
+                    MessageBox.Show("Đã tồn tại");
+                    return;
+                }
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Kiểm tra nếu tên mới đã tồn tại trong tên cũ
+                    string checkQuery = "SELECT COUNT(*) FROM QUEQUAN WHERE TenQueQuan = @moi";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@moi", tenmoi);
+                        int count = (int)checkCommand.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Đã tồn tại");
+                            return;
+                        }
+                    }
+
+                    // Tiến hành cập nhật nếu không có tên mới trong tên cũ
+                    using (SqlCommand command = new SqlCommand(query1, connection))
+                    {
+                        command.Parameters.AddWithValue("@moi", tenmoi);
+                        command.Parameters.AddWithValue("@cu", tencu);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                loadTOWN();
+                MessageBox.Show("Đã sửa");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string tencu = comboBox1.SelectedValue.ToString();
+            string maaa = "";
+            string Matt = "SELECT MaQQ FROM QUEQUAN WHERE TenQueQuan = @moi";
+            using (SqlCommand checkCommand = new SqlCommand(Matt, conn))
+            {
+                checkCommand.Parameters.AddWithValue("@moi", tencu);
+                using (SqlDataReader reader = checkCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        maaa = reader.GetString(0);
+                    }
+                }
+                string qqq = "SELECT COUNT(*) FROM THANHVIEN WHERE MaQQ = @ma";
+                using (SqlCommand command = new SqlCommand(qqq, conn))
+                {
+                    command.Parameters.AddWithValue("@ma", maaa);
+                    int cc = (int)command.ExecuteScalar();
+                    if (cc > 0)
+                    {
+                        MessageBox.Show("Không thể xóa do đã tồn tại");
+                        return;
+                    }
+                    else
+                    {
+                        string q = "UPDATE QUEQUAN SET TenQueQuan = 'NONE' WHERE TenQueQuan=@TTT";
+                        using (SqlCommand ccommand = new SqlCommand(q, conn))
+                        {
+                            ccommand.Parameters.AddWithValue("@TTT", tencu);
+
+                            ccommand.ExecuteNonQuery();
+                        }
+                        loadTOWN();
+                        MessageBox.Show("Đã xóa quê quán");
+                    }
+                }
+            }
         }
     }
 }

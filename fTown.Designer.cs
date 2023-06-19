@@ -36,19 +36,22 @@
             this.lblFix = new System.Windows.Forms.Label();
             this.lblFixTown = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtAddValue = new System.Windows.Forms.TextBox();
+            this.lblAddValue = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(203, 181);
+            this.textBox1.Location = new System.Drawing.Point(242, 146);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(254, 22);
+            this.textBox1.Size = new System.Drawing.Size(215, 22);
             this.textBox1.TabIndex = 12;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(208, 241);
+            this.btnUpdate.Location = new System.Drawing.Point(119, 250);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(99, 47);
             this.btnUpdate.TabIndex = 11;
@@ -60,9 +63,9 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(203, 96);
+            this.comboBox1.Location = new System.Drawing.Point(242, 96);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(254, 24);
+            this.comboBox1.Size = new System.Drawing.Size(215, 24);
             this.comboBox1.TabIndex = 10;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -70,7 +73,7 @@
             // 
             this.lblReplace.AutoSize = true;
             this.lblReplace.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReplace.Location = new System.Drawing.Point(58, 183);
+            this.lblReplace.Location = new System.Drawing.Point(58, 148);
             this.lblReplace.Name = "lblReplace";
             this.lblReplace.Size = new System.Drawing.Size(110, 16);
             this.lblReplace.TabIndex = 9;
@@ -101,12 +104,42 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // txtAddValue
+            // 
+            this.txtAddValue.Location = new System.Drawing.Point(242, 198);
+            this.txtAddValue.Name = "txtAddValue";
+            this.txtAddValue.Size = new System.Drawing.Size(215, 22);
+            this.txtAddValue.TabIndex = 14;
+            // 
+            // lblAddValue
+            // 
+            this.lblAddValue.AutoSize = true;
+            this.lblAddValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddValue.Location = new System.Drawing.Point(58, 201);
+            this.lblAddValue.Name = "lblAddValue";
+            this.lblAddValue.Size = new System.Drawing.Size(149, 16);
+            this.lblAddValue.TabIndex = 13;
+            this.lblAddValue.Text = "Thêm loại thành tích:";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(297, 250);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(99, 47);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Xóa thành tích";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // frmTown
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(515, 321);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.txtAddValue);
+            this.Controls.Add(this.lblAddValue);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.comboBox1);
@@ -132,5 +165,8 @@
         private System.Windows.Forms.Label lblFix;
         private System.Windows.Forms.Label lblFixTown;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox txtAddValue;
+        private System.Windows.Forms.Label lblAddValue;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

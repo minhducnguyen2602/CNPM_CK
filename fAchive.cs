@@ -50,7 +50,7 @@ namespace New_DOAN
         }
         void loadTT()
         {
-            var cmd = new SqlCommand("Select TenTT from NHAPTT", conn);
+            var cmd = new SqlCommand("Select TenTT from NHAPTT WHERE TenTT <> 'NONE'", conn);
             var dr = cmd.ExecuteReader();
             var dt = new DataTable();
             dt.Load(dr);
@@ -71,22 +71,6 @@ namespace New_DOAN
         private void btnAchive_Click(object sender, EventArgs e)
         {
             AchiveDTO member = new AchiveDTO();
-            //string matvv = "";
-            //string ten = comboAchiveName.SelectedValue.ToString();
-            //using (SqlCommand command = new SqlCommand("Select MaTV from THANHVIEN where HoTen = @HOTEN", conn))
-            //{
-
-            //    command.Parameters.AddWithValue("@HOTEN", ten);
-
-
-            //    using (SqlDataReader reader = command.ExecuteReader())
-            //    {
-            //        while (reader.Read())
-            //        {
-            //            matvv = reader.GetString(0);
-            //        }
-            //    }
-            //}
             member.MATV = comboAchiveName.SelectedValue.ToString();
 
             string mattt = "";

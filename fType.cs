@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using New_DOAN.DAO;
+using New_DOAN.DTO;
+
 namespace New_DOAN
 {
     public partial class frmType : Form
@@ -18,9 +21,9 @@ namespace New_DOAN
             InitializeComponent();
             conn.Open();
         }
-        void loadTOWN()
+        void loadTT()
         {
-            var cmd = new SqlCommand("Select TenTT from NHAPTT", conn);
+            var cmd = new SqlCommand("Select TenTT from NHAPTT WHERE TenTT <> 'NONE'", conn);
             var dr = cmd.ExecuteReader();
             var dt = new DataTable();
             dt.Load(dr);
@@ -36,58 +39,133 @@ namespace New_DOAN
 
         private void frmType_Load(object sender, EventArgs e)
         {
-            loadTOWN();
+            loadTT();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            
-
+            string add=txtAddValue.Text;
             string tencu = comboBox1.SelectedValue.ToString();
             string tenmoi = textBox1.Text;
-            if (tenmoi == "")
-            {
-                errorProvider1.SetError(textBox1, "Thông tin trống");
-                return;
-            }
-            errorProvider1.Clear();
-            if (tenmoi == tencu)
-            {
-                MessageBox.Show("Đã tồn tại");
-                return;
-            }
+            
 
             string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
 
             string query1 = "UPDATE NHAPTT\r\n\r\nSET TenTT = @moi\r\n\r\nWHERE TenTT = @cu";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if(add!="")
             {
-                connection.Open();
-
-                // Kiểm tra nếu tên mới đã tồn tại trong tên cũ
-                string checkQuery = "SELECT COUNT(*) FROM NHAPTT WHERE TenTT = @moi";
-                using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                var count1 = 0;
+                var querydemmatv = "Select count(*) from NHAPTT";
+                using (SqlCommand command = new SqlCommand(querydemmatv, conn))
                 {
-                    checkCommand.Parameters.AddWithValue("@moi", tenmoi);
-                    int count = (int)checkCommand.ExecuteScalar();
-                    if (count > 0)
-                    {
-                        MessageBox.Show("Đã tồn tại");
-                        return;
-                    }
+                    count1 = (int)command.ExecuteScalar();
                 }
-
-                // Tiến hành cập nhật nếu không có tên mới trong tên cũ
-                using (SqlCommand command = new SqlCommand(query1, connection))
+                string matt = "loai" + (count1+1).ToString();
+                string q = "INSERT INTO NHAPTT (LoaiTT, TenTT) values (@LTT, @TENTT)";
+                using (SqlCommand command = new SqlCommand(q, conn))
                 {
-                    command.Parameters.AddWithValue("@moi", tenmoi);
-                    command.Parameters.AddWithValue("@cu", tencu);
+                    command.Parameters.AddWithValue("@TENTT", add);
+                    command.Parameters.AddWithValue("@LTT", matt);
+
                     command.ExecuteNonQuery();
                 }
+                loadTT();
+                MessageBox.Show("Đã thêm thành tích");
             }
-            loadTOWN();
-            MessageBox.Show("Đã sửa");
+            else
+            {
+                if (tenmoi == "")
+                {
+                    errorProvider1.SetError(textBox1, "Thông tin trống");
+                    return;
+                }
+                errorProvider1.Clear();
+                if (tenmoi == tencu)
+                {
+                    MessageBox.Show("Đã tồn tại");
+                    return;
+                }
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Kiểm tra nếu tên mới đã tồn tại trong tên cũ
+                    string checkQuery = "SELECT COUNT(*) FROM NHAPTT WHERE TenTT = @moi";
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@moi", tenmoi);
+                        int count = (int)checkCommand.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Đã tồn tại");
+                            return;
+                        }
+                    }
+
+                    // Tiến hành cập nhật nếu không có tên mới trong tên cũ
+                    using (SqlCommand command = new SqlCommand(query1, connection))
+                    {
+                        command.Parameters.AddWithValue("@moi", tenmoi);
+                        command.Parameters.AddWithValue("@cu", tencu);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                loadTT();
+                MessageBox.Show("Đã sửa");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string tencu = comboBox1.SelectedValue.ToString();
+            string maaa="";
+            string Matt = "SELECT LoaiTT FROM NHAPTT WHERE TenTT = @moi";
+            using (SqlCommand checkCommand = new SqlCommand(Matt, conn))
+            {
+                
+                checkCommand.Parameters.AddWithValue("@moi", tencu);
+                using (SqlDataReader reader = checkCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        maaa = reader.GetString(0);
+                    }
+                }
+                string qq = "SELECT COUNT(*) FROM THANHTICH WHERE LoaiTT = @ma";
+                using (SqlCommand command = new SqlCommand(qq, conn))
+                {
+                    command.Parameters.AddWithValue("@ma", maaa);
+                    int cc = (int)command.ExecuteScalar();
+                    if (cc > 0)
+                    {
+                        MessageBox.Show("Không thể xóa do đã tồn tại");
+                        return;
+                    }
+                    else
+                    {
+                        string q = "UPDATE NHAPTT SET TenTT = 'NONE' WHERE TenTT=@TTT";
+                        using (SqlCommand ccommand = new SqlCommand(q, conn))
+                        {
+                            ccommand.Parameters.AddWithValue("@TTT", tencu);
+
+                            ccommand.ExecuteNonQuery();
+                        }
+                        loadTT();
+                        MessageBox.Show("Đã xóa thành tích");
+                    }
+                }
+            }    
+            
+        }
+
+        private void lblAddValue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAddValue_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
