@@ -47,46 +47,48 @@ namespace New_DOAN
         {
             string madh = "";
             string ten = txtName.Text;
-            string tennn=txtJob.Text;
-            string tenqq=txtHometown.Text;
-            int mann = 0;
-      
-            using (SqlCommand commandđ = new SqlCommand("Select MaNNghiep from NGHENGHIEP where TenNN = @NGHENGHIEP", conn))
+            string tennn = txtJob.Text;
+            string tenqq = txtHometown.Text;
+            int? mann = null;
+
+            if (!string.IsNullOrEmpty(tennn))
             {
-
-                commandđ.Parameters.AddWithValue("@NGHENGHIEP", tennn);
-
-
-                using (SqlDataReader reader = commandđ.ExecuteReader())
+                using (SqlCommand commandđ = new SqlCommand("SELECT MaNNghiep FROM NGHENGHIEP WHERE TenNN = @NGHENGHIEP", conn))
                 {
-                    while (reader.Read())
+                    commandđ.Parameters.AddWithValue("@NGHENGHIEP", tennn);
+
+                    using (SqlDataReader reader = commandđ.ExecuteReader())
                     {
-                        mann = reader.GetInt32(0);
+                        while (reader.Read())
+                        {
+                            mann = reader.GetInt32(0);
+                        }
                     }
                 }
             }
-            int maqq = 0;
 
-            using (SqlCommand commandd = new SqlCommand("Select MaQQ from QUEQUAN where TenQueQuan = @QUEQUAN", conn))
+            int? maqq = null;
+
+            if (!string.IsNullOrEmpty(tenqq))
             {
-
-                commandd.Parameters.AddWithValue("@QUEQUAN", tenqq);
-
-
-                using (SqlDataReader reader = commandd.ExecuteReader())
+                using (SqlCommand commandd = new SqlCommand("SELECT MaQQ FROM QUEQUAN WHERE TenQueQuan = @QUEQUAN", conn))
                 {
-                    while (reader.Read())
+                    commandd.Parameters.AddWithValue("@QUEQUAN", tenqq);
+
+                    using (SqlDataReader reader = commandd.ExecuteReader())
                     {
-                        maqq = reader.GetInt32(0);
+                        while (reader.Read())
+                        {
+                            maqq = reader.GetInt32(0);
+                        }
                     }
                 }
             }
+
             string namsinh = textBox1.Text;
-            using (SqlCommand command1 = new SqlCommand("Select MaQH from THANHVIEN where HoTen = @HOTEN", conn))
+            using (SqlCommand command1 = new SqlCommand("SELECT MaQH FROM THANHVIEN WHERE HoTen = @HOTEN", conn))
             {
-
                 command1.Parameters.AddWithValue("@HOTEN", ten);
-
 
                 using (SqlDataReader reader = command1.ExecuteReader())
                 {
@@ -96,18 +98,22 @@ namespace New_DOAN
                     }
                 }
             }
-            string query = "SELECT MaTV, HoTen, Doi,\r\n       CASE WHEN MaQH = 'qh1' THEN (SELECT HoTen FROM Thanhvien t2 WHERE t2.MaTV = t1.TVCu)\r\n            WHEN MaQH = 'qh2' THEN (SELECT HoTen FROM Thanhvien t3 WHERE t3.MaTV = (SELECT TVCu FROM Thanhvien t4 WHERE t4.MaTV = t3.TVCu))\r\n       END AS TVCU\r\nFROM Thanhvien t1\r\nWHERE (@MANN <> '' OR @TENTV <> '' OR @MAQQ <> '' OR @NGAYSINH <> '')\r\n    AND (MaNNghiep = @MANN OR @MANN = '')\r\n    AND (HoTen = @TENTV OR @TENTV = '')\r\n    AND (MaQQ = @MAQQ OR @MAQQ = '')\r\n    AND (YEAR(NgSinh) = YEAR(@NGAYSINH) OR @NGAYSINH = '');";
+
+
+            string query = "SELECT MaTV, HoTen, Doi,\r\n       CASE WHEN MaQH = 'qh1' THEN (SELECT HoTen FROM Thanhvien t2 WHERE t2.MaTV = t1.TVCu)\r\n            WHEN MaQH = 'qh2' THEN (SELECT HoTen FROM Thanhvien t3 WHERE t3.MaTV = (SELECT TVCu FROM Thanhvien t4 WHERE t4.MaTV = t3.TVCu))\r\n       END AS TVCU\r\nFROM Thanhvien t1\r\nWHERE (MaNNghiep = @MANN OR @MANN IS NULL OR @MANN = '')\r\n    AND (HoTen = @TENTV OR @TENTV IS NULL OR @TENTV = '')\r\n\tAND (MaQQ = @MAQQ OR @MAQQ IS NULL OR @MAQQ = '')\r\n    AND (YEAR(NgSinh) = YEAR(@NGAYSINH) OR @NGAYSINH IS NULL OR @NGAYSINH = '');\r\n";
             SqlCommand command = new SqlCommand(query, conn);
             command.Parameters.AddWithValue("@TENTV", ten);
-            command.Parameters.AddWithValue("@MANN", mann);
-            command.Parameters.AddWithValue("@MAQQ", maqq);
+            command.Parameters.AddWithValue("@MANN", mann != null ? (object)mann : DBNull.Value);
+            command.Parameters.AddWithValue("@MAQQ", maqq != null ? (object)maqq : DBNull.Value);
             command.Parameters.AddWithValue("@NGAYSINH", namsinh);
             DataTable data = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(data);
             dtgvSearch.DataSource = data;
-
         }
+
+
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
