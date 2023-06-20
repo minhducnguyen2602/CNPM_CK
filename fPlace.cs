@@ -13,7 +13,7 @@ namespace New_DOAN
     
     public partial class frmPlace : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN16;Integrated Security=True");
         public frmPlace()
         {
 
@@ -46,7 +46,7 @@ namespace New_DOAN
             string add=txtAddValue.Text;
             string tencu = comboBox1.SelectedValue.ToString();
             string tenmoi = textBox1.Text;
-            string connectionString = "Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN16;Integrated Security=True";
 
             string query1 = "UPDATE DDMT\r\n\r\nSET DiaDiem = @moi\r\n\r\nWHERE DiaDiem = @cu";
             if (add != "")

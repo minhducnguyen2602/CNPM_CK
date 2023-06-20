@@ -17,7 +17,7 @@ namespace New_DOAN
 {
     public partial class frmSetting : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN16;Integrated Security=True");
         private MemberDAO memberDAO;
 
         public object MemberDataGridView { get; private set; }
@@ -121,7 +121,7 @@ namespace New_DOAN
             //        }
             //    }
             //}
-            //string connectionString = "Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True";
+            //string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN16;Integrated Security=True";
             //string query = "UPDATE THANHVIEN SET MaNNghiep = @MANN, MaQQ = @MAQQ, NgSinh = @NgSinh, GioiTinh = @GioiTinh, TVCu = @TVCU, WHERE MaTV = @MATV";
             //using (SqlConnection connection = new SqlConnection(connectionString))
             //using (SqlCommand command = new SqlCommand(query, conn))
@@ -148,9 +148,7 @@ namespace New_DOAN
             conn.Close();
             string matv = comboMaTV.SelectedValue.ToString();
             string matvcu = comboExistingMember.SelectedValue.ToString();
-            string maqh = "";
-            if (matv == "TV0") maqh = "QH0";
-            else maqh=comboRelationship.SelectedValue.ToString();
+            string maqh = comboRelationship.SelectedValue.ToString();
             string ten = txtFullName.Text;
             string gioitinh = comboBoxGT.SelectedItem.ToString();
             string mann = comboMemberJob.SelectedValue.ToString();
@@ -158,11 +156,11 @@ namespace New_DOAN
             string diachi = txtAddress.Text;
             DateTime ngps = DateTime.Parse(dateTimePickerphatsinh.Text);
             DateTime ngs = DateTime.Parse(dateTimePickerBirth.Text);
-            if(matv == "TV0" &&  matvcu != "TV0")
+            if (matv == "TV0" && matvcu != "TV0")
             {
                 MessageBox.Show("Sửa đổi thành viên gốc thì thành viên cũ phải là 'TV0'");
                 return;
-            }    
+            }
             int qq = 0;
             using (SqlCommand commandd = new SqlCommand("Select MaQQ from QUEQUAN where TenQueQuan = @QUEQUAN", conn))
             {
@@ -210,6 +208,10 @@ namespace New_DOAN
                     }
                 }
             }
+            if (matv == "TV0")
+            {
+                qh = "QH0";
+            }
             conn.Close();
             string query = "update THANHVIEN set TVCu = @matvcu, MaQH = @maqh, NgPSinh = @ngps, HoTen = @hoten, GioiTinh = @gt, NgSinh = @ngs, MaNNghiep = @mann, MaQQ = @maqq, DiaChi = @DiaChi where MaTV = @matv";
             SqlCommand command = new SqlCommand(query, conn);
@@ -250,13 +252,13 @@ namespace New_DOAN
             loadQH();
         }
 
-    
+
 
         private void comboMaTV_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string hoten = comboMaTV.SelectedValue.ToString();
             string queryyyy = "SELECT TVCu, MaQH, HoTen, GioiTinh, NgSinh, MaNNghiep, MaQQ, DiaChi, NgPSinh FROM THANHVIEN WHERE MaTV = @MemberId";
-            using (SqlConnection connection = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True"))
+            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN16;Integrated Security=True"))
             {
                 connection.Open();
 
@@ -268,7 +270,7 @@ namespace New_DOAN
                     {
                         if (reader.Read())
                         {
-                           
+
                             DateTime ngaySinh = Convert.ToDateTime(reader["NgSinh"]);
                             string tvcu = reader["TVCu"].ToString();
                             string gioitinh = reader["GioiTinh"].ToString();
@@ -312,7 +314,7 @@ namespace New_DOAN
                                     }
                                 }
                             }
- 
+
                             conn.Close();
                             string qq = "";
                             using (SqlCommand commandd = new SqlCommand("Select TenQueQuan from QUEQUAN where MaQQ = @QUEQUAN", conn))
@@ -329,7 +331,7 @@ namespace New_DOAN
                                     }
                                 }
                             }
-                            conn .Close();
+                            conn.Close();
                             string qh = "";
                             using (SqlCommand commandd = new SqlCommand("Select LoaiQH from QUANHE where MaQH = @QH", conn))
                             {
@@ -345,14 +347,14 @@ namespace New_DOAN
                                     }
                                 }
                             }
-                            conn.Close ();
+                            conn.Close();
                             string nn = "";
                             using (SqlCommand commandd = new SqlCommand("Select TenNN from NGHENGHIEP where MaNNghiep = @NN", conn))
                             {
 
                                 commandd.Parameters.AddWithValue("@NN", mann);
 
-                                conn .Open();
+                                conn.Open();
                                 using (SqlDataReader readerr = commandd.ExecuteReader())
                                 {
                                     while (readerr.Read())
@@ -361,7 +363,7 @@ namespace New_DOAN
                                     }
                                 }
                             }
-                          
+
                             comboTown.Text = qq;
                             comboBoxGT.Text = gioitinh;
                             comboExistingMember.Text = hoteen;

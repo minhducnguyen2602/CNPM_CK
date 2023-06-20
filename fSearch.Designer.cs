@@ -40,11 +40,11 @@
             this.tHANHVIENTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.THANHVIENTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblOccurrenceDate = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtHometown = new System.Windows.Forms.TextBox();
             this.txtJob = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource1)).BeginInit();
@@ -142,14 +142,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 16);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Nghề nghiêp";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(221, 231);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePicker1.TabIndex = 4;
+            this.label3.Text = "Nghề nghiệp";
             // 
             // lblOccurrenceDate
             // 
@@ -157,9 +150,9 @@
             this.lblOccurrenceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOccurrenceDate.Location = new System.Drawing.Point(60, 234);
             this.lblOccurrenceDate.Name = "lblOccurrenceDate";
-            this.lblOccurrenceDate.Size = new System.Drawing.Size(80, 16);
+            this.lblOccurrenceDate.Size = new System.Drawing.Size(71, 16);
             this.lblOccurrenceDate.TabIndex = 55;
-            this.lblOccurrenceDate.Text = "Ngày sinh:";
+            this.lblOccurrenceDate.Text = "Năm sinh";
             this.lblOccurrenceDate.Click += new System.EventHandler(this.lblOccurrenceDate_Click);
             // 
             // txtName
@@ -183,16 +176,23 @@
             this.txtJob.Size = new System.Drawing.Size(265, 22);
             this.txtJob.TabIndex = 58;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(221, 231);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(265, 22);
+            this.textBox1.TabIndex = 59;
+            // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(546, 681);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtJob);
             this.Controls.Add(this.txtHometown);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lblOccurrenceDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -227,10 +227,10 @@
         private System.Windows.Forms.BindingSource tHANHVIENBindingSource1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lblOccurrenceDate;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtHometown;
         private System.Windows.Forms.TextBox txtJob;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -20,7 +20,7 @@ namespace New_DOAN.DAO
 
         private DataProvider() { }
 
-        private string connectionSTR = "Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True";
+        private string connectionSTR = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN16;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query)
         {
