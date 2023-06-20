@@ -16,7 +16,7 @@ namespace New_DOAN
 {
     public partial class frmSearch : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True");
 
         public frmSearch()
         {
@@ -24,37 +24,36 @@ namespace New_DOAN
             conn.Open();
 
         }
-        void loadTVcu()
-        {
-            var cmdq = new SqlCommand("Select HoTen from THANHVIEN", conn);
-            var drq = cmdq.ExecuteReader();
-            var dtq = new DataTable();
-            dtq.Load(drq);
-            drq.Dispose();
-            comboSearchName.DataSource = dtq;
-            comboSearchName.DisplayMember = "HoTen"; // Thiết lập cột hiển thị
-            comboSearchName.ValueMember = "HoTen"; // Thiết lập cột giá trị
-        }
         private void frmSearch_Load(object sender, EventArgs e)
         {
-
-            loadTVcu();
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = " ";
+            dateTimePicker1.ValueChanged += DateTimePicker1_ValueChanged;
 
         }
-
-        private void comboSearchName_SelectedIndexChanged(object sender, EventArgs e)
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-
+            DateTimePicker dtp = (DateTimePicker)sender;
+            if (dtp.Value == dtp.MinDate)
+            {
+                dtp.CustomFormat = " ";
+            }
+            else
+            {
+                dtp.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string madh = "";
-            string tendh = comboSearchName.SelectedValue.ToString();
+            string ten = txtName.Text;
+            string nghe=txtJob.Text;
+            string que=txtHometown.Text;
             using (SqlCommand command1 = new SqlCommand("Select MaQH from THANHVIEN where HoTen = @HOTEN", conn))
             {
 
-                command1.Parameters.AddWithValue("@HOTEN", tendh);
+                command1.Parameters.AddWithValue("@HOTEN", ten);
 
 
                 using (SqlDataReader reader = command1.ExecuteReader())
@@ -70,7 +69,7 @@ namespace New_DOAN
             {
                 query = "SELECT HoTen AS 'Họ Tên', NgSinh AS 'Ngày Sinh', Doi AS 'Đời', @TVCU AS 'Cha/Mẹ' FROM THANHVIEN WHERE HoTen = @HoTen";
                 SqlCommand command = new SqlCommand(query, conn);
-                command.Parameters.AddWithValue("@HoTen", tendh);
+                command.Parameters.AddWithValue("@HoTen", ten);
                 command.Parameters.AddWithValue("@TVCU", "NONE");
                 DataTable data = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -82,7 +81,7 @@ namespace New_DOAN
 
                 query = "SELECT T1.HoTen AS 'Họ Tên', T1.NgSinh AS 'Ngày Sinh', T1.Doi AS 'Đời', T2.HoTen AS 'Cha/Mẹ'\r\nFROM THANHVIEN T1\r\nJOIN THANHVIEN T2 ON T1.TVCu = T2.Matv\r\nWHERE T1.HoTen = @HOTEN;";
                 SqlCommand command = new SqlCommand(query, conn);
-                command.Parameters.AddWithValue("@HoTen", tendh);
+                command.Parameters.AddWithValue("@HoTen", ten);
                 DataTable data = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(data);
@@ -95,7 +94,7 @@ namespace New_DOAN
                 using (SqlCommand command1 = new SqlCommand("Select TVCu from THANHVIEN where HoTen = @HOTEN", conn))
                 {
 
-                    command1.Parameters.AddWithValue("@HOTEN", tendh);
+                    command1.Parameters.AddWithValue("@HOTEN", ten);
 
 
                     using (SqlDataReader reader = command1.ExecuteReader())
@@ -141,7 +140,7 @@ namespace New_DOAN
                 }    
                 query = "SELECT HoTen AS 'Họ Tên', NgSinh AS 'Ngày Sinh', Doi AS 'Đời', @tenchong AS 'Cha/Mẹ' FROM THANHVIEN WHERE HoTen = @HoTen";
                 SqlCommand command = new SqlCommand(query, conn);
-                command.Parameters.AddWithValue("@HoTen", tendh);
+                command.Parameters.AddWithValue("@HoTen", ten);
                 command.Parameters.AddWithValue("@tenchong", tenbochong1);
                 DataTable data = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -157,10 +156,6 @@ namespace New_DOAN
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void lblOccurrenceDate_Click(object sender, EventArgs e)
         {

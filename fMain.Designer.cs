@@ -145,7 +145,7 @@
             this.btnSetting.Location = new System.Drawing.Point(862, 0);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(39, 36);
-            this.btnSetting.TabIndex = 16;
+            this.btnSetting.TabIndex = 6;
             this.btnSetting.UseVisualStyleBackColor = true;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
@@ -166,7 +166,7 @@
             this.btnReload.Location = new System.Drawing.Point(1241, 0);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(39, 36);
-            this.btnReload.TabIndex = 14;
+            this.btnReload.TabIndex = 7;
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
@@ -177,7 +177,7 @@
             this.btnMinus.Location = new System.Drawing.Point(313, 0);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(39, 36);
-            this.btnMinus.TabIndex = 11;
+            this.btnMinus.TabIndex = 3;
             this.btnMinus.UseVisualStyleBackColor = true;
             this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
             // 
@@ -188,7 +188,7 @@
             this.btnAchive.Location = new System.Drawing.Point(515, 0);
             this.btnAchive.Name = "btnAchive";
             this.btnAchive.Size = new System.Drawing.Size(39, 36);
-            this.btnAchive.TabIndex = 12;
+            this.btnAchive.TabIndex = 4;
             this.btnAchive.UseVisualStyleBackColor = true;
             this.btnAchive.Click += new System.EventHandler(this.btnAchive_Click);
             // 
@@ -199,7 +199,7 @@
             this.btnReport.Location = new System.Drawing.Point(702, 0);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(39, 36);
-            this.btnReport.TabIndex = 13;
+            this.btnReport.TabIndex = 5;
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
@@ -210,7 +210,7 @@
             this.btnAdd.Location = new System.Drawing.Point(132, 0);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(39, 36);
-            this.btnAdd.TabIndex = 10;
+            this.btnAdd.TabIndex = 2;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 

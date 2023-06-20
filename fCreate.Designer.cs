@@ -70,7 +70,7 @@
             this.txtName.Location = new System.Drawing.Point(181, 155);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(366, 22);
-            this.txtName.TabIndex = 37;
+            this.txtName.TabIndex = 1;
             // 
             // lblName
             // 
@@ -87,7 +87,7 @@
             this.btnGetInfo.Location = new System.Drawing.Point(221, 444);
             this.btnGetInfo.Name = "btnGetInfo";
             this.btnGetInfo.Size = new System.Drawing.Size(132, 50);
-            this.btnGetInfo.TabIndex = 35;
+            this.btnGetInfo.TabIndex = 7;
             this.btnGetInfo.Text = "Tạo tài khoản";
             this.btnGetInfo.UseVisualStyleBackColor = true;
             this.btnGetInfo.Click += new System.EventHandler(this.btnGetInfo_Click);
@@ -97,14 +97,14 @@
             this.txtAddress.Location = new System.Drawing.Point(181, 390);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(366, 22);
-            this.txtAddress.TabIndex = 34;
+            this.txtAddress.TabIndex = 6;
             // 
             // datBirthday
             // 
             this.datBirthday.Location = new System.Drawing.Point(181, 199);
             this.datBirthday.Name = "datBirthday";
             this.datBirthday.Size = new System.Drawing.Size(366, 22);
-            this.datBirthday.TabIndex = 29;
+            this.datBirthday.TabIndex = 2;
             // 
             // lblBirthday
             // 
@@ -165,7 +165,7 @@
             this.comboJob.Location = new System.Drawing.Point(181, 295);
             this.comboJob.Name = "comboJob";
             this.comboJob.Size = new System.Drawing.Size(366, 24);
-            this.comboJob.TabIndex = 39;
+            this.comboJob.TabIndex = 4;
             // 
             // nGHENGHIEPBindingSource
             // 
@@ -184,7 +184,7 @@
             this.comboBoxQue.Location = new System.Drawing.Point(181, 342);
             this.comboBoxQue.Name = "comboBoxQue";
             this.comboBoxQue.Size = new System.Drawing.Size(366, 24);
-            this.comboBoxQue.TabIndex = 40;
+            this.comboBoxQue.TabIndex = 5;
             // 
             // nGHENGHIEPTableAdapter
             // 
@@ -205,7 +205,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(181, 102);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(366, 22);
-            this.dateTimePicker1.TabIndex = 42;
+            this.dateTimePicker1.TabIndex = 0;
             // 
             // comboBox1
             // 
@@ -217,7 +217,7 @@
             this.comboBox1.Location = new System.Drawing.Point(179, 247);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(367, 24);
-            this.comboBox1.TabIndex = 43;
+            this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // errorProvider1

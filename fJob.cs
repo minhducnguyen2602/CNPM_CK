@@ -12,7 +12,7 @@ namespace New_DOAN
 {
     public partial class frmJob : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True");
         public frmJob()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace New_DOAN
             string add=txtAddValue.Text;
             string tencu = comboBox1.SelectedValue.ToString();
             string tenmoi = textBox1.Text;
-            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True";
+            string connectionString = "Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True";
 
             string query1 = "UPDATE NGHENGHIEP\r\n\r\nSET TenNN = @moi\r\n\r\nWHERE TenNN = @cu";
             if (add != "")

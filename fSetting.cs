@@ -17,7 +17,7 @@ namespace New_DOAN
 {
     public partial class frmSetting : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True");
         private MemberDAO memberDAO;
 
         public object MemberDataGridView { get; private set; }
@@ -121,7 +121,7 @@ namespace New_DOAN
             //        }
             //    }
             //}
-            //string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True";
+            //string connectionString = "Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True";
             //string query = "UPDATE THANHVIEN SET MaNNghiep = @MANN, MaQQ = @MAQQ, NgSinh = @NgSinh, GioiTinh = @GioiTinh, TVCu = @TVCU, WHERE MaTV = @MATV";
             //using (SqlConnection connection = new SqlConnection(connectionString))
             //using (SqlCommand command = new SqlCommand(query, conn))
@@ -148,7 +148,9 @@ namespace New_DOAN
             conn.Close();
             string matv = comboMaTV.SelectedValue.ToString();
             string matvcu = comboExistingMember.SelectedValue.ToString();
-            string maqh = comboRelationship.SelectedValue.ToString();
+            string maqh = "";
+            if (matv == "TV0") maqh = "QH0";
+            else maqh=comboRelationship.SelectedValue.ToString();
             string ten = txtFullName.Text;
             string gioitinh = comboBoxGT.SelectedItem.ToString();
             string mann = comboMemberJob.SelectedValue.ToString();
@@ -254,7 +256,7 @@ namespace New_DOAN
         {
             string hoten = comboMaTV.SelectedValue.ToString();
             string queryyyy = "SELECT TVCu, MaQH, HoTen, GioiTinh, NgSinh, MaNNghiep, MaQQ, DiaChi, NgPSinh FROM THANHVIEN WHERE MaTV = @MemberId";
-            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True"))
+            using (SqlConnection connection = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True"))
             {
                 connection.Open();
 

@@ -72,7 +72,7 @@
             this.btnAddMem.Location = new System.Drawing.Point(212, 582);
             this.btnAddMem.Name = "btnAddMem";
             this.btnAddMem.Size = new System.Drawing.Size(75, 23);
-            this.btnAddMem.TabIndex = 59;
+            this.btnAddMem.TabIndex = 9;
             this.btnAddMem.Text = "Thêm";
             this.btnAddMem.UseVisualStyleBackColor = true;
             this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
@@ -87,7 +87,7 @@
             this.comboRelationship.Location = new System.Drawing.Point(169, 129);
             this.comboRelationship.Name = "comboRelationship";
             this.comboRelationship.Size = new System.Drawing.Size(342, 24);
-            this.comboRelationship.TabIndex = 56;
+            this.comboRelationship.TabIndex = 1;
             this.comboRelationship.ValueMember = "LoaiQH";
             // 
             // qUANHEBindingSource
@@ -105,14 +105,14 @@
             this.dateTimePickerBirth.Location = new System.Drawing.Point(169, 354);
             this.dateTimePickerBirth.Name = "dateTimePickerBirth";
             this.dateTimePickerBirth.Size = new System.Drawing.Size(342, 22);
-            this.dateTimePickerBirth.TabIndex = 55;
+            this.dateTimePickerBirth.TabIndex = 5;
             // 
             // dateTimePickerOccurred
             // 
             this.dateTimePickerOccurred.Location = new System.Drawing.Point(169, 184);
             this.dateTimePickerOccurred.Name = "dateTimePickerOccurred";
             this.dateTimePickerOccurred.Size = new System.Drawing.Size(342, 22);
-            this.dateTimePickerOccurred.TabIndex = 54;
+            this.dateTimePickerOccurred.TabIndex = 2;
             // 
             // comboExistingMember
             // 
@@ -124,7 +124,7 @@
             this.comboExistingMember.Location = new System.Drawing.Point(169, 75);
             this.comboExistingMember.Name = "comboExistingMember";
             this.comboExistingMember.Size = new System.Drawing.Size(342, 24);
-            this.comboExistingMember.TabIndex = 53;
+            this.comboExistingMember.TabIndex = 0;
             this.comboExistingMember.ValueMember = "HoTen";
             // 
             // tHANHVIENBindingSource
@@ -142,7 +142,7 @@
             this.comboJob.Location = new System.Drawing.Point(169, 515);
             this.comboJob.Name = "comboJob";
             this.comboJob.Size = new System.Drawing.Size(342, 24);
-            this.comboJob.TabIndex = 52;
+            this.comboJob.TabIndex = 8;
             this.comboJob.ValueMember = "TenNN";
             // 
             // nGHENGHIEPBindingSource
@@ -155,14 +155,14 @@
             this.txtAddress.Location = new System.Drawing.Point(169, 462);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(342, 22);
-            this.txtAddress.TabIndex = 51;
+            this.txtAddress.TabIndex = 7;
             // 
             // txtFullName
             // 
             this.txtFullName.Location = new System.Drawing.Point(169, 238);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(342, 22);
-            this.txtFullName.TabIndex = 49;
+            this.txtFullName.TabIndex = 3;
             // 
             // lblOccupation
             // 
@@ -275,7 +275,7 @@
             this.comboBoxQue.Location = new System.Drawing.Point(169, 409);
             this.comboBoxQue.Name = "comboBoxQue";
             this.comboBoxQue.Size = new System.Drawing.Size(342, 24);
-            this.comboBoxQue.TabIndex = 61;
+            this.comboBoxQue.TabIndex = 6;
             this.comboBoxQue.ValueMember = "TenQueQuan";
             // 
             // qUEQUANBindingSource
@@ -310,7 +310,7 @@
             this.comboBoxGT.Location = new System.Drawing.Point(171, 299);
             this.comboBoxGT.Name = "comboBoxGT";
             this.comboBoxGT.Size = new System.Drawing.Size(339, 24);
-            this.comboBoxGT.TabIndex = 62;
+            this.comboBoxGT.TabIndex = 4;
             this.comboBoxGT.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // qUANHETableAdapter

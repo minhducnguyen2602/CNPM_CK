@@ -94,7 +94,7 @@
             this.btnMinus.Location = new System.Drawing.Point(305, 292);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(155, 33);
-            this.btnMinus.TabIndex = 3;
+            this.btnMinus.TabIndex = 5;
             this.btnMinus.Text = "Ghi nhận / Cập Nhật";
             this.btnMinus.UseVisualStyleBackColor = true;
             this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
@@ -107,7 +107,7 @@
             this.comboMinusName.Location = new System.Drawing.Point(224, 83);
             this.comboMinusName.Name = "comboMinusName";
             this.comboMinusName.Size = new System.Drawing.Size(287, 24);
-            this.comboMinusName.TabIndex = 4;
+            this.comboMinusName.TabIndex = 0;
             this.comboMinusName.SelectedIndexChanged += new System.EventHandler(this.comboMinusName_SelectedIndexChanged);
             // 
             // tHANHVIENBindingSource
@@ -128,7 +128,7 @@
             this.comboMinusCause.Location = new System.Drawing.Point(224, 187);
             this.comboMinusCause.Name = "comboMinusCause";
             this.comboMinusCause.Size = new System.Drawing.Size(287, 24);
-            this.comboMinusCause.TabIndex = 5;
+            this.comboMinusCause.TabIndex = 2;
             // 
             // nNMATBindingSource
             // 
@@ -148,7 +148,7 @@
             this.comboMinusPlace.Location = new System.Drawing.Point(224, 239);
             this.comboMinusPlace.Name = "comboMinusPlace";
             this.comboMinusPlace.Size = new System.Drawing.Size(287, 24);
-            this.comboMinusPlace.TabIndex = 6;
+            this.comboMinusPlace.TabIndex = 3;
             // 
             // dDMTBindingSource
             // 
@@ -186,7 +186,7 @@
             this.dateTimePickerMinus.Location = new System.Drawing.Point(224, 136);
             this.dateTimePickerMinus.Name = "dateTimePickerMinus";
             this.dateTimePickerMinus.Size = new System.Drawing.Size(287, 22);
-            this.dateTimePickerMinus.TabIndex = 9;
+            this.dateTimePickerMinus.TabIndex = 1;
             // 
             // tHANHVIENTableAdapter
             // 
@@ -209,7 +209,7 @@
             this.buttonDelete.Location = new System.Drawing.Point(79, 292);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(155, 33);
-            this.buttonDelete.TabIndex = 10;
+            this.buttonDelete.TabIndex = 4;
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);

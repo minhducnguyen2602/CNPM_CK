@@ -47,14 +47,14 @@
             this.textBox1.Location = new System.Drawing.Point(247, 136);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(215, 22);
-            this.textBox1.TabIndex = 12;
+            this.textBox1.TabIndex = 1;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(115, 286);
+            this.btnUpdate.Location = new System.Drawing.Point(113, 230);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(99, 47);
-            this.btnUpdate.TabIndex = 11;
+            this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -66,7 +66,7 @@
             this.comboBox1.Location = new System.Drawing.Point(247, 87);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(215, 24);
-            this.comboBox1.TabIndex = 10;
+            this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblReplace
@@ -109,7 +109,7 @@
             this.txtAddValue.Location = new System.Drawing.Point(247, 182);
             this.txtAddValue.Name = "txtAddValue";
             this.txtAddValue.Size = new System.Drawing.Size(215, 22);
-            this.txtAddValue.TabIndex = 14;
+            this.txtAddValue.TabIndex = 2;
             // 
             // lblAddValue
             // 
@@ -117,16 +117,16 @@
             this.lblAddValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddValue.Location = new System.Drawing.Point(63, 185);
             this.lblAddValue.Name = "lblAddValue";
-            this.lblAddValue.Size = new System.Drawing.Size(149, 16);
+            this.lblAddValue.Size = new System.Drawing.Size(141, 16);
             this.lblAddValue.TabIndex = 13;
-            this.lblAddValue.Text = "Thêm loại thành tích:";
+            this.lblAddValue.Text = "Thêm nguyên nhân:";
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(311, 286);
+            this.btnDelete.Location = new System.Drawing.Point(309, 230);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 47);
-            this.btnDelete.TabIndex = 15;
+            this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Xóa nguyên nhân";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -136,7 +136,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(525, 360);
+            this.ClientSize = new System.Drawing.Size(525, 314);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.txtAddValue);
             this.Controls.Add(this.lblAddValue);

@@ -105,7 +105,7 @@
             this.comboMaTV.Location = new System.Drawing.Point(211, 55);
             this.comboMaTV.Name = "comboMaTV";
             this.comboMaTV.Size = new System.Drawing.Size(280, 24);
-            this.comboMaTV.TabIndex = 4;
+            this.comboMaTV.TabIndex = 0;
             this.comboMaTV.ValueMember = "MaTV";
             this.comboMaTV.SelectedIndexChanged += new System.EventHandler(this.comboMaTV_SelectedIndexChanged_1);
             // 
@@ -129,7 +129,7 @@
             this.comboMemberJob.Location = new System.Drawing.Point(211, 411);
             this.comboMemberJob.Name = "comboMemberJob";
             this.comboMemberJob.Size = new System.Drawing.Size(280, 24);
-            this.comboMemberJob.TabIndex = 5;
+            this.comboMemberJob.TabIndex = 7;
             this.comboMemberJob.ValueMember = "TenNN";
             // 
             // nGHENGHIEPBindingSource
@@ -147,7 +147,7 @@
             this.comboTown.Location = new System.Drawing.Point(211, 464);
             this.comboTown.Name = "comboTown";
             this.comboTown.Size = new System.Drawing.Size(280, 24);
-            this.comboTown.TabIndex = 6;
+            this.comboTown.TabIndex = 8;
             this.comboTown.ValueMember = "TenQueQuan";
             // 
             // qUEQUANBindingSource
@@ -160,7 +160,7 @@
             this.btnUpdateMember.Location = new System.Drawing.Point(204, 573);
             this.btnUpdateMember.Name = "btnUpdateMember";
             this.btnUpdateMember.Size = new System.Drawing.Size(123, 36);
-            this.btnUpdateMember.TabIndex = 7;
+            this.btnUpdateMember.TabIndex = 10;
             this.btnUpdateMember.Text = "Thay đổi";
             this.btnUpdateMember.UseVisualStyleBackColor = true;
             this.btnUpdateMember.Click += new System.EventHandler(this.button1_Click);
@@ -197,7 +197,7 @@
             this.comboExistingMember.Location = new System.Drawing.Point(211, 108);
             this.comboExistingMember.Name = "comboExistingMember";
             this.comboExistingMember.Size = new System.Drawing.Size(280, 24);
-            this.comboExistingMember.TabIndex = 55;
+            this.comboExistingMember.TabIndex = 1;
             this.comboExistingMember.ValueMember = "HoTen";
             // 
             // lblExistingMember
@@ -215,7 +215,7 @@
             this.txtFullName.Location = new System.Drawing.Point(211, 253);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(280, 22);
-            this.txtFullName.TabIndex = 57;
+            this.txtFullName.TabIndex = 4;
             // 
             // lblFullName
             // 
@@ -232,7 +232,7 @@
             this.txtAddress.Location = new System.Drawing.Point(211, 518);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(280, 22);
-            this.txtAddress.TabIndex = 66;
+            this.txtAddress.TabIndex = 9;
             // 
             // lblAddress
             // 
@@ -252,7 +252,7 @@
             this.comboRelationship.Location = new System.Drawing.Point(211, 161);
             this.comboRelationship.Name = "comboRelationship";
             this.comboRelationship.Size = new System.Drawing.Size(280, 24);
-            this.comboRelationship.TabIndex = 70;
+            this.comboRelationship.TabIndex = 2;
             this.comboRelationship.ValueMember = "LoaiQH";
             // 
             // lblRelationshipType
@@ -280,7 +280,7 @@
             this.comboBoxGT.Location = new System.Drawing.Point(211, 305);
             this.comboBoxGT.Name = "comboBoxGT";
             this.comboBoxGT.Size = new System.Drawing.Size(280, 24);
-            this.comboBoxGT.TabIndex = 72;
+            this.comboBoxGT.TabIndex = 5;
             // 
             // lblGender
             // 
@@ -297,7 +297,7 @@
             this.dateTimePickerBirth.Location = new System.Drawing.Point(211, 359);
             this.dateTimePickerBirth.Name = "dateTimePickerBirth";
             this.dateTimePickerBirth.Size = new System.Drawing.Size(280, 22);
-            this.dateTimePickerBirth.TabIndex = 74;
+            this.dateTimePickerBirth.TabIndex = 6;
             // 
             // lblBirthDate
             // 
@@ -314,7 +314,7 @@
             this.dateTimePickerphatsinh.Location = new System.Drawing.Point(211, 205);
             this.dateTimePickerphatsinh.Name = "dateTimePickerphatsinh";
             this.dateTimePickerphatsinh.Size = new System.Drawing.Size(280, 22);
-            this.dateTimePickerphatsinh.TabIndex = 76;
+            this.dateTimePickerphatsinh.TabIndex = 3;
             // 
             // lblOccurrenceDate
             // 

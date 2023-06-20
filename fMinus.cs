@@ -17,7 +17,7 @@ namespace New_DOAN
 {
     public partial class frmMinus : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True");
         private MinusDAO minusDAO;
         public DataGridView MemberDataGridView { get; set; }
         public frmMinus()

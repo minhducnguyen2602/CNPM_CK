@@ -12,7 +12,7 @@ namespace New_DOAN
 {
     public partial class fLogin : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True");
         public fLogin()
         {
             InitializeComponent();
@@ -76,7 +76,6 @@ namespace New_DOAN
         private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-
         }
 
         private void btnCreate_Click(object sender, EventArgs e)

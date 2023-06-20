@@ -71,7 +71,7 @@
             this.btnBorn.Location = new System.Drawing.Point(88, 192);
             this.btnBorn.Name = "btnBorn";
             this.btnBorn.Size = new System.Drawing.Size(92, 50);
-            this.btnBorn.TabIndex = 4;
+            this.btnBorn.TabIndex = 2;
             this.btnBorn.Text = "Báo cáo tăng / giảm";
             this.btnBorn.UseVisualStyleBackColor = true;
             this.btnBorn.Click += new System.EventHandler(this.btnBorn_Click);
@@ -81,7 +81,7 @@
             this.btnAchive.Location = new System.Drawing.Point(367, 192);
             this.btnAchive.Name = "btnAchive";
             this.btnAchive.Size = new System.Drawing.Size(92, 50);
-            this.btnAchive.TabIndex = 5;
+            this.btnAchive.TabIndex = 3;
             this.btnAchive.Text = "Báo cáo thành tích";
             this.btnAchive.UseVisualStyleBackColor = true;
             this.btnAchive.Click += new System.EventHandler(this.btnAchive_Click);
@@ -102,14 +102,14 @@
             this.textBox1.Location = new System.Drawing.Point(199, 79);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(293, 22);
-            this.textBox1.TabIndex = 8;
+            this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(199, 141);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(293, 22);
-            this.textBox2.TabIndex = 9;
+            this.textBox2.TabIndex = 1;
             // 
             // dtgvReport
             // 
@@ -134,7 +134,7 @@
             this.btnExport.Location = new System.Drawing.Point(380, 678);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(112, 40);
-            this.btnExport.TabIndex = 11;
+            this.btnExport.TabIndex = 5;
             this.btnExport.Text = "Lưu báo cáo";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
@@ -153,7 +153,7 @@
             this.textBox3.Location = new System.Drawing.Point(108, 687);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(265, 22);
-            this.textBox3.TabIndex = 13;
+            this.textBox3.TabIndex = 4;
             // 
             // frmReport
             // 

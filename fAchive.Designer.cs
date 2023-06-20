@@ -102,7 +102,7 @@
             this.comboAchiveName.Location = new System.Drawing.Point(197, 79);
             this.comboAchiveName.Name = "comboAchiveName";
             this.comboAchiveName.Size = new System.Drawing.Size(299, 24);
-            this.comboAchiveName.TabIndex = 4;
+            this.comboAchiveName.TabIndex = 0;
             this.comboAchiveName.ValueMember = "HoTen";
             this.comboAchiveName.SelectedIndexChanged += new System.EventHandler(this.comboAchiveName_SelectedIndexChanged);
             // 
@@ -126,7 +126,7 @@
             this.comboAchiveType.Location = new System.Drawing.Point(197, 150);
             this.comboAchiveType.Name = "comboAchiveType";
             this.comboAchiveType.Size = new System.Drawing.Size(299, 24);
-            this.comboAchiveType.TabIndex = 5;
+            this.comboAchiveType.TabIndex = 1;
             this.comboAchiveType.ValueMember = "TenTT";
             // 
             // nHAPTTBindingSource
@@ -139,7 +139,7 @@
             this.btnAchive.Location = new System.Drawing.Point(336, 279);
             this.btnAchive.Name = "btnAchive";
             this.btnAchive.Size = new System.Drawing.Size(75, 23);
-            this.btnAchive.TabIndex = 7;
+            this.btnAchive.TabIndex = 4;
             this.btnAchive.Text = "Thêm";
             this.btnAchive.UseVisualStyleBackColor = true;
             this.btnAchive.Click += new System.EventHandler(this.btnAchive_Click);
@@ -149,7 +149,7 @@
             this.dateTimePickerAchive.Location = new System.Drawing.Point(197, 222);
             this.dateTimePickerAchive.Name = "dateTimePickerAchive";
             this.dateTimePickerAchive.Size = new System.Drawing.Size(299, 22);
-            this.dateTimePickerAchive.TabIndex = 8;
+            this.dateTimePickerAchive.TabIndex = 2;
             // 
             // tHANHVIENTableAdapter
             // 
@@ -173,7 +173,7 @@
             this.button1.Location = new System.Drawing.Point(168, 279);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Xóa";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

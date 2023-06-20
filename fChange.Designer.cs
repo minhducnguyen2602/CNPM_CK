@@ -68,7 +68,7 @@
             this.btnCause.Location = new System.Drawing.Point(281, 0);
             this.btnCause.Name = "btnCause";
             this.btnCause.Size = new System.Drawing.Size(39, 36);
-            this.btnCause.TabIndex = 11;
+            this.btnCause.TabIndex = 2;
             this.btnCause.UseVisualStyleBackColor = true;
             this.btnCause.Click += new System.EventHandler(this.btnCause_Click);
             // 
@@ -79,7 +79,7 @@
             this.btnPlace.Location = new System.Drawing.Point(467, 0);
             this.btnPlace.Name = "btnPlace";
             this.btnPlace.Size = new System.Drawing.Size(39, 36);
-            this.btnPlace.TabIndex = 12;
+            this.btnPlace.TabIndex = 3;
             this.btnPlace.UseVisualStyleBackColor = true;
             this.btnPlace.Click += new System.EventHandler(this.btnPlace_Click);
             // 
@@ -90,7 +90,7 @@
             this.btnType.Location = new System.Drawing.Point(667, 0);
             this.btnType.Name = "btnType";
             this.btnType.Size = new System.Drawing.Size(39, 36);
-            this.btnType.TabIndex = 13;
+            this.btnType.TabIndex = 4;
             this.btnType.UseVisualStyleBackColor = true;
             this.btnType.Click += new System.EventHandler(this.btnType_Click);
             // 
@@ -101,7 +101,7 @@
             this.btnJob.Location = new System.Drawing.Point(132, 0);
             this.btnJob.Name = "btnJob";
             this.btnJob.Size = new System.Drawing.Size(39, 36);
-            this.btnJob.TabIndex = 10;
+            this.btnJob.TabIndex = 1;
             this.btnJob.UseVisualStyleBackColor = true;
             this.btnJob.Click += new System.EventHandler(this.btnJob_Click);
             // 
@@ -112,7 +112,7 @@
             this.btnTown.Location = new System.Drawing.Point(0, 0);
             this.btnTown.Name = "btnTown";
             this.btnTown.Size = new System.Drawing.Size(39, 36);
-            this.btnTown.TabIndex = 1;
+            this.btnTown.TabIndex = 0;
             this.btnTown.UseVisualStyleBackColor = true;
             this.btnTown.Click += new System.EventHandler(this.btnTown_Click);
             // 

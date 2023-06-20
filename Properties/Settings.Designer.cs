@@ -36,7 +36,7 @@ namespace New_DOAN.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True")]
         public string DOAN8ConnectionString {
             get {
                 return ((string)(this["DOAN8ConnectionString"]));

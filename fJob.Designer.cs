@@ -47,14 +47,14 @@
             this.textBox1.Location = new System.Drawing.Point(246, 141);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(215, 22);
-            this.textBox1.TabIndex = 12;
+            this.textBox1.TabIndex = 1;
             // 
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(124, 237);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(99, 47);
-            this.btnUpdate.TabIndex = 11;
+            this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -66,7 +66,7 @@
             this.comboBox1.Location = new System.Drawing.Point(246, 92);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(215, 24);
-            this.comboBox1.TabIndex = 10;
+            this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblReplace
@@ -109,7 +109,7 @@
             this.txtAddValue.Location = new System.Drawing.Point(246, 188);
             this.txtAddValue.Name = "txtAddValue";
             this.txtAddValue.Size = new System.Drawing.Size(215, 22);
-            this.txtAddValue.TabIndex = 14;
+            this.txtAddValue.TabIndex = 2;
             // 
             // lblAddValue
             // 
@@ -117,16 +117,16 @@
             this.lblAddValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddValue.Location = new System.Drawing.Point(62, 191);
             this.lblAddValue.Name = "lblAddValue";
-            this.lblAddValue.Size = new System.Drawing.Size(149, 16);
+            this.lblAddValue.Size = new System.Drawing.Size(139, 16);
             this.lblAddValue.TabIndex = 13;
-            this.lblAddValue.Text = "Thêm loại thành tích:";
+            this.lblAddValue.Text = "Thêm nghề nghiệp:";
             // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(298, 237);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 47);
-            this.btnDelete.TabIndex = 16;
+            this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Xóa nghề nghiêp";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);

@@ -15,7 +15,7 @@ namespace New_DOAN
 {
     public partial class frmCreate : Form
     {
-        SqlConnection connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
+        SqlConnection connect = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True");
         private MemberDAO memberDAO;
         public frmCreate()
         {
@@ -95,7 +95,7 @@ namespace New_DOAN
                     }
                 }
             }
-            connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
+            connect = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN16;Integrated Security=True");
             int count = 0;
             connect.Open();
             string name = "";
