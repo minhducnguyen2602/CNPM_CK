@@ -15,7 +15,7 @@ namespace New_DOAN
 {
     public partial class frmType : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
         public frmType()
         {
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace New_DOAN
             string tenmoi = textBox1.Text;
             
 
-            string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True";
 
             string query1 = "UPDATE NHAPTT\r\n\r\nSET TenTT = @moi\r\n\r\nWHERE TenTT = @cu";
             if(add!="")
@@ -61,7 +61,18 @@ namespace New_DOAN
                     count1 = (int)command.ExecuteScalar();
                 }
                 string matt = "loai" + (count1+1).ToString();
-                string q = "INSERT INTO NHAPTT (LoaiTT, TenTT) values (@LTT, @TENTT)";
+                string checkQuery = "SELECT COUNT(*) FROM NHAPTT WHERE TenTT = @moi";
+                using (SqlCommand checkCommand = new SqlCommand(checkQuery, conn))
+                {
+                    checkCommand.Parameters.AddWithValue("@moi", add);
+                    int count = (int)checkCommand.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Đã tồn tại");
+                        return;
+                    }
+                }
+                string q = "INSERT INTO NHAPTT (TenTT) values (@TENTT)";
                 using (SqlCommand command = new SqlCommand(q, conn))
                 {
                     command.Parameters.AddWithValue("@TENTT", add);
@@ -118,7 +129,7 @@ namespace New_DOAN
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string tencu = comboBox1.SelectedValue.ToString();
-            string maaa="";
+            int maaa = 0;
             string Matt = "SELECT LoaiTT FROM NHAPTT WHERE TenTT = @moi";
             using (SqlCommand checkCommand = new SqlCommand(Matt, conn))
             {
@@ -128,7 +139,7 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        maaa = reader.GetString(0);
+                        maaa = reader.GetInt32(0);
                     }
                 }
                 string qq = "SELECT COUNT(*) FROM THANHTICH WHERE LoaiTT = @ma";
@@ -143,7 +154,7 @@ namespace New_DOAN
                     }
                     else
                     {
-                        string q = "UPDATE NHAPTT SET TenTT = 'NONE' WHERE TenTT=@TTT";
+                        string q = "DELETE FROM NHAPTT WHERE TenTT = @TTT";
                         using (SqlCommand ccommand = new SqlCommand(q, conn))
                         {
                             ccommand.Parameters.AddWithValue("@TTT", tencu);

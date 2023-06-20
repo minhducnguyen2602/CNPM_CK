@@ -65,5 +65,10 @@ namespace New_DOAN
             this.pnl1.Controls.Add(frm);
             frm.Show();
         }
+
+        private void lblAchive_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

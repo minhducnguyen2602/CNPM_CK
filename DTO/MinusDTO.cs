@@ -11,7 +11,7 @@ namespace New_DOAN.DTO
         public string MAKT { get; set; }
         public string MATV { get; set; }
         public DateTime NGAYMAT { get; set; }
-        public string NNMAT { get; set; }
-        public string DDMT { get; set; }
+        public int NNMAT { get; set; }
+        public int DDMT { get; set; }
     }
 }

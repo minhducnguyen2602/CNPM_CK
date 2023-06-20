@@ -15,7 +15,7 @@ namespace New_DOAN
 {
     public partial class frmCreate : Form
     {
-        SqlConnection connect = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
         private MemberDAO memberDAO;
         public frmCreate()
         {
@@ -63,7 +63,7 @@ namespace New_DOAN
             newMember.NGPSINH = DateTime.Parse(dateTimePicker1.Text);
             newMember.HOTEN = txtName.Text;
             newMember.GT = comboBox1.SelectedItem.ToString();
-            string maqq = "";
+            int maqq = 0;
             string tenqq = comboBoxQue.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select MaQQ from QUEQUAN where TenQueQuan = @QUEQUAN", connect))
             {
@@ -75,11 +75,11 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        maqq = reader.GetString(0);
+                        maqq = reader.GetInt32(0);
                     }
                 }
             }
-            string mann = "";
+            int mann = 0;
             string tennn = comboJob.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select MaNNghiep from NGHENGHIEP where TenNN = @NGHENGHIEP", connect))
             {
@@ -91,11 +91,11 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        mann = reader.GetString(0);
+                        mann = reader.GetInt32(0);
                     }
                 }
             }
-            connect = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
+            connect = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
             int count = 0;
             connect.Open();
             string name = "";
@@ -131,8 +131,9 @@ namespace New_DOAN
             newMember.MAQQ = maqq;// Lấy giá trị từ cột giá trị
             newMember.MANN = mann;// Lấy giá trị từ cột giá trị
             newMember.DIACHI = txtAddress.Text;
-            newMember.TVCU = "NONE";
+     
             newMember.MATV = "TV0";
+            newMember.TVCU = newMember.MATV;
             newMember.DOI = 0;
             if (newMember.NGPSINH != newMember.NGSINH)
             {

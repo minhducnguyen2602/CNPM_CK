@@ -12,7 +12,7 @@ namespace New_DOAN
 {
     public partial class frmCause : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
         public frmCause()
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace New_DOAN
             string add = txtAddValue.Text;
             string tencu = comboBox1.SelectedValue.ToString();
             string tenmoi = textBox1.Text;
-            string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True";
 
             string query1 = "UPDATE NNMAT\r\n\r\nSET LoaiNN = @moi\r\n\r\nWHERE LoaiNN = @cu";
             if(add!="")
@@ -56,7 +56,18 @@ namespace New_DOAN
                     count1 = (int)command.ExecuteScalar();
                 }
                 string mann = "nn" + (count1 + 1).ToString();
-                string q = "INSERT INTO NNMAT (MaNNhan, LoaiNN) values (@MNN, @LNN)";
+                string checkQuery = "SELECT COUNT(*) FROM NNMAT WHERE LoaiNN = @moi";
+                using (SqlCommand checkCommand = new SqlCommand(checkQuery, conn))
+                {
+                    checkCommand.Parameters.AddWithValue("@moi", add);
+                    int count = (int)checkCommand.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Đã tồn tại");
+                        return;
+                    }
+                }
+                string q = "INSERT INTO NNMAT (LoaiNN) values (@LNN)";
                 using (SqlCommand command = new SqlCommand(q, conn))
                 {
                     command.Parameters.AddWithValue("@MNN", mann);
@@ -113,7 +124,7 @@ namespace New_DOAN
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string tencu = comboBox1.SelectedValue.ToString();
-            string maaa = "";
+            int maaa = 0;
             string Mann = "SELECT MaNNhan FROM NNMAT WHERE LoaiNN = @moi";
             using (SqlCommand checkCommand = new SqlCommand(Mann, conn))
             {
@@ -123,7 +134,7 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        maaa = reader.GetString(0);
+                        maaa = reader.GetInt32(0); ;
                     }
                 }
                 string qq = "SELECT COUNT(*) FROM KETTHUC WHERE MaNNhan = @ma";
@@ -138,7 +149,7 @@ namespace New_DOAN
                     }
                     else
                     {
-                        string q = "UPDATE NNMAT SET LoaiNN = 'NONE' WHERE LoaiNN=@TTT";
+                        string q = "DELETE FROM NNMAT WHERE LoaiNN=@TTT";
                         using (SqlCommand ccommand = new SqlCommand(q, conn))
                         {
                             ccommand.Parameters.AddWithValue("@TTT", tencu);

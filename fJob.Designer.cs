@@ -127,7 +127,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 47);
             this.btnDelete.TabIndex = 16;
-            this.btnDelete.Text = "Xóa thành tích";
+            this.btnDelete.Text = "Xóa nghề nghiêp";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 

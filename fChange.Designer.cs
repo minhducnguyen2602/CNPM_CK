@@ -134,7 +134,8 @@
             this.lblAchive.Name = "lblAchive";
             this.lblAchive.Size = new System.Drawing.Size(131, 16);
             this.lblAchive.TabIndex = 7;
-            this.lblAchive.Text = "ĐỊa điểm mai táng";
+            this.lblAchive.Text = "Địa điểm mai táng";
+            this.lblAchive.Click += new System.EventHandler(this.lblAchive_Click);
             // 
             // lblMinus
             // 

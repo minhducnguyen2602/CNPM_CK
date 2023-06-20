@@ -12,7 +12,7 @@ namespace New_DOAN
 {
     public partial class fLogin : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
         public fLogin()
         {
             InitializeComponent();

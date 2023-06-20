@@ -49,6 +49,7 @@
             this.nNMATTableAdapter = new New_DOAN.testingDataSet1TableAdapters.NNMATTableAdapter();
             this.dDMTTableAdapter = new New_DOAN.testingDataSet2TableAdapters.DDMTTableAdapter();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testingDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nNMATBindingSource)).BeginInit();
@@ -90,7 +91,7 @@
             // 
             // btnMinus
             // 
-            this.btnMinus.Location = new System.Drawing.Point(196, 293);
+            this.btnMinus.Location = new System.Drawing.Point(305, 292);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(155, 33);
             this.btnMinus.TabIndex = 3;
@@ -203,12 +204,23 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(79, 292);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(155, 33);
+            this.buttonDelete.TabIndex = 10;
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // frmMinus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(547, 354);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.dateTimePickerMinus);
             this.Controls.Add(this.lblMinusDate);
             this.Controls.Add(this.lblMinus);
@@ -257,5 +269,6 @@
         private System.Windows.Forms.BindingSource dDMTBindingSource;
         private testingDataSet2TableAdapters.DDMTTableAdapter dDMTTableAdapter;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }

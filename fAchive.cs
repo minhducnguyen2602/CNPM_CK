@@ -15,7 +15,7 @@ namespace New_DOAN
 {
     public partial class frmAchive : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
         private AchiveDAO achiveDAO;
         public DataGridView MemberDataGridView { get; set; }
         public frmAchive()
@@ -73,7 +73,7 @@ namespace New_DOAN
             AchiveDTO member = new AchiveDTO();
             member.MATV = comboAchiveName.SelectedValue.ToString();
 
-            string mattt = "";
+            int mattt = 0;
             string tentt = comboAchiveType.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select LOAITT from NHAPTT where TenTT = @Tentt", conn))
             {
@@ -85,11 +85,11 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        mattt = reader.GetString(0);
+                        mattt = reader.GetInt32(0);
                     }
                 }
             }
-            member.LOAITT = mattt.ToString();
+            member.LOAITT = mattt;
 
             member.NGPSINHTT = DateTime.Parse(dateTimePickerAchive.Text);
             var querydemmatv = "Select count(*) from THANHTICH";
@@ -99,7 +99,21 @@ namespace New_DOAN
                 count1 = (int)command.ExecuteScalar();
             }
             member.MATT="ThanhTich"+count1.ToString();
-            
+            var querydem = "Select count(*) from THANHTICH where MaTV = @MATV and LoaiTT = @MATT and NgPSinhTT = @NGPS";
+            var count5 = 0;
+            using (SqlCommand command = new SqlCommand(querydem, conn))
+            {
+                command.Parameters.AddWithValue("@MATV", member.MATV);
+                command.Parameters.AddWithValue("@MATT", member.LOAITT);
+                command.Parameters.AddWithValue("@NGPS", member.NGPSINHTT);
+                count5 = (int)command.ExecuteScalar();
+            }
+
+            if(count5 != 0)
+            {
+                MessageBox.Show("Đã tồn tại một thành tích với thông tin y hệt");
+                return;
+            }    
             achiveDAO.SaveAchive(member);
             loadTV();
         }
@@ -112,6 +126,80 @@ namespace New_DOAN
         }
         private void comboAchiveName_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AchiveDTO member = new AchiveDTO();
+            member.MATV = comboAchiveName.SelectedValue.ToString();
+
+            int mattt = 0;
+            string tentt = comboAchiveType.SelectedValue.ToString();
+            using (SqlCommand command = new SqlCommand("Select LOAITT from NHAPTT where TenTT = @Tentt", conn))
+            {
+
+                command.Parameters.AddWithValue("@Tentt", tentt);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        mattt = reader.GetInt32(0);
+                    }
+                }
+            }
+            member.LOAITT = mattt;
+
+            member.NGPSINHTT = DateTime.Parse(dateTimePickerAchive.Text);
+            var querydemmatv = "Select count(*) from THANHTICH";
+            var count1 = 0;
+            using (SqlCommand command = new SqlCommand(querydemmatv, conn))
+            {
+                count1 = (int)command.ExecuteScalar();
+            }
+            int matt = 0;
+            member.MATT = "ThanhTich" + count1.ToString();
+            var querydem = "Select count(*) from THANHTICH where MaTV = @MATV and LoaiTT = @MATT and NgPSinhTT = @NGPS";
+            var count5 = 0;
+            using (SqlCommand command = new SqlCommand(querydem, conn))
+            {
+                
+                command.Parameters.AddWithValue("@MATV", member.MATV);
+                command.Parameters.AddWithValue("@MATT", member.LOAITT);
+                command.Parameters.AddWithValue("@NGPS", member.NGPSINHTT);
+                count5 = (int)command.ExecuteScalar();
+            }
+            if (count5 == 0)
+            {
+                MessageBox.Show("Không có thành tích nào có thông tin như vậy");
+                return;
+            }
+            using (SqlCommand command = new SqlCommand("Select MaTT from THANHTICH where MaTV = @MATV and LoaiTT = @MATT and NgPSinhTT = @NGPS", conn))
+            {
+
+                command.Parameters.AddWithValue("@MATV", member.MATV);
+                command.Parameters.AddWithValue("@MATT", member.LOAITT);
+                command.Parameters.AddWithValue("@NGPS", member.NGPSINHTT);
+
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        matt = reader.GetInt32(0);
+                    }
+                }
+            }
+            using (SqlCommand command = new SqlCommand("DELETE FROM THANHTICH WHERE MaTT = @GiaTri", conn))
+            {
+                command.Parameters.AddWithValue("@GiaTri", matt);
+
+                // Thực thi câu lệnh DELETE
+                int rowsAffected = command.ExecuteNonQuery();
+                MessageBox.Show("Đã xóa");
+            }
 
         }
     }

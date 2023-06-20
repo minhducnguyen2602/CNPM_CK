@@ -11,6 +11,6 @@ namespace New_DOAN.DTO
         public string MATT { get; set; }
         public string MATV { get; set; }
         public DateTime NGPSINHTT { get; set; }
-        public string LOAITT { get; set; }
+        public int LOAITT { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace New_DOAN
 {
     public partial class frmTown : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
         public frmTown()
         {
             InitializeComponent();
@@ -46,7 +46,7 @@ namespace New_DOAN
             string add=txtAddValue.Text;
             string tencu = comboBox1.SelectedValue.ToString();
             string tenmoi = textBox1.Text;
-            string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True";
 
             string query1 = "UPDATE QUEQUAN\r\n\r\nSET TenQueQuan = @moi\r\n\r\nWHERE TenQueQuan = @cu";
             if (add != "")
@@ -58,7 +58,18 @@ namespace New_DOAN
                     count1 = (int)command.ExecuteScalar();
                 }
                 string matt = "q" + (count1 + 1).ToString();
-                string q = "INSERT INTO QUEQUAN (MaQQ, TenQueQuan) values (@MQQ, @TQQ)";
+                string checkQuery = "SELECT COUNT(*) FROM QUEQUAN WHERE TenQueQuan = @moi";
+                using (SqlCommand checkCommand = new SqlCommand(checkQuery, conn))
+                {
+                    checkCommand.Parameters.AddWithValue("@moi", add);
+                    int count = (int)checkCommand.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Đã tồn tại");
+                        return;
+                    }
+                }
+                string q = "INSERT INTO QUEQUAN (TenQueQuan) values (@TQQ)";
                 using (SqlCommand command = new SqlCommand(q, conn))
                 {
                     command.Parameters.AddWithValue("@TQQ", add);
@@ -115,7 +126,7 @@ namespace New_DOAN
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string tencu = comboBox1.SelectedValue.ToString();
-            string maaa = "";
+            int maaa = 0;
             string Matt = "SELECT MaQQ FROM QUEQUAN WHERE TenQueQuan = @moi";
             using (SqlCommand checkCommand = new SqlCommand(Matt, conn))
             {
@@ -124,7 +135,7 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        maaa = reader.GetString(0);
+                        maaa = reader.GetInt32(0); ;
                     }
                 }
                 string qqq = "SELECT COUNT(*) FROM THANHVIEN WHERE MaQQ = @ma";
@@ -139,7 +150,7 @@ namespace New_DOAN
                     }
                     else
                     {
-                        string q = "UPDATE QUEQUAN SET TenQueQuan = 'NONE' WHERE TenQueQuan=@TTT";
+                        string q = "DELETE FROM QUEQUAN WHERE TenQueQuan=@TTT";
                         using (SqlCommand ccommand = new SqlCommand(q, conn))
                         {
                             ccommand.Parameters.AddWithValue("@TTT", tencu);

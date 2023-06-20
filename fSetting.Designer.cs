@@ -56,6 +56,8 @@
             this.lblGender = new System.Windows.Forms.Label();
             this.dateTimePickerBirth = new System.Windows.Forms.DateTimePicker();
             this.lblBirthDate = new System.Windows.Forms.Label();
+            this.dateTimePickerphatsinh = new System.Windows.Forms.DateTimePicker();
+            this.lblOccurrenceDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGHENGHIEPBindingSource)).BeginInit();
@@ -67,7 +69,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblTitle.Location = new System.Drawing.Point(146, 27);
+            this.lblTitle.Location = new System.Drawing.Point(148, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(238, 25);
             this.lblTitle.TabIndex = 0;
@@ -100,11 +102,12 @@
             this.comboMaTV.DisplayMember = "MaTV";
             this.comboMaTV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMaTV.FormattingEnabled = true;
-            this.comboMaTV.Location = new System.Drawing.Point(211, 93);
+            this.comboMaTV.Location = new System.Drawing.Point(211, 55);
             this.comboMaTV.Name = "comboMaTV";
             this.comboMaTV.Size = new System.Drawing.Size(280, 24);
             this.comboMaTV.TabIndex = 4;
             this.comboMaTV.ValueMember = "MaTV";
+            this.comboMaTV.SelectedIndexChanged += new System.EventHandler(this.comboMaTV_SelectedIndexChanged_1);
             // 
             // tHANHVIENBindingSource
             // 
@@ -178,7 +181,7 @@
             // 
             this.lblMaTV.AutoSize = true;
             this.lblMaTV.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaTV.Location = new System.Drawing.Point(39, 97);
+            this.lblMaTV.Location = new System.Drawing.Point(39, 59);
             this.lblMaTV.Name = "lblMaTV";
             this.lblMaTV.Size = new System.Drawing.Size(102, 16);
             this.lblMaTV.TabIndex = 2;
@@ -191,7 +194,7 @@
             this.comboExistingMember.DisplayMember = "HoTen";
             this.comboExistingMember.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboExistingMember.FormattingEnabled = true;
-            this.comboExistingMember.Location = new System.Drawing.Point(211, 146);
+            this.comboExistingMember.Location = new System.Drawing.Point(211, 108);
             this.comboExistingMember.Name = "comboExistingMember";
             this.comboExistingMember.Size = new System.Drawing.Size(280, 24);
             this.comboExistingMember.TabIndex = 55;
@@ -201,7 +204,7 @@
             // 
             this.lblExistingMember.AutoSize = true;
             this.lblExistingMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExistingMember.Location = new System.Drawing.Point(39, 150);
+            this.lblExistingMember.Location = new System.Drawing.Point(39, 112);
             this.lblExistingMember.Name = "lblExistingMember";
             this.lblExistingMember.Size = new System.Drawing.Size(122, 16);
             this.lblExistingMember.TabIndex = 54;
@@ -246,7 +249,7 @@
             this.comboRelationship.DisplayMember = "LoaiQH";
             this.comboRelationship.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRelationship.FormattingEnabled = true;
-            this.comboRelationship.Location = new System.Drawing.Point(211, 199);
+            this.comboRelationship.Location = new System.Drawing.Point(211, 161);
             this.comboRelationship.Name = "comboRelationship";
             this.comboRelationship.Size = new System.Drawing.Size(280, 24);
             this.comboRelationship.TabIndex = 70;
@@ -256,7 +259,7 @@
             // 
             this.lblRelationshipType.AutoSize = true;
             this.lblRelationshipType.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRelationshipType.Location = new System.Drawing.Point(39, 203);
+            this.lblRelationshipType.Location = new System.Drawing.Point(39, 165);
             this.lblRelationshipType.Name = "lblRelationshipType";
             this.lblRelationshipType.Size = new System.Drawing.Size(100, 16);
             this.lblRelationshipType.TabIndex = 69;
@@ -306,12 +309,31 @@
             this.lblBirthDate.TabIndex = 73;
             this.lblBirthDate.Text = "Ngày sinh:";
             // 
+            // dateTimePickerphatsinh
+            // 
+            this.dateTimePickerphatsinh.Location = new System.Drawing.Point(211, 205);
+            this.dateTimePickerphatsinh.Name = "dateTimePickerphatsinh";
+            this.dateTimePickerphatsinh.Size = new System.Drawing.Size(280, 22);
+            this.dateTimePickerphatsinh.TabIndex = 76;
+            // 
+            // lblOccurrenceDate
+            // 
+            this.lblOccurrenceDate.AutoSize = true;
+            this.lblOccurrenceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOccurrenceDate.Location = new System.Drawing.Point(39, 211);
+            this.lblOccurrenceDate.Name = "lblOccurrenceDate";
+            this.lblOccurrenceDate.Size = new System.Drawing.Size(114, 16);
+            this.lblOccurrenceDate.TabIndex = 75;
+            this.lblOccurrenceDate.Text = "Ngày phát sinh:";
+            // 
             // frmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(530, 623);
+            this.Controls.Add(this.dateTimePickerphatsinh);
+            this.Controls.Add(this.lblOccurrenceDate);
             this.Controls.Add(this.dateTimePickerBirth);
             this.Controls.Add(this.lblBirthDate);
             this.Controls.Add(this.comboBoxGT);
@@ -373,5 +395,7 @@
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.DateTimePicker dateTimePickerBirth;
         private System.Windows.Forms.Label lblBirthDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerphatsinh;
+        private System.Windows.Forms.Label lblOccurrenceDate;
     }
 }

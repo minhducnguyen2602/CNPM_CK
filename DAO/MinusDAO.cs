@@ -14,7 +14,7 @@ namespace New_DOAN.DAO
         public MinusDAO() { }
         public bool CheckMaTVExists(string maTV)
         {
-            string connectionString1 = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
+            string connectionString1 = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True";
             string query1 = "SELECT COUNT(*) FROM KETTHUC WHERE MaTV = @maTV";
 
             using (SqlConnection connection = new SqlConnection(connectionString1))
@@ -34,7 +34,7 @@ namespace New_DOAN.DAO
         public
         void SaveMinus(MinusDTO member)
         {
-            string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True";
 
             bool exists = CheckMaTVExists(member.MATV);
             if (exists)
@@ -69,7 +69,7 @@ namespace New_DOAN.DAO
             }
             else
             {
-                string query = "INSERT INTO KETTHUC (MaKT, MaTV, NgayMat, MaNNhan, MaDD) VALUES (@MAKT, @MATV, @NGAYMAT, @NNMAT, @DDMT)";
+                string query = "INSERT INTO KETTHUC (MaTV, NgayMat, MaNNhan, MaDD) VALUES (@MATV, @NGAYMAT, @NNMAT, @DDMT)";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

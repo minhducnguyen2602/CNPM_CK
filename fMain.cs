@@ -14,7 +14,7 @@ namespace New_DOAN
 {
     public partial class frmMain : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
         private int key = 1;
         public frmMain()
         {
@@ -41,7 +41,7 @@ namespace New_DOAN
         {
             key = 1;
             LoadForm(new frmAdd());
-            string query = "Select THANHVIEN.MaTV as 'Mã thành viên', HoTen as 'Họ và tên',TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh',  GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            string query = "SELECT \r\n  T1.MaTV AS 'Mã thành viên',\r\n  T1.HoTen AS 'Họ tên',\r\n  T2.HoTen AS 'Thành viên cũ',\r\n  QUANHE.LoaiQH AS 'Loại quan hệ',\r\n  T1.NgPSinh AS 'Ngày phát sinh',\r\n  T1.GioiTinh AS 'Giới tính',\r\n  T1.NgSinh AS 'Ngày sinh',\r\n  QUEQUAN.TenQueQuan AS 'Quê quán',\r\n  NGHENGHIEP.TenNN AS 'Nghề nghiệp',\r\n  T1.DiaChi AS 'Địa chỉ'\r\nFROM THANHVIEN T1\r\nJOIN THANHVIEN T2 ON T1.TVCU = T2.MaTV\r\nJOIN QUANHE ON T1.MaQH = QUANHE.MaQH\r\nJOIN QUEQUAN ON T1.MaQQ = QUEQUAN.MaQQ\r\nJOIN NGHENGHIEP ON T1.MaNNghiep = NGHENGHIEP.MaNNghiep";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -64,7 +64,7 @@ namespace New_DOAN
         {
             key = 5;
             LoadForm(new frmReport());
-            string query = "Select THANHVIEN.MaTV as 'Mã thành viên', HoTen as 'Họ và tên',TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh', GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            string query = "SELECT \r\n  T1.MaTV AS 'Mã thành viên',\r\n  T1.HoTen AS 'Họ tên',\r\n  T2.HoTen AS 'Thành viên cũ',\r\n  QUANHE.LoaiQH AS 'Loại quan hệ',\r\n  T1.NgPSinh AS 'Ngày phát sinh',\r\n  T1.GioiTinh AS 'Giới tính',\r\n  T1.NgSinh AS 'Ngày sinh',\r\n  QUEQUAN.TenQueQuan AS 'Quê quán',\r\n  NGHENGHIEP.TenNN AS 'Nghề nghiệp',\r\n  T1.DiaChi AS 'Địa chỉ'\r\nFROM THANHVIEN T1\r\nJOIN THANHVIEN T2 ON T1.TVCU = T2.MaTV\r\nJOIN QUANHE ON T1.MaQH = QUANHE.MaQH\r\nJOIN QUEQUAN ON T1.MaQQ = QUEQUAN.MaQQ\r\nJOIN NGHENGHIEP ON T1.MaNNghiep = NGHENGHIEP.MaNNghiep";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -72,14 +72,14 @@ namespace New_DOAN
         {
             key = 4;
             LoadForm(new frmSearch());
-            string query = "Select THANHVIEN.MaTV as 'Mã thành viên', HoTen as 'Họ và tên',TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh',  GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            string query = "SELECT \r\n  T1.MaTV AS 'Mã thành viên',\r\n  T1.HoTen AS 'Họ tên',\r\n  T2.HoTen AS 'Thành viên cũ',\r\n  QUANHE.LoaiQH AS 'Loại quan hệ',\r\n  T1.NgPSinh AS 'Ngày phát sinh',\r\n  T1.GioiTinh AS 'Giới tính',\r\n  T1.NgSinh AS 'Ngày sinh',\r\n  QUEQUAN.TenQueQuan AS 'Quê quán',\r\n  NGHENGHIEP.TenNN AS 'Nghề nghiệp',\r\n  T1.DiaChi AS 'Địa chỉ'\r\nFROM THANHVIEN T1\r\nJOIN THANHVIEN T2 ON T1.TVCU = T2.MaTV\r\nJOIN QUANHE ON T1.MaQH = QUANHE.MaQH\r\nJOIN QUEQUAN ON T1.MaQQ = QUEQUAN.MaQQ\r\nJOIN NGHENGHIEP ON T1.MaNNghiep = NGHENGHIEP.MaNNghiep";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
         public void LoadMemberList()
         {
             if (key == 1)
             {
-                string query = "Select MaTV as 'Mã thành viên', HoTen as 'Họ và tên',TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh',  GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+                string query = "SELECT \r\n  T1.MaTV AS 'Mã thành viên',\r\n  T1.HoTen AS 'Họ tên',\r\n  T2.HoTen AS 'Thành viên cũ',\r\n  QUANHE.LoaiQH AS 'Loại quan hệ',\r\n  T1.NgPSinh AS 'Ngày phát sinh',\r\n  T1.GioiTinh AS 'Giới tính',\r\n  T1.NgSinh AS 'Ngày sinh',\r\n  QUEQUAN.TenQueQuan AS 'Quê quán',\r\n  NGHENGHIEP.TenNN AS 'Nghề nghiệp',\r\n  T1.DiaChi AS 'Địa chỉ'\r\nFROM THANHVIEN T1\r\nJOIN THANHVIEN T2 ON T1.TVCU = T2.MaTV\r\nJOIN QUANHE ON T1.MaQH = QUANHE.MaQH\r\nJOIN QUEQUAN ON T1.MaQQ = QUEQUAN.MaQQ\r\nJOIN NGHENGHIEP ON T1.MaNNghiep = NGHENGHIEP.MaNNghiep";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
             }
             if (key == 2)
@@ -94,14 +94,14 @@ namespace New_DOAN
             }
             if (key == 4)
             {
-                string query = "Select THANHVIEN.MaTV as 'Mã thành viên',HoTen as 'Họ và tên',TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh',  GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+                string query = "SELECT \r\n  T1.MaTV AS 'Mã thành viên',\r\n  T1.HoTen AS 'Họ tên',\r\n  T2.HoTen AS 'Thành viên cũ',\r\n  QUANHE.LoaiQH AS 'Loại quan hệ',\r\n  T1.NgPSinh AS 'Ngày phát sinh',\r\n  T1.GioiTinh AS 'Giới tính',\r\n  T1.NgSinh AS 'Ngày sinh',\r\n  QUEQUAN.TenQueQuan AS 'Quê quán',\r\n  NGHENGHIEP.TenNN AS 'Nghề nghiệp',\r\n  T1.DiaChi AS 'Địa chỉ'\r\nFROM THANHVIEN T1\r\nJOIN THANHVIEN T2 ON T1.TVCU = T2.MaTV\r\nJOIN QUANHE ON T1.MaQH = QUANHE.MaQH\r\nJOIN QUEQUAN ON T1.MaQQ = QUEQUAN.MaQQ\r\nJOIN NGHENGHIEP ON T1.MaNNghiep = NGHENGHIEP.MaNNghiep";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            } 
+            }
             if (key == 5)
             {
-                string query = "Select THANHVIEN.MaTV as 'Mã thành viên',THANHVIEN.HoTen as 'Họ và tên',TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh',  GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+                string query = "SELECT \r\n  T1.MaTV AS 'Mã thành viên',\r\n  T1.HoTen AS 'Họ tên',\r\n  T2.HoTen AS 'Thành viên cũ',\r\n  QUANHE.LoaiQH AS 'Loại quan hệ',\r\n  T1.NgPSinh AS 'Ngày phát sinh',\r\n  T1.GioiTinh AS 'Giới tính',\r\n  T1.NgSinh AS 'Ngày sinh',\r\n  QUEQUAN.TenQueQuan AS 'Quê quán',\r\n  NGHENGHIEP.TenNN AS 'Nghề nghiệp',\r\n  T1.DiaChi AS 'Địa chỉ'\r\nFROM THANHVIEN T1\r\nJOIN THANHVIEN T2 ON T1.TVCU = T2.MaTV\r\nJOIN QUANHE ON T1.MaQH = QUANHE.MaQH\r\nJOIN QUEQUAN ON T1.MaQQ = QUEQUAN.MaQQ\r\nJOIN NGHENGHIEP ON T1.MaNNghiep = NGHENGHIEP.MaNNghiep";
                 dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            }    
+            }
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -121,7 +121,7 @@ namespace New_DOAN
                 fLogin lg = new fLogin();
                 this.Hide();
 
-                
+
                 lg.ShowDialog();
             }
         }
@@ -135,21 +135,21 @@ namespace New_DOAN
         {
             key = 1;
             LoadForm(new frmSetting());
-            string query = "Select MaTV as 'Mã thành viên', HoTen as 'Họ và tên', TVCU as 'Thành viên cũ', QUANHE.LoaiQH as 'Loại quan hệ', NgPSinh as 'Ngày phát sinh',  GioiTinh as 'Giới tính', NgSinh as 'Ngày sinh', QUEQUAN.TenQueQuan as 'Quê quán', NGHENGHIEP.TenNN as 'Nghề nghiệp', DiaChi as 'Địa chỉ'  from THANHVIEN, QUEQUAN, NGHENGHIEP, QUANHE where THANHVIEN.MaQH = QUANHE.MaQH and THANHVIEN.MaQQ = QUEQUAN.MaQQ and THANHVIEN.MaNNghiep = NGHENGHIEP.MaNNghiep";
+            string query = "SELECT \r\n  T1.MaTV AS 'Mã thành viên',\r\n  T1.HoTen AS 'Họ tên',\r\n  T2.HoTen AS 'Thành viên cũ',\r\n  QUANHE.LoaiQH AS 'Loại quan hệ',\r\n  T1.NgPSinh AS 'Ngày phát sinh',\r\n  T1.GioiTinh AS 'Giới tính',\r\n  T1.NgSinh AS 'Ngày sinh',\r\n  QUEQUAN.TenQueQuan AS 'Quê quán',\r\n  NGHENGHIEP.TenNN AS 'Nghề nghiệp',\r\n  T1.DiaChi AS 'Địa chỉ'\r\nFROM THANHVIEN T1\r\nJOIN THANHVIEN T2 ON T1.TVCU = T2.MaTV\r\nJOIN QUANHE ON T1.MaQH = QUANHE.MaQH\r\nJOIN QUEQUAN ON T1.MaQQ = QUEQUAN.MaQQ\r\nJOIN NGHENGHIEP ON T1.MaNNghiep = NGHENGHIEP.MaNNghiep";
             dtgvShow.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-               
+
         }
 
         private void khởiTạoLạiThànhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult res=MessageBox.Show("Bạn có chắc muốn xóa toàn bộ thông tin liên quan đến thành viên", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if(res==DialogResult.Yes)
+            DialogResult res = MessageBox.Show("Bạn có chắc muốn xóa toàn bộ thông tin liên quan đến thành viên", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True"))
                 {
                     connection.Open();
                     string query = "DELETE from THANHTICH; DELETE from KETTHUC;Delete from THANHVIEN";
@@ -166,8 +166,8 @@ namespace New_DOAN
 
 
                 }
-            }    
-            
+            }
+
 
         }
 
@@ -176,7 +176,7 @@ namespace New_DOAN
             DialogResult res = MessageBox.Show("Bạn có chắc muốn xóa toàn bộ thông tin liên quan đến thành tích", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True"))
                 {
                     connection.Open();
                     string query = "DELETE from THANHTICH";
@@ -194,7 +194,7 @@ namespace New_DOAN
             DialogResult res = MessageBox.Show("Bạn có chắc muốn xóa toàn bộ thông tin liên quan đến kết thúc", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True"))
                 {
                     connection.Open();
                     string query = "DELETE from KETTHUC";
@@ -210,9 +210,9 @@ namespace New_DOAN
 
         private void thayĐổiDữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChange f=new frmChange();
+            frmChange f = new frmChange();
             f.Show();
         }
     }
-    
+
 }

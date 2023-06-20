@@ -15,8 +15,8 @@ namespace New_DOAN.DTO
         public string HOTEN { get; set; }
         public string GT { get; set; }
         public DateTime NGSINH { get; set; }
-        public string MAQQ { get; set; }
-        public string MANN { get; set; }
+        public int MAQQ { get; set; }
+        public int MANN { get; set; }
         public string DIACHI { get; set; }
         public int DOI { get; set; }
 

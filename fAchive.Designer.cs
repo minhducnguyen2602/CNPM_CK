@@ -44,6 +44,7 @@
             this.tHANHTICHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tHANHTICHTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.THANHTICHTableAdapter();
             this.nHAPTTTableAdapter = new New_DOAN.DOAN8DataSetTableAdapters.NHAPTTTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tHANHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dOAN8DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHAPTTBindingSource)).BeginInit();
@@ -135,7 +136,7 @@
             // 
             // btnAchive
             // 
-            this.btnAchive.Location = new System.Drawing.Point(212, 284);
+            this.btnAchive.Location = new System.Drawing.Point(336, 279);
             this.btnAchive.Name = "btnAchive";
             this.btnAchive.Size = new System.Drawing.Size(75, 23);
             this.btnAchive.TabIndex = 7;
@@ -167,12 +168,23 @@
             // 
             this.nHAPTTTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(168, 279);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Xóa";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmAchive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(547, 333);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePickerAchive);
             this.Controls.Add(this.btnAchive);
             this.Controls.Add(this.comboAchiveType);
@@ -211,5 +223,6 @@
         private DOAN8DataSetTableAdapters.THANHTICHTableAdapter tHANHTICHTableAdapter;
         private System.Windows.Forms.BindingSource nHAPTTBindingSource;
         private DOAN8DataSetTableAdapters.NHAPTTTableAdapter nHAPTTTableAdapter;
+        private System.Windows.Forms.Button button1;
     }
 }

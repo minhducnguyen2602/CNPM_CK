@@ -17,7 +17,7 @@ namespace New_DOAN
 {
     public partial class frmAdd : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
         private MemberDAO memberDAO;
         public DataGridView MemberDataGridView { get; set; }
 
@@ -98,23 +98,24 @@ namespace New_DOAN
             MemberDTO newMember = new MemberDTO();
             if (comboExistingMember.SelectedItem != null)
             {
-                matvcu = comboExistingMember.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
+                newMember.TVCU = comboExistingMember.SelectedValue.ToString(); // Lấy giá trị từ cột giá trị
             }
-            using (SqlCommand command = new SqlCommand("Select HoTen from THANHVIEN where MaTV = @MaTV", conn))
-            {
+            //using (SqlCommand command = new SqlCommand("Select HoTen from THANHVIEN where MaTV = @MaTV", conn))
+            //{
 
-                command.Parameters.AddWithValue("@MaTV", matvcu);
+            //    command.Parameters.AddWithValue("@MaTV", matvcu);
 
 
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        newMember.TVCU = reader.GetString(0);
-                    }
-                }
-            }
-            string mann = "";
+            //    using (SqlDataReader reader = command.ExecuteReader())
+            //    {
+            //        while (reader.Read())
+            //        {
+            //            newMember.TVCU = reader.GetString(0);
+            //        }
+            //    }
+            //}
+          
+            int mann = 0;
             string tennn = comboJob.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select MaNNghiep from NGHENGHIEP where TenNN = @NGHENGHIEP", conn))
             {
@@ -126,11 +127,11 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        mann = reader.GetString(0);
+                        mann = reader.GetInt32(0);
                     }
                 }
             }
-            string maqq = "";
+            int maqq = 0;
             string tenqq = comboBoxQue.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select MaQQ from QUEQUAN where TenQueQuan = @QUEQUAN", conn))
             {
@@ -142,7 +143,7 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        maqq = reader.GetString(0);
+                        maqq = reader.GetInt32(0);
                     }
                 }
             }
@@ -215,12 +216,8 @@ namespace New_DOAN
             string makt = "TV" + count.ToString();
             ; 
             newMember.MATV = makt;
-            if (newMember.MAQH == "qh1")
-            {
-                newMember.DOI = count1 + 1;
-                newMember.NGPSINH = newMember.NGSINH;
-            }
-            else newMember.DOI = count1;
+          
+            newMember.DOI = 0;
 
             memberDAO.SaveMember(newMember);
             loadTVcu();

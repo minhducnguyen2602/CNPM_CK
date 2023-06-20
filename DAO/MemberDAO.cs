@@ -22,7 +22,7 @@ namespace New_DOAN.DAO
         public void SaveMember(MemberDTO member)
         {
 
-            string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True";
             string query = "INSERT INTO THANHVIEN (MaTV, HoTen, NgPSinh, GioiTinh, MaNNghiep, DiaChi, TVCu, MaQH, MaQQ, NgSinh, Doi) VALUES (@MATV, @HOTEN, @NGPSINH, @GT, @MANN, @DIACHI, @TVCU, @MAQH, @MAQQ, @NGSINH, @Doi)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -59,7 +59,7 @@ namespace New_DOAN.DAO
         public void SaveRoot(MemberDTO member)
         {
 
-            string connectionString = "Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True";
             string query = "INSERT INTO THANHVIEN (MaTV, HoTen, NGPSINH, GioiTinh, MaNNghiep, DiaChi, TVCu, MaQH, MaQQ, NgSinh, Doi) VALUES (@MATV, @HOTEN, @NGPSINH, @GT, @MANN, @DIACHI, @TVCU, @MAQH, @MAQQ, @NGSINH, @DOI)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -74,7 +74,7 @@ namespace New_DOAN.DAO
                     command.Parameters.AddWithValue("@GT", member.GT);
                     command.Parameters.AddWithValue("@MANN", member.MANN);
                     command.Parameters.AddWithValue("@DIACHI", member.DIACHI);
-                    command.Parameters.AddWithValue("@TVCU", "NONE");
+                    command.Parameters.AddWithValue("@TVCU", "TV0");
                     command.Parameters.AddWithValue("@MAQH", member.MAQH);
                     command.Parameters.AddWithValue("@MAQQ", member.MAQQ);
                     command.Parameters.AddWithValue("@NGSINH", member.NGSINH);

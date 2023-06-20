@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace New_DOAN
 {
     public partial class frmMinus : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=MSI;Initial Catalog=DOAN9;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-099VP89G;Initial Catalog=DOAN10;Integrated Security=True");
         private MinusDAO minusDAO;
         public DataGridView MemberDataGridView { get; set; }
         public frmMinus()
@@ -104,7 +105,7 @@ namespace New_DOAN
             
             member.MATV = comboMinusName.SelectedValue.ToString();
             string matv=member.MATV;
-            string mann = "";
+            int mann = 0;
             string tennn = comboMinusCause.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select MaNNhan from NNMAT where LoaiNN = @LOAINN", conn))
             {
@@ -116,7 +117,7 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        mann = reader.GetString(0);
+                        mann = reader.GetInt32(0);
                     }
                 }
             }
@@ -142,8 +143,8 @@ namespace New_DOAN
                     }
                 }
             }
-            member.NNMAT = mann.ToString();
-            string madd = "";
+            member.NNMAT = mann;
+            int madd = 0;
             string tendd = comboMinusPlace.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select MaDD from DDMT where DiaDiem = @DIADIEM", conn))
             {
@@ -155,11 +156,11 @@ namespace New_DOAN
                 {
                     while (reader.Read())
                     {
-                        madd = reader.GetString(0);
+                        madd = reader.GetInt32(0);
                     }
                 }
             }
-            member.DDMT = madd.ToString();
+            member.DDMT = madd;
             var count = 0;
             var querydemmatv = "Select count(*) from KETTHUC";
             using (SqlCommand command = new SqlCommand(querydemmatv, conn))
@@ -184,6 +185,33 @@ namespace New_DOAN
 
         }
 
-        
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            string matv = comboMinusName.SelectedValue.ToString();
+            var count = 0;
+            var querydemmatv = "Select count(*) from KETTHUC where MaTV = @MATV";
+            using (SqlCommand command = new SqlCommand(querydemmatv, conn))
+            {
+                command.Parameters.AddWithValue("@MATV", matv);
+                count = (int)command.ExecuteScalar();
+            }
+            if(count == 0)
+            {
+                MessageBox.Show("Thành viên này chưa được ghi nhận kết thúc");
+                return;
+            }    
+            using (SqlCommand command = new SqlCommand("DELETE FROM KETTHUC WHERE MaTV = @GiaTri", conn))
+            {
+                command.Parameters.AddWithValue("@GiaTri", matv);
+
+                // Thực thi câu lệnh DELETE
+                int rowsAffected = command.ExecuteNonQuery();
+                MessageBox.Show("Đã xóa");
+                // rowsAffected là số hàng bị ảnh hưởng bởi câu lệnh DELETE
+            }
+
+
+
+        }
     }
 }
