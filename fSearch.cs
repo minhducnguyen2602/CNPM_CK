@@ -12,6 +12,7 @@ using New_DOAN.DAO;
 using New_DOAN.DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Collections;
+using System.Runtime.Remoting.Contexts;
 
 namespace New_DOAN
 {
@@ -45,14 +46,31 @@ namespace New_DOAN
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            int intValue;
             string madh = "";
             string ten = txtName.Text;
             string tennn = txtJob.Text;
             string tenqq = txtHometown.Text;
-            int? mann = null;
+            string mann = "";
 
-            if (!string.IsNullOrEmpty(tennn))
+            int count = 0;
+            using (SqlCommand commanddd = new SqlCommand("SELECT COUNT(*) FROM NGHENGHIEP WHERE TenNN = @MemberCode", conn))
             {
+                commanddd.Parameters.AddWithValue("@MemberCode", tennn);
+                count = (int)commanddd.ExecuteScalar();
+
+            }
+            int count11 = 0;
+            using (SqlCommand commanddd = new SqlCommand("SELECT COUNT(*) FROM QUEQUAN WHERE TenQueQuan = @MemberCode", conn))
+            {
+                commanddd.Parameters.AddWithValue("@MemberCode", tenqq);
+                count11 = (int)commanddd.ExecuteScalar();
+
+            }
+            
+            if (!string.IsNullOrEmpty(tennn) && count != 0)
+            {
+               
                 using (SqlCommand commandđ = new SqlCommand("SELECT MaNNghiep FROM NGHENGHIEP WHERE TenNN = @NGHENGHIEP", conn))
                 {
                     commandđ.Parameters.AddWithValue("@NGHENGHIEP", tennn);
@@ -61,15 +79,16 @@ namespace New_DOAN
                     {
                         while (reader.Read())
                         {
-                            mann = reader.GetInt32(0);
+                          
+                            mann = reader.GetInt32(0).ToString();
                         }
                     }
                 }
             }
 
-            int? maqq = null;
+            string maqq = "";
 
-            if (!string.IsNullOrEmpty(tenqq))
+            if (!string.IsNullOrEmpty(tenqq) && count11 != 0)
             {
                 using (SqlCommand commandd = new SqlCommand("SELECT MaQQ FROM QUEQUAN WHERE TenQueQuan = @QUEQUAN", conn))
                 {
@@ -79,13 +98,20 @@ namespace New_DOAN
                     {
                         while (reader.Read())
                         {
-                            maqq = reader.GetInt32(0);
+                            maqq = reader.GetInt32(0).ToString();
                         }
                     }
                 }
             }
+            
 
             string namsinh = textBox1.Text;
+            if (namsinh!=""&&(!int.TryParse(namsinh, out intValue)))
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(textBox1, "Sai dữ liệu");
+                return;
+            }
             using (SqlCommand command1 = new SqlCommand("SELECT MaQH FROM THANHVIEN WHERE HoTen = @HOTEN", conn))
             {
                 command1.Parameters.AddWithValue("@HOTEN", ten);
@@ -99,12 +125,12 @@ namespace New_DOAN
                 }
             }
 
-
-            string query = "SELECT MaTV, HoTen, Doi,\r\n       CASE WHEN MaQH = 'qh1' THEN (SELECT HoTen FROM Thanhvien t2 WHERE t2.MaTV = t1.TVCu)\r\n            WHEN MaQH = 'qh2' THEN (SELECT HoTen FROM Thanhvien t3 WHERE t3.MaTV = (SELECT TVCu FROM Thanhvien t4 WHERE t4.MaTV = t3.TVCu))\r\n       END AS TVCU\r\nFROM Thanhvien t1\r\nWHERE (MaNNghiep = @MANN OR @MANN IS NULL OR @MANN = '')\r\n    AND (HoTen = @TENTV OR @TENTV IS NULL OR @TENTV = '')\r\n\tAND (MaQQ = @MAQQ OR @MAQQ IS NULL OR @MAQQ = '')\r\n    AND (YEAR(NgSinh) = YEAR(@NGAYSINH) OR @NGAYSINH IS NULL OR @NGAYSINH = '');\r\n";
+            
+            string query = "SELECT MaTV, HoTen, Doi,\r\n       CASE WHEN MaQH = 'qh1' THEN (SELECT HoTen FROM Thanhvien t2 WHERE t2.MaTV = t1.TVCu)\r\n            WHEN MaQH = 'qh2' THEN (SELECT HoTen FROM Thanhvien t3 WHERE t3.MaTV = (SELECT TVCu FROM Thanhvien t4 WHERE t4.MaTV = t3.TVCu))\r\n       END AS TVCU\r\nFROM Thanhvien t1\r\nWHERE (@MANN <> '' OR @TENTV <> '' OR @MAQQ <> '' OR @NGAYSINH <> '')\r\n    AND (MaNNghiep = @MANN OR @MANN = '')\r\n    AND (HoTen = @TENTV OR @TENTV = '')\r\n    AND (MaQQ = @MAQQ OR @MAQQ = '')\r\n    AND (YEAR(NgSinh) = YEAR(@NGAYSINH) OR @NGAYSINH = '');";
             SqlCommand command = new SqlCommand(query, conn);
             command.Parameters.AddWithValue("@TENTV", ten);
-            command.Parameters.AddWithValue("@MANN", mann != null ? (object)mann : DBNull.Value);
-            command.Parameters.AddWithValue("@MAQQ", maqq != null ? (object)maqq : DBNull.Value);
+            command.Parameters.AddWithValue("@MANN", mann);
+            command.Parameters.AddWithValue("@MAQQ", maqq);
             command.Parameters.AddWithValue("@NGAYSINH", namsinh);
             DataTable data = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter(command);

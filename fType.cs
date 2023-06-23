@@ -149,7 +149,7 @@ namespace New_DOAN
                     int cc = (int)command.ExecuteScalar();
                     if (cc > 0)
                     {
-                        MessageBox.Show("Không thể xóa do đã tồn tại");
+                        MessageBox.Show("Không thể xóa do đã được liên kết");
                         return;
                     }
                     else

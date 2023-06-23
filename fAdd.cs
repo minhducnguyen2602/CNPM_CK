@@ -94,7 +94,7 @@ namespace New_DOAN
         private void btnAddMem_Click(object sender, EventArgs e)
         {
             errorProvider5.Clear();
-            string matvcu = "";
+            DateTime nscu = DateTime.MinValue;
             MemberDTO newMember = new MemberDTO();
             if (comboExistingMember.SelectedItem != null)
             {
@@ -114,7 +114,19 @@ namespace New_DOAN
             //        }
             //    }
             //}
-          
+            string q = "select NgSinh from THANHVIEN where MaTV=@mtv";
+            using (SqlCommand cmd = new SqlCommand(q, conn))
+            {
+                cmd.Parameters.AddWithValue("@mtv", newMember.TVCU);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        nscu = reader.GetDateTime(0);
+                    }
+                }
+            }
+
             int mann = 0;
             string tennn = comboJob.SelectedValue.ToString();
             using (SqlCommand command = new SqlCommand("Select MaNNghiep from NGHENGHIEP where TenNN = @NGHENGHIEP", conn))
@@ -169,6 +181,12 @@ namespace New_DOAN
             newMember.HOTEN = txtFullName.Text;
             newMember.GT = comboBoxGT.SelectedItem.ToString();  
             newMember.NGSINH = DateTime.Parse(dateTimePickerBirth.Text);
+            if (newMember.NGSINH < nscu)
+            {
+                errorProvider5.Clear();
+                errorProvider5.SetError(dateTimePickerBirth, "Sai thông tin");
+                return;
+            }
             newMember.MAQQ = maqq;// Lấy giá trị từ cột giá trị
             newMember.MANN = mann; // Lấy giá trị từ cột giá trị
             if (txtFullName.Text=="")
